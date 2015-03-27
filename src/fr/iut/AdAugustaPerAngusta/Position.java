@@ -1,5 +1,5 @@
 package fr.iut.AdAugustaPerAngusta;
 
-public enum Equipe {
-	// Useless?
+public enum Position {
+
 }
