@@ -4,5 +4,6 @@ public class Character extends Traveller{
 	
 	private String name;
 
+		//LOL
 	
 }
