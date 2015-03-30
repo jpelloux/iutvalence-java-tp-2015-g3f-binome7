@@ -1,5 +1,7 @@
 package fr.iut.AdAugustaPerAngusta;
 
-public enum Position {
-
+public class Position
+{
+	private int x;
+	private int y;
 }

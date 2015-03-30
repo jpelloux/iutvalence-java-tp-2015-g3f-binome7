@@ -1,6 +1,13 @@
 package fr.iut.AdAugustaPerAngusta;
 
-public class Square {
+import fr.iut.AdAugustaPerAngusta.overlay.Traveller;
+
+public class Cell
+{
+	
 	private boolean isAccessible;
+	
 	private Traveller occupant;
+	
+	
 }

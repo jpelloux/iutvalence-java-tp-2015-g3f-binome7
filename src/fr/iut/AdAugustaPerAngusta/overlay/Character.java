@@ -1,14 +1,14 @@
-package fr.iut.AdAugustaPerAngusta;
+package fr.iut.AdAugustaPerAngusta.overlay;
+
 
 public class Character extends Traveller{
 	
 	private String name;
 
-		//LOL
+		
 	
 	public String getName()
 	{
-		//TAVU C'EST DU LOURD CETTE Fx
 		return this.name;
 	}
 	

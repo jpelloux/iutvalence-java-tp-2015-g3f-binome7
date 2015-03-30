@@ -1,5 +1,5 @@
 package fr.iut.AdAugustaPerAngusta;
 
-public class Display {
+public class Game {
 
 }
