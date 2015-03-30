@@ -6,4 +6,9 @@ public class Character extends Traveller{
 
 		//LOL
 	
+	public String getName()
+	{
+		return this.name;
+	}
+	
 }
