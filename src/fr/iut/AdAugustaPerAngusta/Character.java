@@ -8,6 +8,7 @@ public class Character extends Traveller{
 	
 	public String getName()
 	{
+		//TAVU C'EST DU LOURD CETTE Fx
 		return this.name;
 	}
 	
