@@ -2,11 +2,11 @@ package fr.iut.AdAugustaPerAngusta;
 
 public class Main {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-        // azeazeazdesad
-        //test de modif par github
-     // ON TEST ....
+	public static void main(String[] args)
+	{
+		//TODO Main
+		Map map= new Map();
+		System.out.println(map.toString());
 	}
 
 }

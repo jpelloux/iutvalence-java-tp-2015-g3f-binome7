@@ -5,9 +5,19 @@ import fr.iut.AdAugustaPerAngusta.overlay.Traveller;
 public class Cell
 {
 	
-	private boolean isAccessible;
+	private boolean isAccessible()
+	{
+		return true;
+		//TODO isAccessible
+	}
 	
-	private Traveller occupant;
+	public String toString()
+	{
+		return "   ";
+	}
 	
-	
+	public Cell()
+	{
+		
+	}
 }
