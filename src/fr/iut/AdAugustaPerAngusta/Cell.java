@@ -1,9 +1,10 @@
 package fr.iut.AdAugustaPerAngusta;
 
-import fr.iut.AdAugustaPerAngusta.overlay.Traveller;
+import fr.iut.AdAugustaPerAngusta.overlay.*;
 
 public class Cell
 {
+	private Overlay cellContent;
 	
 	private boolean isAccessible()
 	{
@@ -13,11 +14,17 @@ public class Cell
 	
 	public String toString()
 	{
-		return "   ";
+		//return "   ";
+		return this.cellContent.toString();
 	}
 	
 	public Cell()
 	{
-		
+		this.cellContent= new VoidCell();
+	}
+	
+	public Cell(Overlay content)
+	{
+		this.cellContent= content;
 	}
 }

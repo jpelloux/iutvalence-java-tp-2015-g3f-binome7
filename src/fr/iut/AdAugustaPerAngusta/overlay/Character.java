@@ -5,11 +5,14 @@ public class Character extends Traveller{
 	
 	private String name;
 
-		
-	
 	public String getName()
 	{
 		return this.name;
+	}
+
+	public String toString()
+	{
+		return "\\o/";
 	}
 	
 }

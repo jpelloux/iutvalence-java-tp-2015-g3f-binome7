@@ -1,5 +1,8 @@
 package fr.iut.AdAugustaPerAngusta;
 
+import fr.iut.AdAugustaPerAngusta.overlay.*;
+import fr.iut.AdAugustaPerAngusta.overlay.Character;
+
 public class Map {
 	
 	private static final int DEFAULT_HEIGHT = 15;
@@ -27,6 +30,21 @@ public class Map {
 	public Map()
 	{
 		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	}
+	
+	public Map(char devTest)
+	{
+		this.width= 4;
+		this.height= 2;
+		this.tabCell= new Cell[height][width];
+		this.tabCell[0][0]= new Cell();
+		this.tabCell[0][1]= new Cell(new Wall());
+		this.tabCell[0][2]= new Cell(new Character());
+		this.tabCell[0][3]= new Cell(new Target());
+		this.tabCell[1][0]= new Cell(new Empty());
+		this.tabCell[1][1]= new Cell(new Empty());
+		this.tabCell[1][2]= new Cell(new Block());
+		this.tabCell[1][3]= new Cell(new Target());
 	}
 	
 	@Override
