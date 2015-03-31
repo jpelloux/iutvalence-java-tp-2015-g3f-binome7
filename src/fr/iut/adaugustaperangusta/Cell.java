@@ -1,8 +1,8 @@
 /* TODO Convention java : package en minuscule. */
-package fr.iut.AdAugustaPerAngusta;
+package fr.iut.adaugustaperangusta;
 
-import fr.iut.AdAugustaPerAngusta.overlay.Overlay;
-import fr.iut.AdAugustaPerAngusta.overlay.VoidCell;
+import fr.iut.adaugustaperangusta.overlay.Overlay;
+import fr.iut.adaugustaperangusta.overlay.VoidCell;
 
 /* TODO JAVADOC. */
 public class Cell {

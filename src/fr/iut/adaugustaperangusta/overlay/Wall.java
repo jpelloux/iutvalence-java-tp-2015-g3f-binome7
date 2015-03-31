@@ -1,5 +1,5 @@
 /* TODO Convention java : package en minuscule. */
-package fr.iut.AdAugustaPerAngusta.overlay;
+package fr.iut.adaugustaperangusta.overlay;
 
 public class Wall implements Overlay {
 

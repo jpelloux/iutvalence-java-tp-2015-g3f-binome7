@@ -1,5 +1,5 @@
 /* TODO Convention java : package en minuscule. */
-package fr.iut.AdAugustaPerAngusta;
+package fr.iut.adaugustaperangusta;
 
 /* TODO JAVADOC. */
 public class Main {

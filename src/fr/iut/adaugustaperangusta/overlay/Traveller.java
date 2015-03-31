@@ -1,7 +1,7 @@
 /* TODO Convention java : package en minuscule. */
-package fr.iut.AdAugustaPerAngusta.overlay;
+package fr.iut.adaugustaperangusta.overlay;
 
-import fr.iut.AdAugustaPerAngusta.Position;
+import fr.iut.adaugustaperangusta.Position;
 
 public abstract class Traveller implements Overlay {
 

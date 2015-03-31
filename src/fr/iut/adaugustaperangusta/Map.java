@@ -1,11 +1,11 @@
 /* TODO Convention java : package en minuscule. */
-package fr.iut.AdAugustaPerAngusta;
+package fr.iut.adaugustaperangusta;
 
-import fr.iut.AdAugustaPerAngusta.overlay.Block;
-import fr.iut.AdAugustaPerAngusta.overlay.Character;
-import fr.iut.AdAugustaPerAngusta.overlay.Empty;
-import fr.iut.AdAugustaPerAngusta.overlay.Target;
-import fr.iut.AdAugustaPerAngusta.overlay.Wall;
+import fr.iut.adaugustaperangusta.overlay.Block;
+import fr.iut.adaugustaperangusta.overlay.Character;
+import fr.iut.adaugustaperangusta.overlay.Empty;
+import fr.iut.adaugustaperangusta.overlay.Target;
+import fr.iut.adaugustaperangusta.overlay.Wall;
 
 /* TODO JAVADOC. */
 public class Map {
