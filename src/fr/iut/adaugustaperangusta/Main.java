@@ -1,3 +1,4 @@
+//TODO trouver comment supprimer des todo en masse.
 /* TODO Convention java : package en minuscule. */
 package fr.iut.adaugustaperangusta;
 

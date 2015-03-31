@@ -1,9 +1,7 @@
 /* TODO Convention java : package en minuscule. */
 package fr.iut.adaugustaperangusta;
 
-import fr.iut.adaugustaperangusta.overlay.Block;
-import fr.iut.adaugustaperangusta.overlay.Character;
-import fr.iut.adaugustaperangusta.overlay.Empty;
+import fr.iut.adaugustaperangusta.overlay.Floor;
 import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.overlay.Wall;
 
@@ -46,7 +44,10 @@ public class Map
 		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 	
-	/* TODO À quoi sert le paramètre ? */
+	/*
+	 * Le paramètre permet de générer une map de test en appelant ce
+	 * constructeur.
+	 */
 	/* TODO JAVADOC. */
 	public Map(char devTest)
 	{
@@ -55,11 +56,11 @@ public class Map
 		this.tabCell = new Cell[height][width];
 		this.tabCell[0][0] = new Cell();
 		this.tabCell[0][1] = new Cell(new Wall());
-		this.tabCell[0][2] = new Cell(new Character());
+		this.tabCell[0][2] = new Cell(new Floor());
 		this.tabCell[0][3] = new Cell(new Target());
-		this.tabCell[1][0] = new Cell(new Empty());
-		this.tabCell[1][1] = new Cell(new Empty());
-		this.tabCell[1][2] = new Cell(new Block());
+		this.tabCell[1][0] = new Cell(new Floor());
+		this.tabCell[1][1] = new Cell(new Floor());
+		this.tabCell[1][2] = new Cell(new Floor());
 		this.tabCell[1][3] = new Cell(new Target());
 	}
 	
