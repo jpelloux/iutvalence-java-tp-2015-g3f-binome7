@@ -5,12 +5,17 @@ import fr.iut.adaugustaperangusta.Position;
 
 public abstract class Traveller
 {
+	//TODO Traveller : voir où on enregistre la position
+//	private Position	position;
 	
-	private Position	position;
-	
-	public Position getPosition()
+	public Traveller()
 	{
-		return this.position;
+		
 	}
+	
+//	public Position getPosition()
+//	{
+//		return this.position;
+//	}
 	
 }

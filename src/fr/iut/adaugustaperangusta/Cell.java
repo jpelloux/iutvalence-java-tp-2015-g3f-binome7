@@ -2,9 +2,7 @@
 package fr.iut.adaugustaperangusta;
 
 import fr.iut.adaugustaperangusta.overlay.Overlay;
-import fr.iut.adaugustaperangusta.overlay.VoidOverlay;
 import fr.iut.adaugustaperangusta.traveller.Traveller;
-import fr.iut.adaugustaperangusta.traveller.VoidTraveller;
 
 /* TODO JAVADOC. */
 public class Cell
@@ -18,23 +16,10 @@ public class Cell
 	private Traveller	cellTraveller;
 	
 	/* TODO JAVADOC. */
-	public Cell()
-	{
-		this.cellOverlay = new VoidOverlay();
-		this.cellTraveller = new VoidTraveller();
-	}
-	
-	/* TODO JAVADOC. */
-	public Cell(Overlay over)
+	public Cell(Overlay over, Traveller trav)
 	{
 		this.cellOverlay = over;
-		this.cellTraveller = new VoidTraveller();
-	}
-	
-	public Cell(Traveller trav)
-	{
 		this.cellTraveller = trav;
-		this.cellOverlay = new VoidOverlay();
 	}
 	
 	public Cell(Traveller trav, Overlay over)
@@ -43,14 +28,25 @@ public class Cell
 		this.cellOverlay = over;
 	}
 	
-	public Cell(Overlay over, Traveller trav)
+	public Cell()
 	{
-		this(trav, over);
+		this.cellOverlay = null;
+		this.cellTraveller = null;
+	}
+	
+	public Cell(Overlay over)
+	{
+		this.cellOverlay = over;
+		this.cellTraveller = null;
+	}
+	
+	public Cell(Traveller trav)
+	{
+		this.cellTraveller = trav;
+		this.cellOverlay = null;
 	}
 	
 	// TODO supprimer VoidOverlay et VoidTraveller et les remplacer par null
-
-	
 	/* TODO JAVADOC. */
 	private boolean isAccessible()
 	{
@@ -61,8 +57,22 @@ public class Cell
 	/* TODO JAVADOC. */
 	public String toString()
 	{
-		// return "   ";
-		return this.cellOverlay.toString();
-		// TODO toString : pouvoir afficher les travellers
+		String str = new String();
+		if (this.cellOverlay == null)
+			str += "/";
+		else
+			str += this.cellOverlay;
+		
+		if (this.cellTraveller == null)
+			str += " ";
+		else
+			str += this.cellTraveller;
+		
+		if (this.cellOverlay == null)
+			str += "/";
+		else
+			str += this.cellOverlay;
+		
+		return str;
 	}
 }

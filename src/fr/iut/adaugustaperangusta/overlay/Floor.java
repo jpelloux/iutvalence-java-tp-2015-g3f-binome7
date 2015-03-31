@@ -6,7 +6,7 @@ public class Floor implements Overlay
 	
 	public String toString()
 	{
-		return "   ";
+		return " ";
 	}
 	
 }

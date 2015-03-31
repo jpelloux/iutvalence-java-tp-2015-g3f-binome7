@@ -6,6 +6,11 @@ public class Character extends Traveller
 	
 	private String	name;
 	
+	public Character(String name)
+	{
+		this.name= name;
+	}
+
 	public String getName()
 	{
 		return this.name;
@@ -13,7 +18,7 @@ public class Character extends Traveller
 	
 	public String toString()
 	{
-		return "\\o/";
+		return "v";
 	}
 	
 }

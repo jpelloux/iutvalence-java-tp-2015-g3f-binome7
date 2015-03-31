@@ -6,7 +6,7 @@ public class Target implements Overlay
 	
 	public String toString()
 	{
-		return "[x]";
+		return "!";
 	}
 	
 }
