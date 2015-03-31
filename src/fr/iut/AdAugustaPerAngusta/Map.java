@@ -15,14 +15,14 @@ public class Map {
     private static final int DEFAULT_WIDTH = 10;
 
     /* TODO JAVADOC. */
-    /* TODO Final ? */
-    private int      height;
+
+    private final int height;
     /* TODO JAVADOC. */
-    /* TODO Final ? */
-    private int      width;
+
+    private final int width;
     /* TODO JAVADOC. */
-    /* TODO Final ? */
-    private Cell[][] tabCell;
+
+    private final Cell[][] tabCell;
 
     /* TODO JAVADOC. */
     public Map(int height, int width) {
