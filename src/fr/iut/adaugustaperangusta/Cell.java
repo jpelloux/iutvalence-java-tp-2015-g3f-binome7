@@ -1,8 +1,8 @@
 /* TODO Convention java : package en minuscule. */
 package fr.iut.adaugustaperangusta;
 
-import fr.iut.adaugustaperangusta.overlay.Overlay;
-import fr.iut.adaugustaperangusta.traveller.Traveller;
+import fr.iut.adaugustaperangusta.overlay.*;
+import fr.iut.adaugustaperangusta.traveller.*;
 
 /* TODO JAVADOC. */
 public class Cell
@@ -50,8 +50,11 @@ public class Cell
 	/* TODO JAVADOC. */
 	private boolean isAccessible()
 	{
+		if (this.cellOverlay == null || this.cellOverlay instanceof Wall
+				|| this.cellTraveller != null)
+			return false;
 		return true;
-		// TODO isAccessible
+		// TODO isAccessible : rendre accessible les Cell contenant un Block
 	}
 	
 	/* TODO JAVADOC. */
