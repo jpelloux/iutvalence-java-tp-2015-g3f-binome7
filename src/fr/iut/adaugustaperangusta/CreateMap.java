@@ -11,7 +11,7 @@ import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 
 public class CreateMap {
-	public void importMap(String file, int nbColonnes, Map map){
+	public static final void importMap(String file, int nbColonnes, Map map){
 		FileInputStream fis = null;
 	      
 	      try {

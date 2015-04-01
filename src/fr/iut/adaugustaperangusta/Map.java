@@ -12,9 +12,9 @@ import fr.iut.adaugustaperangusta.traveller.Character;
 public class Map
 {
 	/* TODO JAVADOC. */
-	private static final int	DEFAULT_HEIGHT	= 15; //larg
+	private static final int	DEFAULT_HEIGHT	= 10;
 	/* TODO JAVADOC. */
-	private static final int	DEFAULT_WIDTH	= 10;//haut
+	private static final int	DEFAULT_WIDTH	= 15;
 	
 	/* TODO JAVADOC. */
 	private final int			height;
@@ -43,7 +43,7 @@ public class Map
 	/* TODO JAVADOC. */
 	public Map()
 	{
-		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		this(DEFAULT_HEIGHT,DEFAULT_WIDTH);
 	}
 	
 	/*
