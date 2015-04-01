@@ -10,6 +10,12 @@ import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 
+/**  Test d'importation d'une map en .txt
+ * @author pellouju
+ *
+ * EN COURS
+ */
+
 public class CreateMap {
 	public static final void importMap(String file, Map map){
 		FileInputStream fis = null;
@@ -40,6 +46,8 @@ public class CreateMap {
 	            for (byte bit : buf) {
 	               System.out.print((char) bit);
 	              // System.out.print(indiceLigne+","+ indiceColonne);
+	               
+	                //TODO Supression des caractère de fin de chaine (if == ....
 	               cellAAjouter= new Cell(new Floor());
 	               if((char)bit == 'x') cellAAjouter= new Cell(new Wall());
 	               if((char)bit == 'o') cellAAjouter= new Cell(new Target());
@@ -55,7 +63,7 @@ public class CreateMap {
 	            //Nous réinitialisons le buffer à vide
 	            //au cas où les derniers byte lus ne soient pas un multiple de 8
 	            //Ceci permet d'avoir un buffer vierge à chaque lecture et ne pas avoir de doublon en fin de fichier
-	            buf = new byte[nbColonnes];
+	            buf = new byte[map.getWidth()];
 	            indiceLigne ++;
 	         }
 	         System.out.println("Copie terminée !");
