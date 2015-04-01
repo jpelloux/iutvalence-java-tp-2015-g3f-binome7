@@ -10,7 +10,7 @@ public class Main
 		// TODO Main
 		Map map = new Map(10,20);
 		
-		CreateMap.importMap("Test.txt", 20,map);
+		CreateMap.importMap("Test.txt",map);
 		System.out.println(map);
 	}
 	

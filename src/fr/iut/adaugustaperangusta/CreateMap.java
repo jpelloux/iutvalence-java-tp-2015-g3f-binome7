@@ -11,18 +11,17 @@ import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 
 public class CreateMap {
-	public static final void importMap(String file, int nbColonnes, Map map){
+	public static final void importMap(String file, Map map){
 		FileInputStream fis = null;
 	      
 	      try {
 	         // On instancie nos objets :
 	         // fis va lire le fichier
-	         // fos va écrire dans le nouveau !
 	         fis = new FileInputStream(new File("Test.txt"));
 	         
 	         // On crée un tableau de byte pour indiquer le nombre de bytes lus à
 	         // chaque tour de boucle
-	         byte[] buf = new byte[nbColonnes];
+	         byte[] buf = new byte[map.getWidth()];
 	         // On crée une variable de type int pour y affecter le résultat de
 	         // la lecture
 	         // Vaut -1 quand c'est fini
@@ -39,13 +38,18 @@ public class CreateMap {
 	            // On affiche ce qu'a lu notre boucle au format byte et au
 	            // format char
 	            for (byte bit : buf) {
-//	               System.out.print("\t" + bit + "(" + (char) bit + ")");
-//	               System.out.print(indiceLigne+","+ indiceColonne);
+	               System.out.print((char) bit);
+	              // System.out.print(indiceLigne+","+ indiceColonne);
 	               cellAAjouter= new Cell(new Floor());
 	               if((char)bit == 'x') cellAAjouter= new Cell(new Wall());
 	               if((char)bit == 'o') cellAAjouter= new Cell(new Target());
 	               if((char)bit == 'b') cellAAjouter= new Cell(new Floor(), new Block());
+	               if ((indiceLigne < map.getHeight())&&(indiceColonne <map.getWidth()))
+	               {
 	               map.setTabCell(indiceLigne , indiceColonne,cellAAjouter);
+	               }
+//	               map.setTabCell(indiceLigne%10 , indiceColonne%nbColonnes,cellAAjouter);
+
 	               indiceColonne++;
 	            }
 	            //Nous réinitialisons le buffer à vide
