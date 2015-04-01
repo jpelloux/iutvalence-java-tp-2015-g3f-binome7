@@ -1,16 +1,14 @@
-/* TODO JAVADOC du package. */
+/**
+ * tous les objets en mouvement sur la map.
+ */
 package fr.iut.adaugustaperangusta.traveller;
 
-/* TODO Je n'ai pas bien compris ce qu'est un block ? */
-/* TODO JAVADOC. */
+/**
+ * Block : bloc déplaçable que le joueur doit amener sur les Targets.
+ */
 public class Block extends Traveller
 {
 	
-	public Block()
-	{
-		/* TODO Pourquoi un constructeur vide ? */
-	}
-
 	@Override
 	public String toString()
 	{

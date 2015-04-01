@@ -1,7 +1,11 @@
-/* TODO JAVADOC du package. */
+/**
+ * tous les objets en mouvement sur la map.
+ */
 package fr.iut.adaugustaperangusta.traveller;
 
-/* TODO JAVADOC. */
+/**
+ * Character : personnage jouable pouvant pousser les Blocks.
+ */
 public class Character extends Traveller
 {
 	

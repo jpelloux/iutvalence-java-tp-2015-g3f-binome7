@@ -1,7 +1,12 @@
-/* TODO Convention java : package en minuscule. */
+/**
+ * tous les objets en mouvement sur la map.
+ */
 package fr.iut.adaugustaperangusta.traveller;
 
-/* TODO À quoi sert cette classe abstraite ? */
+/**
+ * Traveller : super-classe de tous les objets pouvant se déplacer sur la Map.
+ * (Block et Character)  
+ */
 public abstract class Traveller
 {
 	//TODO Traveller : voir où on enregistre la position
