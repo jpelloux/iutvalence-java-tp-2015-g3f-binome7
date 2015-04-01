@@ -1,6 +1,7 @@
-/* TODO Convention java : package en minuscule. */
+/* TODO JAVADOC du package. */
 package fr.iut.adaugustaperangusta.traveller;
 
+/* TODO JAVADOC. */
 public class Character extends Traveller
 {
 	

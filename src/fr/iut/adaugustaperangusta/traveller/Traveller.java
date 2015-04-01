@@ -1,8 +1,7 @@
 /* TODO Convention java : package en minuscule. */
 package fr.iut.adaugustaperangusta.traveller;
 
-import fr.iut.adaugustaperangusta.Position;
-
+/* TODO À quoi sert cette classe abstraite ? */
 public abstract class Traveller
 {
 	//TODO Traveller : voir où on enregistre la position

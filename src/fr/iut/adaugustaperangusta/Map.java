@@ -17,13 +17,12 @@ public class Map
 	private static final int	DEFAULT_WIDTH	= 10;
 	
 	/* TODO JAVADOC. */
-	
 	private final int			height;
+
 	/* TODO JAVADOC. */
-	
 	private final int			width;
+
 	/* TODO JAVADOC. */
-	
 	private final Cell[][]		tabCell;
 	
 	/* TODO JAVADOC. */
