@@ -22,37 +22,21 @@ public class Cell
 		this.cellTraveller = trav;
 	}
 
-	/* TODO Alors le deuxième constructeur avec les paramètres dans un autre ordre, c'est vraiment horrible ! */
-	public Cell(Traveller trav, Overlay over)
-	{
-		this.cellTraveller = trav;
-		this.cellOverlay = over;
-	}
-
-	/* TODO Pourquoi ne pas exprimer ce constructeur à l'aide de votre premier ou de votre deuxième constructeur ?
-	* (e.g. this(null,null);)
-	*/
 	public Cell()
 	{
-		this.cellOverlay = null;
-		this.cellTraveller = null;
+		this(null, null);
 	}
 
-	/* TODO Pourquoi ne pas exprimer ce constructeur à l'aide de votre premier ou de votre deuxième constructeur ? */
 	public Cell(Overlay over)
 	{
-		this.cellOverlay = over;
-		this.cellTraveller = null;
+		this(over, null);
 	}
 
-	/* TODO Pourquoi ne pas exprimer ce constructeur à l'aide de votre premier ou de votre deuxième constructeur ? */
 	public Cell(Traveller trav)
 	{
-		this.cellTraveller = trav;
-		this.cellOverlay = null;
+		this(null, trav);
 	}
 	
-	// TODO supprimer VoidOverlay et VoidTraveller et les remplacer par null
 	/* TODO JAVADOC. */
 	private boolean isAccessible()
 	{
