@@ -1,5 +1,5 @@
 /**
- * tous les objets en mouvement sur la map.
+ * tous les objets en mouvement sur la map
  */
 package fr.iut.adaugustaperangusta.traveller;
 
