@@ -23,3 +23,4 @@ On affiche la map avec :
 
 - 01/04/2015 :
     - Veuillez configurer votre Eclipse (et votre Git : https://help.github.com/articles/dealing-with-line-endings/#platform-windows) pour utiliser des fins de lignes Linux et non Windows.
+    - Veuillez corriger **maintenant** les TODO. Cela fera partie de l'évaluation.
