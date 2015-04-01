@@ -25,17 +25,17 @@ public class CreateMap {
 	         // fis va lire le fichier
 	         fis = new FileInputStream(new File("Test.txt"));
 	         
-	         // On crée un tableau de byte pour indiquer le nombre de bytes lus à
+	         // On crï¿½e un tableau de byte pour indiquer le nombre de bytes lus ï¿½
 	         // chaque tour de boucle
 	         byte[] buf = new byte[map.getWidth()];
-	         // On crée une variable de type int pour y affecter le résultat de
+	         // On crï¿½e une variable de type int pour y affecter le rï¿½sultat de
 	         // la lecture
 	         // Vaut -1 quand c'est fini
 	         int n = 0;
 	         int indiceLigne = 0;
 	         int indiceColonne;
 	         // Tant que l'affectation dans la variable est possible, on boucle
-	         // Lorsque la lecture du fichier est terminée l'affectation n'est
+	         // Lorsque la lecture du fichier est terminï¿½e l'affectation n'est
 	         // plus possible !
 	         // On sort donc de la boucle
 	         Cell cellAAjouter; 
@@ -47,7 +47,7 @@ public class CreateMap {
 	               System.out.print((char) bit);
 	              // System.out.print(indiceLigne+","+ indiceColonne);
 	               
-	                //TODO Supression des caractère de fin de chaine (if == ....
+	                //TODO Supression des caractï¿½re de fin de chaine (if == ....
 	               cellAAjouter= new Cell(new Floor());
 	               if((char)bit == 'x') cellAAjouter= new Cell(new Wall());
 	               if((char)bit == 'o') cellAAjouter= new Cell(new Target());
@@ -60,24 +60,24 @@ public class CreateMap {
 
 	               indiceColonne++;
 	            }
-	            //Nous réinitialisons le buffer à vide
-	            //au cas où les derniers byte lus ne soient pas un multiple de 8
-	            //Ceci permet d'avoir un buffer vierge à chaque lecture et ne pas avoir de doublon en fin de fichier
+	            //Nous rï¿½initialisons le buffer ï¿½ vide
+	            //au cas oï¿½ les derniers byte lus ne soient pas un multiple de 8
+	            //Ceci permet d'avoir un buffer vierge ï¿½ chaque lecture et ne pas avoir de doublon en fin de fichier
 	            buf = new byte[map.getWidth()];
 	            indiceLigne ++;
 	         }
-	         System.out.println("Copie terminée !");
+	         System.out.println("Copie terminï¿½e !");
 	      } catch (FileNotFoundException e) {
-	         // Cette exception est levée si l'objet FileInputStream ne trouve
+	         // Cette exception est levï¿½e si l'objet FileInputStream ne trouve
 	         // aucun fichier
 	         e.printStackTrace();
 	      } catch (IOException e) {
-	         // Celle-ci se produit lors d'une erreur d'écriture ou de lecture
+	         // Celle-ci se produit lors d'une erreur d'ï¿½criture ou de lecture
 	         e.printStackTrace();
 	      } finally {
-	         // On ferme nos flux de données dans un bloc finally pour s'assurer
-	         // que ces instructions seront exécutées dans tous les cas même si
-	         // une exception est levée !
+	         // On ferme nos flux de donnï¿½es dans un bloc finally pour s'assurer
+	         // que ces instructions seront exï¿½cutï¿½es dans tous les cas mï¿½me si
+	         // une exception est levï¿½e !
 	         try {
 	            if (fis != null)
 	               fis.close();
