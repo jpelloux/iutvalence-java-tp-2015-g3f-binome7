@@ -5,8 +5,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import fr.iut.adaugustaperangusta.overlay.Floor;
+import fr.iut.adaugustaperangusta.overlay.Target;
+import fr.iut.adaugustaperangusta.overlay.Wall;
+import fr.iut.adaugustaperangusta.traveller.Block;
+
 public class CreateMap {
-	public void importMap(String file, int nbColonnes){
+	public void importMap(String file, int nbColonnes, Map map){
 		FileInputStream fis = null;
 	      
 	      try {
@@ -28,13 +33,19 @@ public class CreateMap {
 	         // Lorsque la lecture du fichier est terminée l'affectation n'est
 	         // plus possible !
 	         // On sort donc de la boucle
+	         Cell cellAAjouter; 
 	         while ((n = fis.read(buf)) >= 0) {
 	        	 indiceColonne =0;
 	            // On affiche ce qu'a lu notre boucle au format byte et au
 	            // format char
 	            for (byte bit : buf) {
-	               System.out.print("\t" + bit + "(" + (char) bit + ")");
-	               System.out.print(indiceLigne, indiceColonne);
+//	               System.out.print("\t" + bit + "(" + (char) bit + ")");
+//	               System.out.print(indiceLigne+","+ indiceColonne);
+	               cellAAjouter= new Cell(new Floor());
+	               if((char)bit == 'x') cellAAjouter= new Cell(new Wall());
+	               if((char)bit == 'o') cellAAjouter= new Cell(new Target());
+	               if((char)bit == 'b') cellAAjouter= new Cell(new Floor(), new Block());
+	               map.setTabCell(indiceLigne , indiceColonne,cellAAjouter);
 	               indiceColonne++;
 	            }
 	            //Nous réinitialisons le buffer à vide

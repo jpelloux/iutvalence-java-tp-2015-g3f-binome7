@@ -79,6 +79,11 @@ public class Map
 		this.tabCell[4][3] = new Cell();
 	}
 	
+	public void setTabCell(int indiceLigne, int indiceColonne, Cell cell)
+	{
+		this.tabCell[indiceLigne][indiceColonne] = cell;
+	}
+	
 	@Override
 	public String toString()
 	{
