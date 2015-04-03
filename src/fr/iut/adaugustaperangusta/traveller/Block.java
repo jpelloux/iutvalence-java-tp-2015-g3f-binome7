@@ -6,7 +6,7 @@ package fr.iut.adaugustaperangusta.traveller;
 /**
  * Bloc déplaçable.
  * Le joueur peut les <strong>pousser</strong>.
- * Le but est de les amener sur les Targets.
+ * Le but est d'amener tous les Blocks sur des Targets.
  */
 public class Block extends Traveller
 {

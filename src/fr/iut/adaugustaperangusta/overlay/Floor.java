@@ -1,10 +1,21 @@
-/* TODO JAVADOC du package. */
+/**
+ * Éléments constituant la Map.
+ */
 package fr.iut.adaugustaperangusta.overlay;
 
-/* TODO JAVADOC. */
-/* TODO Votre choix d'utiliser une hierarchie de classes plutôt qu'un simple enum est très discutable. */
+/**
+ * Sol praticable.
+ * Le Character peut se déplacer et pousser des Blocks dessus.
+ */
 public class Floor implements Overlay
 {
+	
+	/**
+	 * Méthode d'affichage.
+	 * Affiche un espace sur la sortie standard.
+	 * Ce caractère s'affiche deux fois dans chaque case.
+	 * Exemple : | v |
+	 */
 	@Override
 	public String toString()
 	{

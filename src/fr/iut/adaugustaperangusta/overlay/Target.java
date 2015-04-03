@@ -1,10 +1,21 @@
-/* TODO JAVADOC du package. */
+/**
+ * Éléments constituant la Map.
+ */
 package fr.iut.adaugustaperangusta.overlay;
 
-/* TODO JAVADOC. */
-/* TODO Votre choix d'utiliser une hierarchie de classes plutôt qu'un simple enum est très discutable. */
+/**
+ * Cible accueillant un Block.
+ * Le Character peut se déplacer et pousser des Blocks dessus.
+ * Le but est d'amener tous les Blocks sur ces Targets.
+ */
 public class Target implements Overlay
 {
+	/**
+	 * Méthode d'affichage.
+	 * Affiche le caractère '!' sur la sortie standard.
+	 * Ce caractère s'affiche deux fois dans chaque case.
+	 * Exemple : |!v!|
+	 */
 	@Override
 	public String toString()
 	{
