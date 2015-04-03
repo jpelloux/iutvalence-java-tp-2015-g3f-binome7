@@ -1,22 +1,20 @@
 /**
- * tous les objets en mouvement sur la map.
+ * Objets en mouvement.
  */
 package fr.iut.adaugustaperangusta.traveller;
 
 /**
- * Traveller : super-classe de tous les objets pouvant se déplacer sur la Map.
- * (Block et Character)  
+ * Objets en mouvement.
+ * Classe abstraite. Super-classe de tous les objets en mouvement sur la map.
+ * Block et Character en sont héritées.
  */
 public abstract class Traveller
 {
-	//TODO Traveller : voir où on enregistre la position
+	
+//TODO Traveller : voir où on enregistre la position
+	
 //	private Position	position;
-	
-	public Traveller()
-	{
 		
-	}
-	
 //	public Position getPosition()
 //	{
 //		return this.position;
