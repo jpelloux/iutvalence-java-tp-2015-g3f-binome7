@@ -10,10 +10,11 @@ import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 
-/**  Test d'importation d'une map en .txt
- * @author pellouju
- *
- * EN COURS
+/**
+ * Import Map depuis un fichier.
+ * TEST EN COURS
+ * 
+ * @author jpelloux
  */
 
 public class CreateMap {
