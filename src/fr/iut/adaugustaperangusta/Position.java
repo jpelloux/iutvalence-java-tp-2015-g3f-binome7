@@ -1,9 +1,12 @@
 package fr.iut.adaugustaperangusta;
 
+/**
+ * Position d'un Traveller.
+ * Contient une abcisse (x), une ordonnée (y), des getters et des setters.
+ */
 public class Position
 {
 	private int	x;
-	
 	private int	y;
 	
 	public Position(int x, int y)

@@ -46,6 +46,8 @@ public class Cell
 	/**
 	 * Constructeur Cell sans Traveller.
 	 * Il crée une Cell contenant un Overlay.
+	 * 
+	 * @param over L'Overlay présent sur la Cell. Peut valoir null.
 	 */
 	public Cell(Overlay over)
 	{
@@ -55,6 +57,8 @@ public class Cell
 	/**
 	 * Constructeur Cell sans Overlay.
 	 * Il crée une Cell contenant un Traveller.
+	 * 
+	 * @param trav Le Traveller présent sur la Cell. Peut valoir null.
 	 */
 	public Cell(Traveller trav)
 	{

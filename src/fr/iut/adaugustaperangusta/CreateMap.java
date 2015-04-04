@@ -63,7 +63,7 @@ public class CreateMap {
 	               if((char)bit == 'b') cellAAjouter= new Cell(new Floor(), new Block());
 	               if ((indiceLigne < map.getHeight())&&(indiceColonne <map.getWidth()))
 	               {
-	               map.setTabCell(indiceLigne , indiceColonne,cellAAjouter);
+	               map.setCell(indiceLigne , indiceColonne,cellAAjouter);
 	               }
 //	               map.setTabCell(indiceLigne%10 , indiceColonne%nbColonnes,cellAAjouter);
 

@@ -6,25 +6,49 @@ import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
 
-
-/* TODO JAVADOC. */
+/**
+ * Map où se déroule une partie.
+ * Elle contient un tableau de Cells.
+ */
 public class Map
 {
-	/* TODO JAVADOC. */
+	/**
+	 * Hauteur par défaut.
+	 * Utilisée par le contructeur sans paramètres.
+	 */
 	private static final int	DEFAULT_HEIGHT	= 10;
-	/* TODO JAVADOC. */
+
+	/**
+	 * Largeur par défaut.
+	 * Utilisée par le contructeur sans paramètres.
+	 */
 	private static final int	DEFAULT_WIDTH	= 15;
 	
-	/* TODO JAVADOC. */
+	/**
+	 * Hauteur de la Map.
+	 */
 	private final int			height;
 
-	/* TODO JAVADOC. */
+	/**
+	 * Largeur de la Map.
+	 */
 	private final int			width;
 
-	/* TODO JAVADOC. */
+	/**
+	 * Tableau de Cells structurant la Map.
+	 * Grâce aux Overlays et aux Travellers sur les Cells, il structure la Map.
+	 * Il prend {@link Map#height} et {@link Map#width} pour dimensions.
+	 */
 	private final Cell[][]		tabCell;
 	
-	/* TODO JAVADOC. */
+	/**
+	 * Constructeur Map.
+	 * Il génère un tableau de Cells vides ayant pour dimensions height et width.
+	 * Il appelle le contructeur vide Cell(). Ainsi, les Cells créées n'ont ni Overlay ni Traveller.
+	 * 
+	 * @param height	Hauteur de la Map.
+	 * @param width		Largeur de la Map.
+	 */
 	public Map(int height, int width)
 	{
 		this.width = width;
@@ -39,20 +63,24 @@ public class Map
 		}
 	}
 	
-	/* TODO JAVADOC. */
+	/**
+	 * Constructeur Map sans paramètres.
+	 * Il génère un tableau de Cells vides ayant les dimensions par défaut.
+	 */
 	public Map()
 	{
 		this(DEFAULT_HEIGHT,DEFAULT_WIDTH);
 	}
 	
-	/*
-	 * Le paramètre permet de générer une map de test en appelant ce
-	 * constructeur.
+	/**
+	 * Contructeur Map de test.
+	 * On peut appeler ce contructeur en passant un char en paramètre.
+	 * Il renvoie une Map de 4*5, sovable, présentant tous les Overlays et Travellers.
+	 * 
+	 * @param devTest	N'importe quel caractère.
 	 */
-	/* TODO JAVADOC. */
 	public Map(char devTest)
 	{
-		Character lol = new Character("Okay");
 		this.width = 4;
 		this.height = 5;
 		this.tabCell = new Cell[height][width];
@@ -78,27 +106,45 @@ public class Map
 		this.tabCell[4][3] = new Cell();
 	}
 	
-	public void setTabCell(int indiceLigne, int indiceColonne, Cell cell)
+	/**
+	 * Remplace une Cell de la Map.
+	 * 
+	 * @param indiceLigne	Ligne acceuillant la Cell. Doit être inférieur à {@link Map#height}.
+	 * @param indiceColonne	Colonne accueillant la Cell. Doit être inférieur à {@link Map#width}.
+	 * @param cell			Cell ajoutée à la Map.
+	 */
+	public void setCell(int indiceLigne, int indiceColonne, Cell cell)
 	{
+		// TODO throw exception Cell hors de la Map.
 		this.tabCell[indiceLigne][indiceColonne] = cell;
 	}
 	
-	
+	/**
+	 * Getter height.
+	 * 
+	 * @return La hauteur de la Map.
+	 */
 	public int getHeight() {
 		return height;
 	}
-
+	
+	/**
+	 * Getter width.
+	 * 
+	 * @return La largeur de la Map.
+	 */
 	public int getWidth() {
 		return width;
 	}
 
+	/**
+	 * Méthode d'affichage.
+	 * Affiche la Map sur la sortie standard en encadrant les Cell par des "|   |" et des '-----'.
+	 */
 	@Override
 	public String toString()
 	{
-		/*
-		 * TODO Discuter en séance (ou à regarder par vous même) : String vs
-		 * StringBuffer vs StringBuilder.
-		 */
+		// TODO utiliser un StringBuffer/StringBuilder.
 		String str = new String();
 		str += "-";
 		for (int i = 0; i < this.width; i++)
