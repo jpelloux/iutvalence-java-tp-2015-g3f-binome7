@@ -11,13 +11,21 @@ import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 
 /**
- * Import Map depuis un fichier.
- * TEST EN COURS
+ * Librairie d'import de Map.
+ * Contient les méthodes d'importation de Map depuis eds fichiers.
  * 
  * @author jpelloux
  */
 
 public class CreateMap {
+	
+	/**
+	 * Import Map depuis un fichier.
+	 * TEST EN COURS
+	 * 
+	 * @param file	Le fichier texte source.
+	 * @param map	La map initialisée.
+	 */
 	public static final void importMap(String file, Map map){
 		FileInputStream fis = null;
 	      
@@ -48,7 +56,7 @@ public class CreateMap {
 	               System.out.print((char) bit);
 	              // System.out.print(indiceLigne+","+ indiceColonne);
 	               
-	                //TODO Supression des caractère de fin de chaine (if == ....
+	               //TODO Supression des caractère de fin de chaine (if == ....
 	               cellAAjouter= new Cell(new Floor());
 	               if((char)bit == 'x') cellAAjouter= new Cell(new Wall());
 	               if((char)bit == 'o') cellAAjouter= new Cell(new Target());
