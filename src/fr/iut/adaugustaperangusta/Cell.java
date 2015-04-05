@@ -66,6 +66,15 @@ public class Cell
 	}
 	
 	/**
+	 * Donne le traveller posé sur la cellule courante.
+	 * 
+	 * @return Traveller le traveller sur la cellule courante.
+	 */
+	public Traveller getTraveller()
+	{
+		return this.cellTraveller;
+	}
+	/**
 	 * Test de praticabilité.
 	 * Doit être appelée avant le déplacement d'un Character.
 	 * 

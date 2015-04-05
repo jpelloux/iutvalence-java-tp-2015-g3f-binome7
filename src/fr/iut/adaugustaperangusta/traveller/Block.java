@@ -20,5 +20,12 @@ public class Block extends Traveller
 	{
 		return "O";
 	}
+
+
+	public String getName() 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

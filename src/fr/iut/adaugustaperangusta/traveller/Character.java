@@ -3,6 +3,8 @@
  */
 package fr.iut.adaugustaperangusta.traveller;
 
+import fr.iut.adaugustaperangusta.Position;
+
 /**
  * Personnage jouable.
  * Il peut pousser les Blocks.
@@ -13,15 +15,20 @@ public class Character extends Traveller
 	 * Nom du Character.
 	 */
 	private String	name;
-	
+	/**
+	 * Position du Character.
+	 */
+	private Position positionChar;
 	/**
 	 * Constructeur Character.
 	 * 
 	 * @param name	le nom du personnage.
+	 * @param pos   la position du personnage
 	 */
-	public Character(String name)
+	public Character(String name, Position pos)
 	{
 		this.name= name;
+		this.positionChar= pos;
 	}
 
 	/**

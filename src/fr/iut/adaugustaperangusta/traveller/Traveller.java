@@ -20,4 +20,5 @@ public abstract class Traveller
 //		return this.position;
 //	}
 	
+	public abstract String getName();
 }

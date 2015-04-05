@@ -5,6 +5,7 @@ import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
+import fr.iut.adaugustaperangusta.traveller.Traveller;
 
 /**
  * Map où se déroule une partie.
@@ -93,7 +94,7 @@ public class Map
 		this.tabCell[1][2] = new Cell(new Floor());
 		this.tabCell[1][3] = new Cell(new Wall());
 		this.tabCell[2][0] = new Cell(new Wall());
-		this.tabCell[2][1] = new Cell(new Floor(), new Character("Findus"));
+		this.tabCell[2][1] = new Cell(new Floor(), new Character("Findus",new Position(2,1)));
 		this.tabCell[2][2] = new Cell(new Floor(), new Block());
 		this.tabCell[2][3] = new Cell(new Wall());
 		this.tabCell[3][0] = new Cell(new Wall());
@@ -137,6 +138,16 @@ public class Map
 		return width;
 	}
 
+	
+	public Cell getCell(Position pos)
+	{
+		return this.tabCell[pos.getX()][pos.getY()];
+	}
+	
+	public Traveller getTraveller(Position pos)
+	{
+		return this.getCell(pos).getTraveller();
+	}
 	/**
 	 * Méthode d'affichage.
 	 * Affiche la Map sur la sortie standard en encadrant les Cell par des "|   |" et des '-----'.
