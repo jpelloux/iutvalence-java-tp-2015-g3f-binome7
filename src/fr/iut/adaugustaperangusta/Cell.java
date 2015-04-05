@@ -80,7 +80,7 @@ public class Cell
 	 * 
 	 * @return true si la Cell est praticable, false sinon.
 	 */
-	private boolean isAccessible()
+	public boolean isAccessible()
 	{
 		// TODO tenter une autre technique que instanceof.
 		if (this.cellOverlay == null || this.cellOverlay instanceof Wall
