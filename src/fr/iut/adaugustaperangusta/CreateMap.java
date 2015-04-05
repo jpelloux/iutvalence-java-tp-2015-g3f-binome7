@@ -36,7 +36,7 @@ public class CreateMap {
 	         
 	         // On crée un tableau de byte pour indiquer le nombre de bytes lus à
 	         // chaque tour de boucle
-	         byte[] buf = new byte[map.getWidth()];
+	         byte[] buf = new byte[map.getWidth()+1];
 	         // On crée une variable de type int pour y affecter le résultat de
 	         // la lecture
 	         // Vaut -1 quand c'est fini
@@ -72,7 +72,7 @@ public class CreateMap {
 	            //Nous réinitialisons le buffer à vide
 	            //au cas où les derniers byte lus ne soient pas un multiple de 8
 	            //Ceci permet d'avoir un buffer vierge à chaque lecture et ne pas avoir de doublon en fin de fichier
-	            buf = new byte[map.getWidth()];
+	            buf = new byte[map.getWidth()+1];
 	            indiceLigne ++;
 	         }
 	         System.out.println("Copie termin�e !");
