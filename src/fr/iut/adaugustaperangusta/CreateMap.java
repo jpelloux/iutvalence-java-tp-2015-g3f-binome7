@@ -22,6 +22,7 @@ public class CreateMap {
 	/**
 	 * Import Map depuis un fichier.
 	 * TEST EN COURS
+	 * ATTENTION le joueur n'est pas inscrit dans la map!
 	 * 
 	 * @param file	Le fichier texte source.
 	 * @param map	La map initialisée.
