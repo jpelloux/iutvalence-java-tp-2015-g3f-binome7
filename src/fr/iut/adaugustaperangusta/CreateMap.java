@@ -4,75 +4,112 @@ import fr.iut.adaugustaperangusta.overlay.Floor;
 import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.overlay.Wall;
 import fr.iut.adaugustaperangusta.traveller.Block;
+import fr.iut.adaugustaperangusta.traveller.Character;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
-/* TODO Translate. */
 /**
- * Librairie d'import de Map.
- * Contient les méthodes d'importation de Map depuis eds fichiers.
+ * Small utility class to import {@link Map} from an UTF-8 text file.
  *
  * @author jpelloux
- * @version TODO
+ * @version 2.0.0
+ * @see Map
+ * @see Floor
+ * @see Target
+ * @see Wall
+ * @see Block
+ * @see Character
  */
 public final class CreateMap {
     /** Empty constructor. */
     private CreateMap() { /* NOTHING */ }
 
-    /* TODO Translate. */
     /**
-     * Import Map depuis un fichier.
-     * TEST EN COURS
-     * ATTENTION le joueur n'est pas inscrit dans la map!
+     * Import a {@link Map} from an UTF-8 text file.
+     * <p>
+     * <b>Warning:</b> this method believes in the headers of the file.
+     * <p>
+     * File format:<br>
+     * HEIGHT (int)<br>
+     * WIDTH  (int)<br>
+     * MAP (respecting the above header)<br>
      *
-     * @param filename Le fichier texte source.
+     * @param filename source file.
+     *
+     * @return Map or NULL.
+     *
+     * @see CreateMap#generateCellFromCharacter(char, int, int)
      */
     public static Map importFromFile(final String filename) {
-        final Map map = new Map();
-        try (final FileInputStream fis = new FileInputStream(new File(filename))) {
-            // On crée un tableau de byte pour indiquer le nombre de bytes lus à chaque tour de boucle
-            byte[] buf = new byte[map.getWidth() + 1];
-            // On crée une variable de type int pour y affecter le résultat de la lecture
-            // Vaut -1 quand c'est fini
-            int n = 0;
-            int indiceLigne = 0;
-            // Tant que l'affectation dans la variable est possible, on boucle
-            // Lorsque la lecture du fichier est terminée l'affectation n'est
-            // plus possible !
-            // On sort donc de la boucle
-            while ((n = fis.read(buf)) >= 0) {
-                int indiceColonne = 0;
-                // On affiche ce qu'a lu notre boucle au format byte et au
-                // format char
-                for (byte bit : buf) {
-                    System.out.print((char) bit);
-                    // System.out.print(indiceLigne+","+ indiceColonne);
-                    //TODO Supression des caractère de fin de chaine (if == ....
-                    Cell cellAAjouter = new Cell(new Floor());
-                    if ((char) bit == 'x') { cellAAjouter = new Cell(new Wall()); }
-                    if ((char) bit == 'o') { cellAAjouter = new Cell(new Target()); }
-                    if ((char) bit == 'b') { cellAAjouter = new Cell(new Floor(), new Block()); }
-                    if ((indiceLigne < map.getHeight()) && (indiceColonne < map.getWidth())) {
-                        map.setCell(indiceLigne, indiceColonne, cellAAjouter);
+        final Map map;
+        try (final BufferedReader fis = new BufferedReader(new FileReader(filename))) {
+            /* Get the map size. */
+            final int height = Integer.parseInt(fis.readLine());
+            final int width = Integer.parseInt(fis.readLine());
+            map = new Map(height, width);
+
+            /* Parse the map. */
+            int lineIdx = 0;
+            String line;
+            /* For each line. */
+            while ((line = fis.readLine()) != null) {
+                int colIdx = 0;
+                /* In each line, for each byte. */
+                for (final byte b : line.getBytes("UTF-8")) {
+                    /* Skip EOL. */
+                    if ((b == '\r') || (b == '\n')) {
+                        continue;
                     }
-                    //	               map.setTabCell(indiceLigne%10 , indiceColonne%nbColonnes,cellAAjouter);
-                    indiceColonne++;
+
+                    /* Handle real chars. */
+                    final Cell cell = generateCellFromCharacter((char) b, colIdx, lineIdx);
+
+                    /* WARNING: We believe in the size in the header. */
+                    map.setCell(lineIdx, colIdx, cell);
+                    colIdx++;
                 }
-                //Nous réinitialisons le buffer à vide
-                //au cas où les derniers byte lus ne soient pas un multiple de 8
-                //Ceci permet d'avoir un buffer vierge à chaque lecture et ne pas avoir de doublon en fin de fichier
-                buf = new byte[map.getWidth() + 1];
-                indiceLigne++;
+                lineIdx++;
             }
-            System.out.println("Copie termin�e !");
         }
         catch (final IOException e) {
-            // Celle-ci se produit lors d'une erreur d'écriture ou de lecture
             e.printStackTrace();
             return null;
         }
         return map;
+    }
+
+    /**
+     * Convert a character into a {@link Cell}.
+     * <p>
+     * Conversion map:
+     * <ul>
+     * <li>x -> Wall</li>
+     * <li>o -> Target</li>
+     * <li>b -> Block</li>
+     * <li>v -> Character("Unknown", Position(x,y))</li>
+     * <li>others -> Floor</li>
+     * </ul>
+     *
+     * @param c The character
+     * @param x The 'x' position of the Cell in the final map
+     * @param y The 'y' position of the Cell in the final map
+     *
+     * @return The generated Cell.
+     */
+    private static Cell generateCellFromCharacter(final char c, final int x, final int y) {
+        switch (c) {
+            case 'x':
+                return new Cell(new Wall());
+            case 'o':
+                return new Cell(new Target());
+            case 'b':
+                return new Cell(new Floor(), new Block());
+            case 'v':
+                return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
+            default:
+                return new Cell(new Floor());
+        }
     }
 }
