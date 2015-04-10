@@ -1,6 +1,3 @@
-/**
- * Objets en mouvement.
- */
 package fr.iut.adaugustaperangusta.traveller;
 
 import fr.iut.adaugustaperangusta.Position;

@@ -1,6 +1,3 @@
-/**
- * Éléments constituant la Map.
- */
 package fr.iut.adaugustaperangusta.overlay;
 
 /* TODO Ceci est un marqueur, c'est très inélégant en terme de POO (surtout ici). */

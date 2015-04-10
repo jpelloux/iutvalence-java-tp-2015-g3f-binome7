@@ -1,6 +1,3 @@
-/**
- * Éléments constituant la Map.
- */
 package fr.iut.adaugustaperangusta.overlay;
 
 /**
