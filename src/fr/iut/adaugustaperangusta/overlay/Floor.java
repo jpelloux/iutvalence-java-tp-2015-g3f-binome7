@@ -1,8 +1,12 @@
 package fr.iut.adaugustaperangusta.overlay;
 
+/* TODO Translate. */
 /**
  * Sol praticable.
  * Le Character peut se déplacer et pousser des Blocks dessus.
+ *
+ * @author TODO
+ * @version TODO
  */
 public class Floor implements Overlay
 {
@@ -11,7 +15,7 @@ public class Floor implements Overlay
 	{
 		return true;
 	}
-	
+
 	/**
 	 * Méthode d'affichage.
 	 * Affiche un espace sur la sortie standard.
@@ -23,7 +27,4 @@ public class Floor implements Overlay
 	{
 		return " ";
 	}
-
-
-	
 }

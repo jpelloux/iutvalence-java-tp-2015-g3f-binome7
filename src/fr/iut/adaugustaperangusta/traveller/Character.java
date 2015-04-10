@@ -2,20 +2,25 @@ package fr.iut.adaugustaperangusta.traveller;
 
 import fr.iut.adaugustaperangusta.Position;
 
+/* TODO Translate. */
 /**
  * Personnage jouable.
  * Il peut pousser les Blocks.
+ *
+ * @author TODO
+ * @version TODO
  */
 public class Character extends Traveller
 {
-	/**
-	 * Nom du Character.
-	 */
+	/* TODO In Traveler ? */
+	/* TODO Translate. */
+	/** Nom du Character. */
 	private String	name;
-	/**
-	 * Position du Character.
-	 */
+	/* TODO Translate. */
+	/** Position du Character. */
 	private Position positionChar;
+
+	/* TODO Translate. */
 	/**
 	 * Constructeur Character.
 	 * 
@@ -28,21 +33,26 @@ public class Character extends Traveller
 		this.positionChar= pos;
 	}
 
+	/* TODO In Traveller ? */
+	/* TODO Translate. */
 	/**
 	 * Getter du nom.
 	 * 
 	 * @return Le nom du Character.
 	 */
+	@Override
 	public String getName()
 	{
 		return this.name;
 	}
-	
+
+	/* TODO Translate. */
 	/**
 	 * Méthode d'affichage.
 	 * Affiche le caractère 'v' sur la sortie standard.
 	 * Ce caractère s'affiche au centre de chaque case.
 	 */
+	@Override
 	public String toString()
 	{
 		return "v";
