@@ -11,7 +11,6 @@ public class Wall implements Overlay
 	@Override
 	public boolean isAccessible()
 	{
-		// TODO Auto-generated method stub
 		return false;
 	}
 

@@ -11,8 +11,7 @@ public class Target implements Overlay
 	@Override
 	public boolean isAccessible()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	/**

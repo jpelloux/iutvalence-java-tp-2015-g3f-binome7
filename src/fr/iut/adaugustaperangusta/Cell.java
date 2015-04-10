@@ -63,6 +63,17 @@ public class Cell
 	{
 		return this.cellTraveller;
 	}
+	
+	/**
+	 * Donne l'overlay posé sur la cellule courante.
+	 * 
+	 * @return Overlay l'overlay sur la cellule courante.
+	 */
+	public Overlay getOverlay()
+	{
+		return this.cellOverlay;
+	}
+	
 	/**
 	 * Test de praticabilité.
 	 * Doit être appelée avant le déplacement d'un Character.

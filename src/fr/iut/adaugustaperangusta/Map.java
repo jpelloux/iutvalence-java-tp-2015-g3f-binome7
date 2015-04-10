@@ -148,6 +148,14 @@ public class Map
 	{
 		return this.getCell(pos).getTraveller();
 	}
+	
+	public boolean isAccessible(Cell cell)
+	{
+		//boolean access;
+		//access = (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
+		return true;
+	}
+	
 	/**
 	 * Méthode d'affichage.
 	 * Affiche la Map sur la sortie standard en encadrant les Cell par des "|   |" et des '-----'.

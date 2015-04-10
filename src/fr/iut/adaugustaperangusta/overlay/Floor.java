@@ -9,8 +9,7 @@ public class Floor implements Overlay
 	@Override
 	public boolean isAccessible()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	/**
