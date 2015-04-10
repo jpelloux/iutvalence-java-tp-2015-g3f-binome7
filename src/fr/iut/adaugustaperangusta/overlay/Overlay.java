@@ -12,5 +12,10 @@ package fr.iut.adaugustaperangusta.overlay;
  */
 public interface Overlay
 {
-    /* EMPTY. */
+	/**
+	 * Availability test.
+	 * 
+	 * @return <True> if walkable by travellers  
+	 */
+	public boolean isAccessible();
 }

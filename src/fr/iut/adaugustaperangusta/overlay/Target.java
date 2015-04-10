@@ -9,7 +9,15 @@ package fr.iut.adaugustaperangusta.overlay;
  * Le but est d'amener tous les Blocks sur ces Targets.
  */
 public class Target implements Overlay
-{
+{	
+	
+	@Override
+	public boolean isAccessible()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 	/**
 	 * Méthode d'affichage.
 	 * Affiche le caractère '!' sur la sortie standard.
@@ -21,5 +29,7 @@ public class Target implements Overlay
 	{
 		return "!";
 	}
+
+
 	
 }

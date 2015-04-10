@@ -11,6 +11,13 @@ package fr.iut.adaugustaperangusta.overlay;
 public class Wall implements Overlay
 {
 	
+	@Override
+	public boolean isAccessible()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	/**
 	 * Méthode d'affichage.
 	 * Affiche le caractère 'W' sur la sortie standard.

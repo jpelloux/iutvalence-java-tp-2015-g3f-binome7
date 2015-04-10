@@ -155,7 +155,7 @@ public class Map
 	@Override
 	public String toString()
 	{
-		// TODO utiliser un StringBuffer/StringBuilder.
+		// TODO utiliser un StringBuilder.
 		String str = new String();
 		str += "-";
 		for (int i = 0; i < this.width; i++)

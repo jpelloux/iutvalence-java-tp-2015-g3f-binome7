@@ -55,17 +55,6 @@ public class Cell
 	}
 	
 	/**
-	 * Constructeur Cell sans Overlay.
-	 * Il crée une Cell contenant un Traveller.
-	 * 
-	 * @param trav Le Traveller présent sur la Cell. Peut valoir null.
-	 */
-	public Cell(Traveller trav)
-	{
-		this(null, trav);
-	}
-	
-	/**
 	 * Donne le traveller posé sur la cellule courante.
 	 * 
 	 * @return Traveller le traveller sur la cellule courante.

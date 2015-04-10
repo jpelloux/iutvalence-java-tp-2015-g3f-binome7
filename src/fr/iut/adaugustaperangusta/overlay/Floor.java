@@ -9,6 +9,12 @@ package fr.iut.adaugustaperangusta.overlay;
  */
 public class Floor implements Overlay
 {
+	@Override
+	public boolean isAccessible()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	/**
 	 * Méthode d'affichage.
@@ -21,5 +27,7 @@ public class Floor implements Overlay
 	{
 		return " ";
 	}
+
+
 	
 }
