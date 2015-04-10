@@ -57,9 +57,9 @@ public class Position
 			switch(deltaX)
 			{
 				case -1:
-					return RelativePos.SOUTH;
+					return RelativePos.WEST;
 				case 1:
-					return RelativePos.NORTH;
+					return RelativePos.EAST;
 				case 0:
 					throw new SamePosException();
 				default:
@@ -73,9 +73,9 @@ public class Position
 			switch(deltaY)
 			{
 				case -1:
-					return RelativePos.EAST;
+					return RelativePos.NORTH;
 				case 1:
-					return RelativePos.WEST;
+					return RelativePos.SOUTH;
 				default:
 					throw new TooFarException();
 			}
