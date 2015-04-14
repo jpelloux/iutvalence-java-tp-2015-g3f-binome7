@@ -13,7 +13,8 @@ public class Floor implements Overlay
 	@Override
 	public boolean isAccessible()
 	{
-		return true;
+		return true; // @TODO is Acessible 
+		
 	}
 
 	/**

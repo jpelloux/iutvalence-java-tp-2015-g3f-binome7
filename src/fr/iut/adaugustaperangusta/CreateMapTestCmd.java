@@ -3,7 +3,7 @@ package fr.iut.adaugustaperangusta;
 /**
  * A simple class to test {@link CreateMap}.
  *
- * @author TODO
+ * @author jpellou
  * @version 1.0.0
  */
 public final class CreateMapTestCmd {

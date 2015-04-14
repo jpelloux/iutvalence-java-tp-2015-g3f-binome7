@@ -157,7 +157,7 @@ public class Map {
     public boolean isAccessible(Cell cell) {
         //boolean access;
         //access = (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
-        return true;
+        return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
     }
 
     /* TODO Translate. */
