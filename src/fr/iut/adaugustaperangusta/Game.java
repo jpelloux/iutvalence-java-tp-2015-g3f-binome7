@@ -13,7 +13,9 @@ import fr.iut.adaugustaperangusta.traveller.Character;
 public class Game {
     /* TODO JAVADOC. */
     private Map       map;
-    /* TODO JAVADOC. */
+
+
+	/* TODO JAVADOC. */
     private Character character;
 
     /* TODO JAVADOC. */
@@ -26,7 +28,32 @@ public class Game {
     public void print() {
         System.out.println(this);
     }
+    
+    /* TODO JAVADOC. */
+    public Map getMap()
+	{
+		return map;
+	}
 
+    /* TODO JAVADOC. */
+	public void setMap(Map map)
+	{
+		this.map = map;
+	}
+
+	/* TODO JAVADOC. */
+	public Character getCharacter()
+	{
+		return character;
+	}
+
+	/* TODO JAVADOC. */
+	public void setCharacter(Character character)
+	{
+		this.character = character;
+	}
+	
+	
     @Override
     public String toString() {
         return map.toString();
