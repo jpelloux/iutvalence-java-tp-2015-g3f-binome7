@@ -22,9 +22,16 @@ public class Game {
     public Game(Map map, Character character) {
         this.map = map;
         this.character = character;
+        this.implementPlayer(character);
     }
 
-    /* TODO JAVADOC. */
+    private void implementPlayer(Character player)
+	{
+		this.map.getCell(player.getPositionTrav()).setCellTraveller(player);
+		
+	}
+
+	/* TODO JAVADOC. */
     public void print() {
         System.out.println(this);
     }

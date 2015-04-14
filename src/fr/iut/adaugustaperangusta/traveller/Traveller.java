@@ -35,7 +35,7 @@ public abstract class Traveller
 
 	public void move(RelativePos direction)
 	{
-		this.positionTrav.addRelative(direction);
+		this.positionTrav.addRelative(direction); // TODO Deplacement du block ...
 	}
 
 	public Position getPositionTrav()

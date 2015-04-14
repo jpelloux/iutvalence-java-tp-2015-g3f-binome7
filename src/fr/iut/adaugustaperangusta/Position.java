@@ -112,4 +112,11 @@ public class Position
 		if(direction == RelativePos.NORTH) this.x --;
 			
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Position [x=" + x + ", y=" + y + "]";
+	}
+	
 }

@@ -73,8 +73,15 @@ public class Cell
 	{
 		return this.cellTraveller;
 	}
+	
+	
 
-    /* TODO Translate. */
+    public void setCellTraveller(Traveller cellTraveller)
+	{
+		this.cellTraveller = cellTraveller;
+	}
+
+	/* TODO Translate. */
 	/**
 	 * Donne l'overlay posé sur la cellule courante.
 	 *
