@@ -23,7 +23,7 @@ public class DeplacementTest
 		Character player = new Character("Findus", new Position(1, 1));
 		Game game = new Game(new Map('a'), player);
 		
-		
+		System.out.println(game.getMap());
 	}
 
 }

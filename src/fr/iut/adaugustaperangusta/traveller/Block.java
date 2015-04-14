@@ -11,7 +11,14 @@ import fr.iut.adaugustaperangusta.Position;
  * @version TODO
  */
 public class Block extends Traveller {
-    public boolean isPushableFrom(Position posPlayer) {
+    
+	public Block(Position pos)
+	{
+		this.positionTrav= pos;
+	}
+	
+	
+	public boolean isPushableFrom(Position posPlayer) {
         //		int newX, newY;
         //		newX =
         //Position newPos;

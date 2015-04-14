@@ -1,5 +1,7 @@
 package fr.iut.adaugustaperangusta.overlay;
 
+import fr.iut.adaugustaperangusta.RelativePos;
+
 /* TODO Translate. */
 
 /**
@@ -17,4 +19,5 @@ public interface Overlay {
      * @return <True> if walkable by travellers
      */
     boolean isAccessible();
+
 }

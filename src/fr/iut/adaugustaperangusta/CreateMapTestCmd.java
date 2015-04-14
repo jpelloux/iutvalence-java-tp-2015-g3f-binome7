@@ -15,5 +15,6 @@ public final class CreateMapTestCmd {
     public static void main(final String... args) {
         Map map = CreateMap.importFromFile("Test.txt");
         System.out.println(map);
+        
     }
 }

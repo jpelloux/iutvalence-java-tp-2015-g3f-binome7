@@ -16,10 +16,8 @@ public class Character extends Traveller
 	/* TODO Translate. */
 	/** Nom du Character. */
 	private String	name;
-	/* TODO Translate. */
-	/** Position du Character. */
-	private Position positionChar;
 
+	
 	/* TODO Translate. */
 	/**
 	 * Constructeur Character.
@@ -30,7 +28,7 @@ public class Character extends Traveller
 	public Character(String name, Position pos)
 	{
 		this.name= name;
-		this.positionChar= pos;
+		this.positionTrav= pos;
 	}
 
 	/* TODO In Traveller ? */

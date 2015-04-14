@@ -98,7 +98,7 @@ public class Map {
         this.tabCell[1][3] = new Cell(new Wall());
         this.tabCell[2][0] = new Cell(new Wall());
         this.tabCell[2][1] = new Cell(new Floor(), new Character("Findus", new Position(2, 1)));
-        this.tabCell[2][2] = new Cell(new Floor(), new Block());
+        this.tabCell[2][2] = new Cell(new Floor(), new Block(new Position(2,2)));
         this.tabCell[2][3] = new Cell(new Wall());
         this.tabCell[3][0] = new Cell(new Wall());
         this.tabCell[3][1] = new Cell(new Floor());
