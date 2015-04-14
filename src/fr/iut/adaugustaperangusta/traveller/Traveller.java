@@ -6,50 +6,46 @@ import fr.iut.adaugustaperangusta.RelativePos;
 /* TODO Translate. */
 
 /**
- * Objets en mouvement.
- * Classe abstraite. Super-classe de tous les objets en mouvement sur la map.
- * Block et Character en sont héritées.
+ * Objets en mouvement. Classe abstraite. Super-classe de tous les objets en
+ * mouvement sur la map. Block et Character en sont héritées.
  *
  * @author TODO
  * @version TODO
  */
-public abstract class Traveller {
-	
+public abstract class Traveller
+{
+
 	protected Position positionTrav;
-    //TODO Traveller : voir où on enregistre la position
-    //	private Position	position;
-    //	public Position getPosition()
-    //	{
-    //		return this.position;
-    //	}
-	
+
+	// TODO Traveller : voir où on enregistre la position
+	// private Position position;
+	// public Position getPosition()
+	// {
+	// return this.position;
+	// }
+
 	/* TODO Translate. */
 	/** Position du Traveller. */
-    public abstract String getName();
-    
-    
-    void move(RelativePos direction)
-    {
-    	try
-		{
-			this.getPositionTrav().getRelative(//posDir);
-		}
-		catch (Exception e)
-		{
+	public abstract String getName();
 
-		}
-    }
+	public Position posToCheck(RelativePos direction)
+	{
+		return (this.positionTrav.generateRelative(direction));
+	}
 
+	public void move(RelativePos direction)
+	{
+		this.positionTrav.addRelative(direction);
+	}
 
 	public Position getPositionTrav()
 	{
 		return positionTrav;
 	}
 
-
 	public void setPositionTrav(Position positionTrav)
 	{
 		this.positionTrav = positionTrav;
 	}
-    
+
 }

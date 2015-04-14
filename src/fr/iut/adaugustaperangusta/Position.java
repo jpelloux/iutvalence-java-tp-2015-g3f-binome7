@@ -6,10 +6,10 @@ import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 /* TODO Position is mutable ? */
 /* TODO Translate. */
 /**
- * Position d'un Traveller : abcisse (x) et ordonnée (y).
+ * Position d'un Traveller : abcisse (y) et ordonnée (x).
  *
- * @author TODO
- * @version TODO
+ * @author jpellou
+ * @version 1.0.0
  */
 public class Position
 {
@@ -92,4 +92,24 @@ public class Position
 		throw new TooFarException();
 	}
 
+	public Position generateRelative (RelativePos direction)
+	{
+		int deltaX=0, deltaY=0;
+		if(direction == RelativePos.EAST) deltaY ++;
+		if(direction == RelativePos.WEST) deltaY --;
+		if(direction == RelativePos.SOUTH) deltaX ++;
+		if(direction == RelativePos.NORTH) deltaX --;
+		
+		return new Position(this.x+deltaX, this.y+deltaY);
+	}
+	
+	public void addRelative(RelativePos direction)
+	{
+		// TODO gerer le dépacement de map 
+		if(direction == RelativePos.EAST) this.y ++;
+		if(direction == RelativePos.WEST) this.y --;
+		if(direction == RelativePos.SOUTH) this.x ++;
+		if(direction == RelativePos.NORTH) this.x --;
+			
+	}
 }
