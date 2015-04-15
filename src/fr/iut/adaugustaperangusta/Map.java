@@ -161,18 +161,18 @@ public class Map {
     }
    
     public boolean isAccessible(Cell cell, Position posOrigine) {
-    	System.out.println("3");	
+
     	return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell, posOrigine));
     }
 
     public boolean isAccessibleFrom(Position posOrigine,Position posToCheck)
     {
-    	System.out.println("2");
     	return isAccessible(this.getCell(posToCheck), posOrigine);
     }
     
     public boolean isItAPushableBlock(Cell cell,Position posOrigine)
     {
+    	if(cell.getTraveller()==null) return true;
     	if(!(cell.getTraveller() instanceof Block)) return false;
     	if(!(cell.getTraveller().isPushableFrom(posOrigine))) return false;
     	System.out.println("1");
@@ -181,6 +181,8 @@ public class Map {
     
     public boolean isItAPushableBlock(Position posToCheck,Position posOrigine)
     {
+    	System.out.println("2");
+    	if(getCell(posToCheck).getTraveller()==null) return true;
     	if(!(getCell(posToCheck).getTraveller() instanceof Block)) return false;
     	if(!(getCell(posToCheck).getTraveller().isPushableFrom(posOrigine))) return false;
     	return true;

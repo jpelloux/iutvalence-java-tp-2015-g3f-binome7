@@ -63,9 +63,9 @@ public class Position
 			switch(deltaX)
 			{
 				case -1:
-					return RelativePos.WEST;
+					return RelativePos.NORTH;
 				case 1:
-					return RelativePos.EAST;
+					return RelativePos.SOUTH;
 				case 0:
 					/* TODO A Java good practice is to never use Exception without text message. */
 					throw new SamePosException();
@@ -80,9 +80,9 @@ public class Position
 			switch(deltaY)
 			{
 				case -1:
-					return RelativePos.NORTH;
+					return RelativePos.EAST;
 				case 1:
-					return RelativePos.SOUTH;
+					return RelativePos.WEST;
 				default:
 					/* TODO A Java good practice is to never use Exception without text message. */
 					throw new TooFarException();

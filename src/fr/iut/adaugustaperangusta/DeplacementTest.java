@@ -20,7 +20,7 @@ public class DeplacementTest
 	     * @param args useless
 	     */
 		RelativePos dirDeptTest;
-		dirDeptTest = RelativePos.SOUTH;
+		dirDeptTest = RelativePos.NORTH;
 		
 		Character player = new Character("Findus", new Position(1, 2));
 		Game game = new Game(new Map('a'), player);

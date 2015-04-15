@@ -38,7 +38,8 @@ public class Block extends Traveller {
 			e.printStackTrace();
 		}
 		
-		
+		System.out.println("1");
+		System.out.println(dirJoueur);
 		if(dirJoueur==RelativePos.SOUTH) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.NORTH));
 		if(dirJoueur==RelativePos.NORTH) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.SOUTH));
 		if(dirJoueur==RelativePos.EAST) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.WEST));
