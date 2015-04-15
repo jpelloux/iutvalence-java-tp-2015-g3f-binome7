@@ -1,6 +1,10 @@
 package fr.iut.adaugustaperangusta.traveller;
 
+import fr.iut.adaugustaperangusta.Map;
 import fr.iut.adaugustaperangusta.Position;
+import fr.iut.adaugustaperangusta.RelativePos;
+import fr.iut.adaugustaperangusta.exceptions.SamePosException;
+import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
 /* TODO Translate. */
 /**
@@ -12,18 +16,36 @@ import fr.iut.adaugustaperangusta.Position;
  */
 public class Block extends Traveller {
     
-	public Block(Position pos)
+	public Block(Position pos, Map map)
 	{
 		this.positionTrav= pos;
+		this.mapTrav = map;
 	}
 	
 	
 	public boolean isPushableFrom(Position posPlayer) {
-        //		int newX, newY;
-        //		newX =
-        //Position newPos;
-        //newPos= new Position()
-        return true;
+		RelativePos dirJoueur = null;
+		try
+		{
+			dirJoueur = this.positionTrav.getRelative(posPlayer);
+		} catch (TooFarException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SamePosException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		if(dirJoueur==RelativePos.SOUTH) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.NORTH));
+		if(dirJoueur==RelativePos.NORTH) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.SOUTH));
+		if(dirJoueur==RelativePos.EAST) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.WEST));
+		if(dirJoueur==RelativePos.WEST) return this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.EAST));
+       
+			
+		return false; // Exceptions ...
     }
 
     @Override

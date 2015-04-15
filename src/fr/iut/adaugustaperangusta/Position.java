@@ -92,7 +92,7 @@ public class Position
 		throw new TooFarException();
 	}
 
-	public Position generateRelative (RelativePos direction)
+	public Position generatePosFromRelative(RelativePos direction)
 	{
 		int deltaX=0, deltaY=0;
 		if(direction == RelativePos.EAST) deltaY ++;

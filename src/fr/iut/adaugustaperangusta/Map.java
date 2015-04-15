@@ -98,7 +98,7 @@ public class Map {
         this.tabCell[1][3] = new Cell(new Wall());
         this.tabCell[2][0] = new Cell(new Wall());
         this.tabCell[2][1] = new Cell(new Floor());//, new Character("Findus", new Position(2, 1)));
-        this.tabCell[2][2] = new Cell(new Floor(), new Block(new Position(2,2)));
+        this.tabCell[2][2] = new Cell(new Floor(), new Block(new Position(2,2),this));
         this.tabCell[2][3] = new Cell(new Wall());
         this.tabCell[3][0] = new Cell(new Wall());
         this.tabCell[3][1] = new Cell(new Floor());
@@ -157,9 +157,34 @@ public class Map {
     public boolean isAccessible(Cell cell) {
         //boolean access;
         //access = (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
-        return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
+        return (cell.getOverlay().isAccessible() && cell.getTraveller()==null);
+    }
+   
+    public boolean isAccessible(Cell cell, Position posOrigine) {
+    	System.out.println("3");	
+    	return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell, posOrigine));
     }
 
+    public boolean isAccessibleFrom(Position posOrigine,Position posToCheck)
+    {
+    	System.out.println("2");
+    	return isAccessible(this.getCell(posToCheck), posOrigine);
+    }
+    
+    public boolean isItAPushableBlock(Cell cell,Position posOrigine)
+    {
+    	if(!(cell.getTraveller() instanceof Block)) return false;
+    	if(!(cell.getTraveller().isPushableFrom(posOrigine))) return false;
+    	System.out.println("1");
+    	return true;
+    }
+    
+    public boolean isItAPushableBlock(Position posToCheck,Position posOrigine)
+    {
+    	if(!(getCell(posToCheck).getTraveller() instanceof Block)) return false;
+    	if(!(getCell(posToCheck).getTraveller().isPushableFrom(posOrigine))) return false;
+    	return true;
+    }
     /* TODO Translate. */
     /**
      * Méthode d'affichage.

@@ -1,5 +1,6 @@
 package fr.iut.adaugustaperangusta.traveller;
 
+import fr.iut.adaugustaperangusta.Map;
 import fr.iut.adaugustaperangusta.Position;
 import fr.iut.adaugustaperangusta.RelativePos;
 
@@ -16,6 +17,7 @@ public abstract class Traveller
 {
 
 	protected Position positionTrav;
+	protected Map mapTrav;
 
 	// TODO Traveller : voir où on enregistre la position
 	// private Position position;
@@ -28,13 +30,19 @@ public abstract class Traveller
 	/** Position du Traveller. */
 	public abstract String getName();
 
+	public abstract boolean isPushableFrom(Position posPlayer);
+	
 	public Position posToCheck(RelativePos direction)
 	{
-		return (this.positionTrav.generateRelative(direction));
+		return (this.positionTrav.generatePosFromRelative(direction));
 	}
 
 	public void move(RelativePos direction)
 	{
+		if(this.mapTrav.isItAPushableBlock(this.positionTrav.generatePosFromRelative(direction),this.positionTrav))
+		{
+			this.positionTrav.generatePosFromRelative(direction).addRelative(direction);
+		}
 		this.positionTrav.addRelative(direction); // TODO Deplacement du block ...
 	}
 
@@ -48,4 +56,15 @@ public abstract class Traveller
 		this.positionTrav = positionTrav;
 	}
 
+	public Map getMapTrav()
+	{
+		return mapTrav;
+	}
+
+	public void setMapTrav(Map mapTrav)
+	{
+		this.mapTrav = mapTrav;
+	}
+
+	
 }

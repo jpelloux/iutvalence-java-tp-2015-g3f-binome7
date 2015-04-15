@@ -64,7 +64,7 @@ public final class CreateMap {
                     }
 
                     /* Handle real chars. */
-                    final Cell cell = generateCellFromCharacter((char) b, colIdx, lineIdx);
+                    final Cell cell = generateCellFromCharacter((char) b, colIdx, lineIdx,map);
 
                     /* WARNING: We believe in the size in the header. */
                     map.setCell(lineIdx, colIdx, cell);
@@ -98,14 +98,14 @@ public final class CreateMap {
      *
      * @return The generated Cell.
      */
-    private static Cell generateCellFromCharacter(final char c, final int x, final int y) {
+    private static Cell generateCellFromCharacter(final char c, final int x, final int y,Map map) {
         switch (c) {
             case 'x':
                 return new Cell(new Wall());
             case 'o':
                 return new Cell(new Target());
             case 'b':
-                return new Cell(new Floor(), new Block(new Position(x, y)));
+                return new Cell(new Floor(), new Block(new Position(x, y),map));
             case 'v':
                 return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
             default:

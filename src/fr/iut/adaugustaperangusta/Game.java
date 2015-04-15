@@ -28,6 +28,7 @@ public class Game {
     private void implementPlayer(Character player)
 	{
 		this.map.getCell(player.getPositionTrav()).setCellTraveller(player);
+		player.setMapTrav(this.map);
 		
 	}
 

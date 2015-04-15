@@ -29,8 +29,13 @@ public class Character extends Traveller
 	{
 		this.name= name;
 		this.positionTrav= pos;
+	    
 	}
 
+	public boolean isPushableFrom(Position posPlayer) {
+		return false;
+	}
+	
 	/* TODO In Traveller ? */
 	/* TODO Translate. */
 	/**
