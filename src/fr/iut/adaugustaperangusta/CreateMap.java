@@ -105,7 +105,8 @@ public final class CreateMap {
             case 'o':
                 return new Cell(new Target());
             case 'b':
-                return new Cell(new Floor(), new Block(new Position(x, y),map));
+                map.setBlock(new Block(new Position(y, x),map));
+            	return new Cell(new Floor(), map.getBlock());
             case 'v':
             	return new Cell(new Floor());
               //  return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
