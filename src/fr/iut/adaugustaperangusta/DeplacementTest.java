@@ -29,9 +29,10 @@ public class DeplacementTest
 		RelativePos dirDeptTest;
 		dirDeptTest = null;
 
-		Character player = new Character("Findus", new Position(8, 4));
-		// Game game = new Game(new Map('a'), player);
-		Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
+		//Character player = new Character("Findus", new Position(8, 4));
+		Character player = new Character("Findus", new Position(4, 3));
+		 Game game = new Game(new Map('a'), player);
+		//Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
 
 		System.out.println(game.getMap());
 		System.out.println(game.getCharacter().getPositionTrav());
@@ -72,19 +73,24 @@ public class DeplacementTest
 			// DEPLACEMENT
 			if (game.getMap().isAccessibleFrom(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest)))
 			{
-				game.getMap().moveTrav(game.getCharacter().posToCheck(dirDeptTest),
-						game.getCharacter().posToCheck(dirDeptTest).generatePosFromRelative(dirDeptTest));
+				System.out.println("dpt en cours");
+				
+				//DEPL PERSO
 				game.getMap().moveTrav(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest));
 				game.getCharacter().move(dirDeptTest);
 			} else
 			{
+				System.out.println("-------------");
 				System.out.println("Dpt imp"); // Test moche
+				System.out.println(dirDeptTest);
+				System.out.println(game.getCharacter().getPositionTrav());
+				System.out.println(game.getCharacter().posToCheck(dirDeptTest));
 			}
 			
 			System.out.println(game.getMap());
 			System.out.println(game.getCharacter().getPositionTrav());
-			System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
-			System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
+			//System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
+			//System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
 
 		}
 	}

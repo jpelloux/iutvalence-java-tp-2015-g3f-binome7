@@ -86,7 +86,7 @@ public class Map {
      */
     public Map(char devTest) {
         this.width = 4;
-        this.height = 5;
+        this.height = 7;
         this.tabCell = new Cell[height][width];
         this.tabCell[0][0] = new Cell();
         this.tabCell[0][1] = new Cell(new Wall());
@@ -98,16 +98,25 @@ public class Map {
         this.tabCell[1][3] = new Cell(new Wall());
         this.tabCell[2][0] = new Cell(new Wall());
         this.tabCell[2][1] = new Cell(new Floor());//, new Character("Findus", new Position(2, 1)));
-        this.tabCell[2][2] = new Cell(new Floor(), new Block(new Position(2,2),this));
+        this.tabCell[2][2] = new Cell(new Floor());
         this.tabCell[2][3] = new Cell(new Wall());
         this.tabCell[3][0] = new Cell(new Wall());
         this.tabCell[3][1] = new Cell(new Floor());
         this.tabCell[3][2] = new Cell(new Target());
         this.tabCell[3][3] = new Cell(new Wall());
-        this.tabCell[4][0] = new Cell();
-        this.tabCell[4][1] = new Cell(new Wall());
-        this.tabCell[4][2] = new Cell(new Wall());
-        this.tabCell[4][3] = new Cell();
+        this.tabCell[4][0] = new Cell(new Floor());
+        this.tabCell[4][1] = new Cell(new Floor(), new Block(new Position(4,1),this));
+        this.tabCell[4][2] = new Cell(new Floor());
+        this.tabCell[4][3] = new Cell(new Floor());
+        this.tabCell[5][0] = new Cell(new Floor());
+        this.tabCell[5][1] = new Cell(new Floor());
+        this.tabCell[5][2] = new Cell(new Floor());
+        this.tabCell[5][3] = new Cell(new Floor());
+        this.tabCell[6][0] = new Cell();
+        this.tabCell[6][1] = new Cell(new Wall());
+        this.tabCell[6][2] = new Cell(new Wall());
+        this.tabCell[6][3] = new Cell();
+        
     }
 
     /* TODO Translate. */
@@ -161,7 +170,6 @@ public class Map {
     }
    
     public boolean isAccessible(Cell cell, Position posOrigine) {
-
     	return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell, posOrigine));
     }
 
@@ -172,10 +180,14 @@ public class Map {
     
     public boolean isItAPushableBlock(Cell cell,Position posOrigine)
     {
+    	System.out.println("We reach isItAPushableBlock");
     	if(cell.getTraveller()==null) return true;
+    	System.out.println("Le traveller est non null");
+    	System.out.println(cell.getTraveller());
     	if(!(cell.getTraveller() instanceof Block)) return false;
+    	System.out.println("C'est bien un block");
     	if(!(cell.getTraveller().isPushableFrom(posOrigine))) return false;
-    	System.out.println("1");
+    	System.out.println("Il est bien pushable");
     	return true;
     }
     

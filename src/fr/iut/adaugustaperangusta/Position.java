@@ -57,7 +57,7 @@ public class Position
 	{
 		int deltaX = other.x - this.x;
 		int deltaY = other.y - this.y;
-
+		
 		if (deltaY == 0)
 		{
 			switch(deltaX)

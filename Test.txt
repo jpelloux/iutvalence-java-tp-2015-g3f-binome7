@@ -7,6 +7,6 @@ x                 xx
 x  o   xx     xxxxxx
 xx     xx     xxxxxx
 xx            xxxxxx
-xx            xxxxxx
-xx  vb            xx
+xx   b        xxxxxx
+xx  v             xx
 xxxxxxxxxxxxxxxxxxxx
