@@ -1,5 +1,6 @@
 package fr.iut.adaugustaperangusta;
 
+import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.traveller.Character;
 
 /* TODO Translate. */
@@ -61,7 +62,11 @@ public class Game {
 		this.character = character;
 	}
 	
-	
+	public boolean isWin()
+	{
+		if(this.map.getCell(this.map.getBlock().getPositionTrav()).getOverlay() instanceof Target) return true;
+		return false;
+	}
     @Override
     public String toString() {
         return map.toString();

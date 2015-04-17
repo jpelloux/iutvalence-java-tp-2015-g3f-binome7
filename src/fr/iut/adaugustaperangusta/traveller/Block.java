@@ -25,7 +25,7 @@ public class Block extends Traveller
 
 	public boolean isPushableFrom(Position posPlayer)
 	{
-		System.out.println("we reach isPushableFrom");
+//		System.out.println("we reach isPushableFrom");
 		RelativePos dirJoueur = null;
 		try
 		{
@@ -40,7 +40,7 @@ public class Block extends Traveller
 			e.printStackTrace();
 		}
 
-		System.out.println(dirJoueur);
+		//System.out.println(dirJoueur);
 		// if(dirJoueur==RelativePos.SOUTH) return
 		// this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.NORTH));
 		// if(dirJoueur==RelativePos.NORTH) return
@@ -51,26 +51,26 @@ public class Block extends Traveller
 		// this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.EAST));
 		if (dirJoueur == RelativePos.SOUTH)
 		{
-			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH)));
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH));
+//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH)));
+			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH));
 		}
 		if (dirJoueur == RelativePos.NORTH)
 		{	
-			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH)));
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH));
+//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH)));
+			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH));
 		}
 		if (dirJoueur == RelativePos.EAST)
 		{
-			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST)));
+//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST)));
 			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST));
 		}
 		if (dirJoueur == RelativePos.WEST)
 		{
-			System.out.println("-------------");
-			System.out.println(posPlayer);
-			System.out.println(this.posToCheck(RelativePos.EAST));
-			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST)));
-			System.out.println("-------------");
+//			System.out.println("-------------");
+//			System.out.println(posPlayer);
+//			System.out.println(this.posToCheck(RelativePos.EAST));
+//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST)));
+//			System.out.println("-------------");
 			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST));
 		}
 

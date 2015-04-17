@@ -39,11 +39,8 @@ public abstract class Traveller
 
 	public void move(RelativePos direction)
 	{
-		if(this.mapTrav.isItAPushableBlock(this.positionTrav.generatePosFromRelative(direction),this.positionTrav))
-		{
-			this.positionTrav.generatePosFromRelative(direction).addRelative(direction);
-		}
-		this.positionTrav.addRelative(direction); // TODO Deplacement du block ...
+
+		this.positionTrav.addRelative(direction); 
 	}
 
 	public Position getPositionTrav()

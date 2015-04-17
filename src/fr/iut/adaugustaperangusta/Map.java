@@ -1,5 +1,7 @@
 package fr.iut.adaugustaperangusta;
 
+import fr.iut.adaugustaperangusta.exceptions.SamePosException;
+import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 import fr.iut.adaugustaperangusta.overlay.Floor;
 import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.overlay.Wall;
@@ -46,6 +48,8 @@ public class Map {
      * Il prend {@link Map#height} et {@link Map#width} pour dimensions.
      */
     private final Cell[][] tabCell;
+    
+	private Block block;
 
     /* TODO Translate. */
     /**
@@ -65,6 +69,7 @@ public class Map {
                 tabCell[cellHeight][cellWidth] = new Cell();
             }
         }
+        this.block =null;
     }
 
     /* TODO Translate. */
@@ -87,7 +92,8 @@ public class Map {
     public Map(char devTest) {
         this.width = 4;
         this.height = 7;
-        this.tabCell = new Cell[height][width];
+        this.block=new Block(new Position(4,1),this);
+        this.tabCell = new Cell[this.height][this.width];
         this.tabCell[0][0] = new Cell();
         this.tabCell[0][1] = new Cell(new Wall());
         this.tabCell[0][2] = new Cell(new Wall());
@@ -105,7 +111,7 @@ public class Map {
         this.tabCell[3][2] = new Cell(new Target());
         this.tabCell[3][3] = new Cell(new Wall());
         this.tabCell[4][0] = new Cell(new Floor());
-        this.tabCell[4][1] = new Cell(new Floor(), new Block(new Position(4,1),this));
+        this.tabCell[4][1] = new Cell(new Floor(), this.block);
         this.tabCell[4][2] = new Cell(new Floor());
         this.tabCell[4][3] = new Cell(new Floor());
         this.tabCell[5][0] = new Cell(new Floor());
@@ -116,6 +122,7 @@ public class Map {
         this.tabCell[6][1] = new Cell(new Wall());
         this.tabCell[6][2] = new Cell(new Wall());
         this.tabCell[6][3] = new Cell();
+       
         
     }
 
@@ -152,7 +159,19 @@ public class Map {
         return width;
     }
 
-    /* TODO JAVADOC. */
+	/* TODO JAVADOC. */
+    public Block getBlock()
+	{
+		return block;
+	}
+    
+	/* TODO JAVADOC. */
+	public void setBlock(Block block)
+	{
+		this.block = block;
+	}
+
+	/* TODO JAVADOC. */
     public Cell getCell(Position pos) {
         return this.tabCell[pos.getX()][pos.getY()];
     }
@@ -180,23 +199,31 @@ public class Map {
     
     public boolean isItAPushableBlock(Cell cell,Position posOrigine)
     {
-    	System.out.println("We reach isItAPushableBlock");
+
+//   	System.out.println("We reach isItAPushableBlock");
     	if(cell.getTraveller()==null) return true;
-    	System.out.println("Le traveller est non null");
-    	System.out.println(cell.getTraveller());
+//    	System.out.println("Le traveller est non null");
+//    	System.out.println(cell.getTraveller());
     	if(!(cell.getTraveller() instanceof Block)) return false;
-    	System.out.println("C'est bien un block");
+//    	System.out.println("C'est bien un block");
     	if(!(cell.getTraveller().isPushableFrom(posOrigine))) return false;
-    	System.out.println("Il est bien pushable");
+//    	System.out.println("Il est bien pushable");
     	return true;
     }
     
     public boolean isItAPushableBlock(Position posToCheck,Position posOrigine)
     {
-    	System.out.println("2");
+//    	System.out.println("isItAPushableBLock(Pos,Pos)");
     	if(getCell(posToCheck).getTraveller()==null) return true;
+//    	System.out.println("Le traveller est non null");
+//    	System.out.println(posToCheck);
+//    	System.out.println(posOrigine);
+//    	System.out.println(getCell(posOrigine));
+//    	System.out.println(getCell(posToCheck));
     	if(!(getCell(posToCheck).getTraveller() instanceof Block)) return false;
+//    	System.out.println("C'est bien un block");
     	if(!(getCell(posToCheck).getTraveller().isPushableFrom(posOrigine))) return false;
+//    	System.out.println("Il est bien pushable");
     	return true;
     }
     /* TODO Translate. */
@@ -228,6 +255,33 @@ public class Map {
 
 	public void moveTrav(Position origine, Position end)
 	{ //TODO Gestion cas cible 
+//		System.out.println("----------------");
+//		System.out.println("Reach moveTrav");
+//		System.out.println(origine);
+//		System.out.println(end);
+//		
+//		System.out.println(this.isItAPushableBlock(end,origine)+" 124");
+
+	if(this.isItAPushableBlock(end,origine)&& (getCell(end).getTraveller() instanceof Block))
+		{
+		try
+		{
+//			System.out.println("----------------");
+//			System.out.println(origine.getRelative(end)); 
+//			System.out.println("----------------");
+			
+			this.moveTrav(end, end.generatePosFromRelative(end.getRelative(origine)));
+			this.getBlock().move(end.getRelative(origine));
+		} catch (TooFarException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SamePosException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
 		getCell(end).setCellTraveller(getCell(origine).getTraveller());
 		getCell(origine).setCellTraveller(null);
 	}

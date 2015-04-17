@@ -63,9 +63,9 @@ public class Position
 			switch(deltaX)
 			{
 				case -1:
-					return RelativePos.NORTH;
-				case 1:
 					return RelativePos.SOUTH;
+				case 1:
+					return RelativePos.NORTH;
 				case 0:
 					/* TODO A Java good practice is to never use Exception without text message. */
 					throw new SamePosException();
