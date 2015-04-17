@@ -107,7 +107,8 @@ public final class CreateMap {
             case 'b':
                 return new Cell(new Floor(), new Block(new Position(x, y),map));
             case 'v':
-                return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
+            	return new Cell(new Floor());
+              //  return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
             default:
                 return new Cell(new Floor());
         }

@@ -1,5 +1,11 @@
 package fr.iut.adaugustaperangusta;
 
+import java.util.Scanner;
+
+import fr.iut.adaugustaperangusta.overlay.Floor;
+import fr.iut.adaugustaperangusta.overlay.Target;
+import fr.iut.adaugustaperangusta.overlay.Wall;
+import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
 
 /**
@@ -14,38 +20,72 @@ public class DeplacementTest
 
 	public static void main(String[] args)
 	{
-		 /**
-	     * Main method.
-	     *
-	     * @param args useless
-	     */
+		/**
+		 * Main method.
+		 *
+		 * @param args
+		 *            useless
+		 */
 		RelativePos dirDeptTest;
-		dirDeptTest = RelativePos.NORTH;
-		
-		Character player = new Character("Findus", new Position(1, 2));
-		Game game = new Game(new Map('a'), player);
-		
+		dirDeptTest = null;
+
+		Character player = new Character("Findus", new Position(8, 4));
+		// Game game = new Game(new Map('a'), player);
+		Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
+
 		System.out.println(game.getMap());
 		System.out.println(game.getCharacter().getPositionTrav());
 		System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
 		System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
-		
-		
-		//if(game.getMap().isAccessible(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest))))
-		if(game.getMap().isAccessibleFrom(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest)))
+
+		Scanner sc = new Scanner(System.in);
+		while (true)
 		{
-			game.getMap().moveTrav(game.getCharacter().posToCheck(dirDeptTest), game.getCharacter().posToCheck(dirDeptTest).generatePosFromRelative(dirDeptTest));
-			game.getMap().moveTrav(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest));
-			game.getCharacter().move(dirDeptTest);
+			//CHOIX DIRECTION
+			String mouvement = sc.nextLine();
+			char charMvt = mouvement.charAt(0);
+
+			switch (charMvt)
+			{
+			case 'z':
+				dirDeptTest = RelativePos.NORTH;
+				break;
+			case 'q':
+				dirDeptTest = RelativePos.WEST;
+				break;
+			case 's':
+				dirDeptTest = RelativePos.SOUTH;
+				break;
+			case 'd':
+				dirDeptTest = RelativePos.EAST;
+				break;
+			default:
+				System.out.println("Default case reach"); // Test moche
+				System.out.println("Exit programme");
+				dirDeptTest =null;
+				break;
+			}
+			
+			// EXIT
+			if(dirDeptTest ==null) break;
+			
+			// DEPLACEMENT
+			if (game.getMap().isAccessibleFrom(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest)))
+			{
+				game.getMap().moveTrav(game.getCharacter().posToCheck(dirDeptTest),
+						game.getCharacter().posToCheck(dirDeptTest).generatePosFromRelative(dirDeptTest));
+				game.getMap().moveTrav(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest));
+				game.getCharacter().move(dirDeptTest);
+			} else
+			{
+				System.out.println("Dpt imp"); // Test moche
+			}
+			
+			System.out.println(game.getMap());
+			System.out.println(game.getCharacter().getPositionTrav());
+			System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
+			System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
+
 		}
-		else
-		{
-			System.out.println("Dpt imp"); //Test moche
-		}
-		
-		System.out.println(game.getMap());
-		System.out.println(game.getCharacter().getPositionTrav());
-		System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
-		System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
 	}
 }
