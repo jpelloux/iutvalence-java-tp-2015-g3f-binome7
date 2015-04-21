@@ -8,12 +8,14 @@ package fr.iut.adaugustaperangusta.overlay;
  * @author TODO
  * @version TODO
  */
+
 public class Floor implements Overlay
 {
+	
 	@Override
 	public boolean isAccessible()
 	{
-		return true; // @TODO is Acessible 
+		return true; 
 		
 	}
 

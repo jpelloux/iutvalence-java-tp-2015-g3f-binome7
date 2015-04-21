@@ -67,11 +67,9 @@ public class Position
 				case 1:
 					return RelativePos.NORTH;
 				case 0:
-					/* TODO A Java good practice is to never use Exception without text message. */
-					throw new SamePosException();
+					throw new SamePosException("this.position :"+this+" other position"+other);
 				default:
-					/* TODO A Java good practice is to never use Exception without text message. */
-					throw new TooFarException();
+					throw new TooFarException("this.position :"+this+" other position"+other);
 			}
 		}
 
@@ -84,12 +82,10 @@ public class Position
 				case 1:
 					return RelativePos.WEST;
 				default:
-					/* TODO A Java good practice is to never use Exception without text message. */
-					throw new TooFarException();
+					throw new TooFarException("this.position :"+this+" other position"+other);
 			}
 		}
-        /* TODO A Java good practice is to never use Exception without text message. */
-		throw new TooFarException();
+		throw new TooFarException("this.position :"+this+" other position"+other);
 	}
 
 	public Position generatePosFromRelative(RelativePos direction)
