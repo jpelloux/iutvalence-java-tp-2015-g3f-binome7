@@ -11,7 +11,7 @@ import fr.iut.adaugustaperangusta.traveller.Character;
 /**
  * A simple class to test deplacements fx.
  *
- * @author jpellou
+ * @author jpelloux
  * @version 1.0.0
  */
 

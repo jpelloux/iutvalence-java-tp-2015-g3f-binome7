@@ -3,18 +3,16 @@ package fr.iut.adaugustaperangusta;
 import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.traveller.Character;
 
-/* TODO Translate. */
 
 /**
- * Partie contenant une Map.
+ * Game using a Map.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux & Axce
+ * @version 1.0.0
  */
 public class Game {
     /* TODO JAVADOC. */
     private Map       map;
-
 
 	/* TODO JAVADOC. */
     private Character character;

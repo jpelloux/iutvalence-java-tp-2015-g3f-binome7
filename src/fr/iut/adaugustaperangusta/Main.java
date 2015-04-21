@@ -4,16 +4,16 @@ import fr.iut.adaugustaperangusta.traveller.Character;
 
 /* TODO Translate. */
 /**
- * Point d'entrée du programme.
+ * Entry point of the program.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux & Axce
+ * @version 1.0.0
  */
 public class Main
 {
 	/* TODO Translate. */
 	/**
-	 * Point d'entrée du programme.
+	 * Entry point of the program.
 	 */
 	public static void main(String[] args)
 	{

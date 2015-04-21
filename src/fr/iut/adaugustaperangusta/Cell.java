@@ -5,35 +5,32 @@ import fr.iut.adaugustaperangusta.traveller.*;
 
 /* TODO Translate. */
 /**
- * Case divisant la Map.
- * Elle contient 0 ou 1 Overlay.
- * Elle contient 0 ou 1 Traveller.
+ * Cell dividing the Map.
+ * Contains 0 or 1 Overlay.
+ * Contains 0 or 1 Traveller.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux & Axce
+ * @version 1.0.0
  */
 public class Cell
 {
-    /* TODO Translate. */
 	/**
-	 * Overlay présent sur la Cell.
-	 * Peut valoir null.
+	 * Overlay standing on the Cell.
+	 * May be null.
 	 */
 	private Overlay		cellOverlay;
 
-    /* TODO Translate. */
 	/**
-	 * Traveller présent sur la Cell.
-	 * Peut valoir null.
+	 * Traveller standing on the Cell.
+	 * May be null.
 	 */
 	private Traveller	cellTraveller;
 
-    /* TODO Translate. */
 	/**
-	 * Constructeur Cell.
+	 * Cell's constructor.
 	 *
-	 * @param over L'Overlay présent sur la Cell. Peut valoir null.
-	 * @param trav Le Traveller présent sur la Cell. Peut valoir null.
+	 * @param over Overlay standing on the Cell. May be null.
+	 * @param trav Traveller standing on the Cell. May be null.
 	 */
 	public Cell(Overlay over, Traveller trav)
 	{
@@ -41,33 +38,30 @@ public class Cell
 		this.cellTraveller = trav;
 	}
 
-    /* TODO Translate. */
 	/**
-	 * Constructeur vide Cell.
-	 * Il crée une Cell vide, sans Overlay ni Traveller.
+	 * Cell's constructor without parameters.
+	 * Creates a void Cell, without Overlay nor Traveller.
 	 */
 	public Cell()
 	{
 		this(null, null);
 	}
 
-    /* TODO Translate. */
 	/**
-	 * Constructeur Cell sans Traveller.
-	 * Il crée une Cell contenant un Overlay.
+	 * Cell's constructor without Traveller.
+	 * Creates a Cell with only an Overlay.
 	 *
-	 * @param over L'Overlay présent sur la Cell. Peut valoir null.
+	 * @param over Overlay standing on the Cell. May be null.
 	 */
 	public Cell(Overlay over)
 	{
 		this(over, null);
 	}
 
-    /* TODO Translate. */
 	/**
-	 * Donne le traveller posé sur la cellule courante.
+	 * Traveller getter.
 	 *
-	 * @return Traveller le traveller sur la cellule courante.
+	 * @return Traveller the Traveller standing on the Cell.
 	 */
 	public Traveller getTraveller()
 	{
@@ -81,23 +75,21 @@ public class Cell
 		this.cellTraveller = cellTraveller;
 	}
 
-	/* TODO Translate. */
 	/**
-	 * Donne l'overlay posé sur la cellule courante.
+	 * Overlay getter.
 	 *
-	 * @return Overlay l'overlay sur la cellule courante.
+	 * @return Overlay the Overlay standing on the Cell.
 	 */
 	public Overlay getOverlay()
 	{
 		return this.cellOverlay;
 	}
 
-    /* TODO Translate. */
 	/**
-	 * Test de praticabilité.
-	 * Doit être appelée avant le déplacement d'un Character.
+	 * Walkability test.
+	 * Must be called before a Traveller's move.
 	 *
-	 * @return true si la Cell est praticable, false sinon.
+	 * @return true if the Cell is accessible, false otherwise.
 	 */
 	public boolean isAccessible()
 	{
@@ -111,10 +103,10 @@ public class Cell
 	}
 
 	/**
-	 * Méthode d'affichage.
-	 * Renvoie trois caractère, sous la forme "Overlay Traveller Overlay".
-	 * Un Overlay null est représenté par le caractère "/".
-	 * Un Traveller null est représenté par un espace.
+	 * toString redefinition
+	 * Returns 3 characters, in the form "Overlay Traveller Overlay".
+	 * A null Overlay is represented by "/".
+	 * A null Traveller is represented by a space.
 	 */
 	public String toString()
 	{

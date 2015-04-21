@@ -3,7 +3,7 @@ package fr.iut.adaugustaperangusta;
 import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
-/* TODO Position is mutable ? */
+/* TODO is Position mutable ? */
 /**
  * A Traveller's Position: x-axis and y-axis.
  *

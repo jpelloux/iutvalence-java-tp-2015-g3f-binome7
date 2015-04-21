@@ -81,7 +81,7 @@ public final class CreateMap {
     }
 
     /**
-     * Convert a character into a {@link Cell}.
+     * Converts a character into a {@link Cell}.
      * <p>
      * Conversion map:
      * <ul>
