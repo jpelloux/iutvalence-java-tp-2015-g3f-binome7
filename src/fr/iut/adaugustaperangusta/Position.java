@@ -4,11 +4,10 @@ import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
 /* TODO Position is mutable ? */
-/* TODO Translate. */
 /**
- * Position d'un Traveller : abcisse (y) et ordonnée (x).
+ * A Traveller's Position: x-axis and y-axis.
  *
- * @author jpellou
+ * @author jpelloux
  * @version 1.0.0
  */
 public class Position
