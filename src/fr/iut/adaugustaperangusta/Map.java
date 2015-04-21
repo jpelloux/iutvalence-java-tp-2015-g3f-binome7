@@ -47,6 +47,10 @@ public class Map
 	 */
 	private final Cell[][]		cellArray;
 	
+	/* TODO Translate */
+	/**
+	 *  Reference directe vers le block que contient la map
+	 */
 	private Block				block;
 	
 	/**
@@ -152,7 +156,7 @@ public class Map
 	 */
 	public int getHeight()
 	{
-		return height;
+		return this.height;
 	}
 	
 	/**
@@ -162,48 +166,83 @@ public class Map
 	 */
 	public int getWidth()
 	{
-		return width;
+		return this.width;
 	}
 	
-	/* TODO JAVADOC. */
+	/* TODO Translate */
+	/**
+	 * 
+	 * @return Le bloc courrant de la map
+	 */
 	public Block getBlock()
 	{
-		return block;
+		return this.block;
 	}
 	
-	/* TODO JAVADOC. */
+	/* TODO Translate */
+	/**
+	 * @return Change le bloc  
+	 */
 	public void setBlock(Block block)
 	{
 		this.block = block;
 	}
 	
-	/* TODO JAVADOC. */
+	/* TODO Translate */
+	/**
+	 * Retourne la ref de la cellule présente a la pos en param
+	 * @param pos
+	 * @return
+	 */
 	public Cell getCell(Position pos)
 	{
+		//Exceptions ???
 		return this.cellArray[pos.getX()][pos.getY()];
 	}
 	
-	/* TODO JAVADOC. */
+	/* TODO Translate */
+	/**
+	 * Retourne la ref du traveller present a la pos en param. Null si pas de traveller
+	 * @param pos
+	 * @return
+	 */
 	public Traveller getTraveller(Position pos)
 	{
+		//Exceptions ???
 		return this.getCell(pos).getTraveller();
 	}
 	
-	/* TODO JAVADOC. */
+	/* TODO Translate */
+	/**
+	 * Teste l'accessibilite de la cell dont la ref est en param
+	 * @param cell
+	 * @return
+	 */
 	public boolean isAccessible(Cell cell)
 	{
-		// boolean access;
-		// access = (cell.getOverlay().isAccessible() && cell.getTraveller() ==
-		// null);
 		return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
 	}
 	
+	/* TODO Translate */
+	/**
+	 * Teste l'accecibilete de la cell dont la ref est donne en param depuis la position donne en param
+	 * @param cell
+	 * @param posOrigine
+	 * @return
+	 */
 	public boolean isAccessible(Cell cell, Position posOrigine)
 	{
 		return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell,
 				posOrigine));
 	}
 	
+	/* TODO Translate */
+	/**
+	 * Verifie si une position est accessible depuis une autre position
+	 * @param posOrigine
+	 * @param posToCheck
+	 * @return
+	 */
 	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck)
 	{
 		return isAccessible(this.getCell(posToCheck), posOrigine);
