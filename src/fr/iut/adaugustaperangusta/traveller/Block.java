@@ -11,21 +11,29 @@ import fr.iut.adaugustaperangusta.exceptions.TooFarException;
  * Bloc déplaçable. Le joueur peut les <strong>pousser</strong>. Le but est
  * d'amener tous les Blocks sur des Targets.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux and Axce
+ * @version 1.0.0
  */
 public class Block extends Traveller
 {
 
+	/**
+	 * Constructeur
+	 * @param pos Position du block
+	 * @param map Map contenant la map
+	 */
 	public Block(Position pos, Map map)
 	{
 		this.positionTrav = pos;
 		this.mapTrav = map;
 	}
-
+	
+	/**
+	 * Verifie si le bloc est poussable depuis une position donné
+	 *  @param posPlayer la position depuis laquelle le bloc est poussé
+	 */
 	public boolean isPushableFrom(Position posPlayer)
 	{
-//		System.out.println("we reach isPushableFrom");
 		RelativePos dirJoueur = null;
 		try
 		{
@@ -40,44 +48,27 @@ public class Block extends Traveller
 			e.printStackTrace();
 		}
 
-		//System.out.println(dirJoueur);
-		// if(dirJoueur==RelativePos.SOUTH) return
-		// this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.NORTH));
-		// if(dirJoueur==RelativePos.NORTH) return
-		// this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.SOUTH));
-		// if(dirJoueur==RelativePos.EAST) return
-		// this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.WEST));
-		// if(dirJoueur==RelativePos.WEST) return
-		// this.mapTrav.isAccessibleFrom(posPlayer,this.posToCheck(RelativePos.EAST));
-		if (dirJoueur == RelativePos.SOUTH)
+		switch(dirJoueur)
 		{
-//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH)));
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH));
-		}
-		if (dirJoueur == RelativePos.NORTH)
-		{	
-//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH)));
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH));
-		}
-		if (dirJoueur == RelativePos.EAST)
-		{
-//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST)));
+		case EAST:
 			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST));
-		}
-		if (dirJoueur == RelativePos.WEST)
-		{
-//			System.out.println("-------------");
-//			System.out.println(posPlayer);
-//			System.out.println(this.posToCheck(RelativePos.EAST));
-//			System.out.println(this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST)));
-//			System.out.println("-------------");
+		case NORTH:
+			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH));
+		case SOUTH:
+			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH));
+		case WEST:
 			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST));
+		default:
+			System.out.println("we reach isPushableFrom exceptions"); //EXCEPTIONS...
+			return false;
 		}
-
-		System.out.println("we reach isPushableFrom exceptions");
-		return false; // Exceptions ...
+		
 	}
 
+	/**
+	 * Le block n'a pas de nom
+	 * @see fr.iut.adaugustaperangusta.traveller.Traveller#getName()
+	 */
 	@Override
 	public String getName()
 	{

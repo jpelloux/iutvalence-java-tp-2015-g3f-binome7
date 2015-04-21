@@ -31,7 +31,10 @@ public class Character extends Traveller
 		this.positionTrav= pos;
 	    
 	}
-
+	
+	/**
+	 * On ne peut pas pousse un Character
+	 */
 	public boolean isPushableFrom(Position posPlayer) {
 		return false;
 	}

@@ -8,11 +8,15 @@ package fr.iut.adaugustaperangusta.overlay;
  * Le Character peut se déplacer et pousser des Blocks dessus.
  * Le but est d'amener tous les Blocks sur ces Targets.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux and Axce
+ * @version 1.0.0
  */
 public class Target implements Overlay {
     @Override
+    
+    /**
+     * La cible est tjr accessible (comme le floor)
+     */
     public boolean isAccessible() {
         return true;
     }

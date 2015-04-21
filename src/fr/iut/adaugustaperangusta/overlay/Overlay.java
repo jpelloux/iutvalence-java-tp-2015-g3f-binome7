@@ -9,8 +9,8 @@ import fr.iut.adaugustaperangusta.RelativePos;
  * Interface. Super-classe de tous les éléments fixes de la map.
  * Floor, Wall et Target en sont héritées.
  *
- * @author TODO
- * @version TODO
+ * @author jpellou and Axce
+ * @version 1.0.0
  */
 public interface Overlay {
     /**

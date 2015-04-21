@@ -6,11 +6,15 @@ package fr.iut.adaugustaperangusta.overlay;
  * Le Character et les Blocks ne peuvent pas les traverser.
  * Ils délimitent la Map.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux and Axce
+ * @version 1.0.0
  */
 public class Wall implements Overlay
 {
+	/**
+	 * un mur n'est jamais accessible
+	 * 
+	 */
 	@Override
 	public boolean isAccessible()
 	{
