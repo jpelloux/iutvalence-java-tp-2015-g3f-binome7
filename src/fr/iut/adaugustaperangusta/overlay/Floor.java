@@ -11,7 +11,9 @@ package fr.iut.adaugustaperangusta.overlay;
 
 public class Floor implements Overlay
 {
-	
+	/**
+	 * Une cellule est toujours accessible.
+	 */
 	@Override
 	public boolean isAccessible()
 	{
