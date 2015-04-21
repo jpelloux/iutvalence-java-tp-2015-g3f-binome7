@@ -8,9 +8,9 @@ package fr.iut.adaugustaperangusta.exceptions;
  */
 public class SamePosException extends Exception
 {
-    /* TODO A good practice is to don't use this constructor. */
-    public SamePosException() {
-    }
+//    /* TODO A good practice is to don't use this constructor. */
+//    public SamePosException() {
+//    }
 
     /* TODO This one is better. */
     public SamePosException(final String message) {
