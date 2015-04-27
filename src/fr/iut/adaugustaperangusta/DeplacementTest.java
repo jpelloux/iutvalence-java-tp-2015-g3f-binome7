@@ -41,6 +41,7 @@ public class DeplacementTest
 		System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
 
 		Scanner sc = new Scanner(System.in);
+		
 		while (!(game.isWin()))
 		{
 			//CHOIX DIRECTION
@@ -76,7 +77,7 @@ public class DeplacementTest
 			{
 				System.out.println("dpt en cours");
 				
-				//DEPL PERSO
+			//DEPL PERSO
 				game.getMap().moveTrav(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest)); //tableau
 				game.getCharacter().move(dirDeptTest);//positions
 			} else
@@ -91,9 +92,7 @@ public class DeplacementTest
 			System.out.println(game.getMap());
 			System.out.println(game.getCharacter().getPositionTrav());
 			System.out.println(game.getMap().getBlock().getPositionTrav());
-			//System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
-			//System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
-
+	
 		}
 		System.out.println("Good Job!");
 	}

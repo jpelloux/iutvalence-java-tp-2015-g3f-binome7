@@ -62,8 +62,12 @@ public class Game {
 	
 	public boolean isWin()
 	{
-		if(this.map.getCell(this.map.getBlock().getPositionTrav()).getOverlay() instanceof Target) return true;
-		return false;
+		for(int index =0 ; index < this.map.getNumberOfBlocks(); index++)
+		{
+			if(!(this.map.getCell(this.map.getBlock(index).getPositionTrav()).getOverlay() instanceof Target)) return false;
+
+		}
+		return true;
 	}
     @Override
     public String toString() {

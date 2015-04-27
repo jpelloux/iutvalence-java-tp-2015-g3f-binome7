@@ -19,7 +19,11 @@ import fr.iut.adaugustaperangusta.traveller.Traveller;
  */
 public class Map
 {
-	
+	/**
+	 * Default number of blocks. Used when no parameters are given to the constructor.
+	 */
+	private static final int	DEFAULT_NUMBER_OF_BLOCKS	= 1;
+
 	/**
 	 * Default height. Used when no parameters are given to the constructor.
 	 */
@@ -51,7 +55,8 @@ public class Map
 	/**
 	 *  Reference directe vers le block que contient la map
 	 */
-	private Block				block;
+	private final Block[]				block;
+	private final int numberOfBlocks;
 	
 	/**
 	 * Map constructor. Generates an array constituted of void Cells taking
@@ -63,8 +68,10 @@ public class Map
 	 *            Map's height.
 	 * @param width
 	 *            Map's width.
+	 * @param numberOfBlocks 
+	 * 			  Map's number of Blocks           
 	 */
-	public Map(int height, int width)
+	public Map(int height, int width,int numberOfBlocks)
 	{
 		this.width = width;
 		this.height = height;
@@ -76,7 +83,12 @@ public class Map
 				cellArray[cellHeight][cellWidth] = new Cell();
 			}
 		}
-		this.block = null;
+		this.numberOfBlocks = numberOfBlocks;
+		this.block = new Block[this.numberOfBlocks];
+		for(int index =0; index < this.numberOfBlocks; index++)
+		{
+			this.block[index]=null;
+		}
 	}
 	
 	/**
@@ -85,7 +97,7 @@ public class Map
 	 */
 	public Map()
 	{
-		this(DEFAULT_HEIGHT, DEFAULT_WIDTH);
+		this(DEFAULT_HEIGHT, DEFAULT_WIDTH,DEFAULT_NUMBER_OF_BLOCKS);
 	}
 	
 	/**
@@ -100,7 +112,9 @@ public class Map
 	{
 		this.width = 4;
 		this.height = 7;
-		this.block = new Block(new Position(4, 1), this);
+		this.numberOfBlocks = 1;
+		this.block = new Block[this.numberOfBlocks];
+		this.block[1] = new Block(new Position(4, 1), this);
 		this.cellArray = new Cell[this.height][this.width];
 		this.cellArray[0][0] = new Cell();
 		this.cellArray[0][1] = new Cell(new Wall());
@@ -119,7 +133,7 @@ public class Map
 		this.cellArray[3][2] = new Cell(new Target());
 		this.cellArray[3][3] = new Cell(new Wall());
 		this.cellArray[4][0] = new Cell(new Floor());
-		this.cellArray[4][1] = new Cell(new Floor(), this.block);
+		this.cellArray[4][1] = new Cell(new Floor(), this.block[0]);
 		this.cellArray[4][2] = new Cell(new Floor());
 		this.cellArray[4][3] = new Cell(new Floor());
 		this.cellArray[5][0] = new Cell(new Floor());
@@ -171,21 +185,22 @@ public class Map
 	
 	/* TODO Translate */
 	/**
-	 * 
-	 * @return Le bloc courrant de la map
+	 * @param index
+	 * @return Le bloc courrant de la map place a l'index 
 	 */
-	public Block getBlock()
+	public Block getBlock(int index)
 	{
-		return this.block;
+		// TODO Exception index invalide
+		return this.block[index];
 	}
 	
 	/* TODO Translate */
 	/**
 	 * @return Change le bloc  
 	 */
-	public void setBlock(Block block)
+	public void setBlock(Block block,int index)
 	{
-		this.block = block;
+		this.block[index] = block;
 	}
 	
 	/* TODO Translate */
@@ -211,6 +226,13 @@ public class Map
 		//Exceptions ???
 		return this.getCell(pos).getTraveller();
 	}
+	
+	/*TODO Javadoc */
+	public int getNumberOfBlocks()
+	{
+		return this.numberOfBlocks;
+	}
+
 	
 	/* TODO Translate */
 	/**
@@ -251,36 +273,23 @@ public class Map
 	public boolean isItAPushableBlock(Cell cell, Position posOrigine)
 	{
 		
-		// System.out.println("We reach isItAPushableBlock");
 		if (cell.getTraveller() == null)
 			return true;
-		// System.out.println("Le traveller est non null");
-		// System.out.println(cell.getTraveller());
 		if (!(cell.getTraveller() instanceof Block))
 			return false;
-		// System.out.println("C'est bien un block");
 		if (!(cell.getTraveller().isPushableFrom(posOrigine)))
 			return false;
-		// System.out.println("Il est bien pushable");
 		return true;
 	}
 	
 	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine)
 	{
-		// System.out.println("isItAPushableBLock(Pos,Pos)");
 		if (getCell(posToCheck).getTraveller() == null)
 			return true;
-		// System.out.println("Le traveller est non null");
-		// System.out.println(posToCheck);
-		// System.out.println(posOrigine);
-		// System.out.println(getCell(posOrigine));
-		// System.out.println(getCell(posToCheck));
 		if (!(getCell(posToCheck).getTraveller() instanceof Block))
 			return false;
-		// System.out.println("C'est bien un block");
 		if (!(getCell(posToCheck).getTraveller().isPushableFrom(posOrigine)))
 			return false;
-		// System.out.println("Il est bien pushable");
 		return true;
 	}
 	
@@ -316,23 +325,13 @@ public class Map
 	}
 	
 	public void moveTrav(Position origine, Position end)
-	{ // TODO Gestion cas cible
-	// System.out.println("----------------");
-	// System.out.println("Reach moveTrav");
-	// System.out.println(origine);
-	// System.out.println(end);
-	//
-	// System.out.println(this.isItAPushableBlock(end,origine)+" 124");
-	
+	{
 		if (this.isItAPushableBlock(end, origine)
 				&& (getCell(end).getTraveller() instanceof Block))
 		{
 			try
 			{
-				// System.out.println("----------------");
-				// System.out.println(origine.getRelative(end));
-				// System.out.println("----------------");
-				
+				// TODO List of block donc faut changer --> ajouter un blocNumber dans Block
 				this.moveTrav(end,
 						end.generatePosFromRelative(end.getRelative(origine)));
 				this.getBlock().move(end.getRelative(origine));
