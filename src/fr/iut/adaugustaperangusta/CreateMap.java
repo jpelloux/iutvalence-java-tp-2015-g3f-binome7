@@ -48,7 +48,8 @@ public final class CreateMap {
             /* Get the map size. */
             final int height = Integer.parseInt(fis.readLine());
             final int width = Integer.parseInt(fis.readLine());
-            map = new Map(height, width);
+            final int nbOfBlock = Integer.parseInt(fis.readLine());
+            map = new Map(height, width,nbOfBlock);
 
             /* Parse the map. */
             int lineIdx = 0;
