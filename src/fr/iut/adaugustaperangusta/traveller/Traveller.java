@@ -18,7 +18,7 @@ public abstract class Traveller
 
 	protected Position positionTrav;
 	protected Map mapTrav;
-
+	protected int travNumber;
 	// TODO Traveller : voir où on enregistre la position
 	// private Position position;
 	// public Position getPosition()
@@ -63,5 +63,9 @@ public abstract class Traveller
 		this.mapTrav = mapTrav;
 	}
 
+	public int getTravNumber()
+	{
+		return this.travNumber;
+	}
 	
 }

@@ -16,16 +16,17 @@ import fr.iut.adaugustaperangusta.exceptions.TooFarException;
  */
 public class Block extends Traveller
 {
-
+	
 	/**
 	 * Constructeur
 	 * @param pos Position du block
 	 * @param map Map contenant la map
 	 */
-	public Block(Position pos, Map map)
+	public Block(Position pos, Map map, int blockNumber)
 	{
 		this.positionTrav = pos;
 		this.mapTrav = map;
+		this.travNumber=blockNumber;
 	}
 	
 	/**
@@ -64,6 +65,7 @@ public class Block extends Traveller
 		}
 		
 	}
+
 
 	/**
 	 * Le block n'a pas de nom

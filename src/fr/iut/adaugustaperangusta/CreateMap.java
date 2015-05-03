@@ -106,8 +106,9 @@ public final class CreateMap {
             case 'o':
                 return new Cell(new Target());
             case 'b':
-                map.setBlock(new Block(new Position(y, x),map));
-            	return new Cell(new Floor(), map.getBlock());
+                map.setBlock(new Block(new Position(y, x),map,map.getActualNumberOfBlocks()),map.getActualNumberOfBlocks());
+               map.setActualNumberOfBlocks(map.getActualNumberOfBlocks() +1);
+            	return new Cell(new Floor(), map.getBlock(map.getActualNumberOfBlocks() -1));
             case 'v':
             	return new Cell(new Floor());
               //  return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
@@ -116,3 +117,4 @@ public final class CreateMap {
         }
     }
 }
+

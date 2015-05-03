@@ -36,7 +36,11 @@ public class DeplacementTest
 
 		System.out.println(game.getMap());
 		System.out.println(game.getCharacter().getPositionTrav());
-		System.out.println(game.getMap().getBlock().getPositionTrav());
+		for(int indexListeBlocks=0; indexListeBlocks <game.getMap().getActualNumberOfBlocks(); indexListeBlocks ++)
+		{
+			System.out.println(game.getMap().getBlock(indexListeBlocks).getPositionTrav());
+
+		}
 		System.out.println(game.getMap().getCell(game.getCharacter().getPositionTrav()).getTraveller());
 		System.out.println(game.getMap().getCell(game.getCharacter().posToCheck(dirDeptTest)).getTraveller());
 
@@ -73,7 +77,9 @@ public class DeplacementTest
 			if(dirDeptTest ==null) break;
 			
 			// DEPLACEMENT
-			if (game.getMap().isAccessibleFrom(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest)))
+			if (!(game.getMap().getCell(game.getCharacter().getPositionTrav().generatePosFromRelative(dirDeptTest).generatePosFromRelative(dirDeptTest)).getTraveller() instanceof Block 
+					&& game.getMap().getCell(game.getCharacter().getPositionTrav().generatePosFromRelative(dirDeptTest)).getTraveller() instanceof Block) && 
+					game.getMap().isAccessibleFrom(game.getCharacter().getPositionTrav(), game.getCharacter().posToCheck(dirDeptTest)))
 			{
 				System.out.println("dpt en cours");
 				
@@ -91,9 +97,14 @@ public class DeplacementTest
 			
 			System.out.println(game.getMap());
 			System.out.println(game.getCharacter().getPositionTrav());
-			System.out.println(game.getMap().getBlock().getPositionTrav());
-	
+			for(int indexListeBlocks=0; indexListeBlocks <game.getMap().getActualNumberOfBlocks(); indexListeBlocks ++)
+			{
+				System.out.println(game.getMap().getBlock(indexListeBlocks).getPositionTrav());
+
+			}	
 		}
 		System.out.println("Good Job!");
+
+
 	}
 }

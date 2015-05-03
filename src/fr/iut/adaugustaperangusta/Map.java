@@ -56,7 +56,10 @@ public class Map
 	 *  Reference directe vers le block que contient la map
 	 */
 	private final Block[]				block;
+	
 	private final int numberOfBlocks;
+	
+	private int actualNumberOfBlocks;
 	
 	/**
 	 * Map constructor. Generates an array constituted of void Cells taking
@@ -73,6 +76,7 @@ public class Map
 	 */
 	public Map(int height, int width,int numberOfBlocks)
 	{
+		this.actualNumberOfBlocks =0;
 		this.width = width;
 		this.height = height;
 		this.cellArray = new Cell[height][width];
@@ -114,7 +118,7 @@ public class Map
 		this.height = 7;
 		this.numberOfBlocks = 1;
 		this.block = new Block[this.numberOfBlocks];
-		this.block[1] = new Block(new Position(4, 1), this);
+		this.block[1] = new Block(new Position(4, 1), this,0);
 		this.cellArray = new Cell[this.height][this.width];
 		this.cellArray[0][0] = new Cell();
 		this.cellArray[0][1] = new Cell(new Wall());
@@ -234,6 +238,18 @@ public class Map
 	}
 
 	
+	/*TODO Javadoc */
+	public int getActualNumberOfBlocks()
+	{
+		return this.actualNumberOfBlocks;
+	}
+	
+	/*TODO Javadoc */
+	public void setActualNumberOfBlocks(int actualNumberOfBlocks)
+	{
+		this.actualNumberOfBlocks = actualNumberOfBlocks;
+	}
+
 	/* TODO Translate */
 	/**
 	 * Teste l'accessibilite de la cell dont la ref est en param
@@ -331,10 +347,16 @@ public class Map
 		{
 			try
 			{
+				//System.out.println(this.getCell(end).getTraveller().getPositionTrav());
+				//System.out.println(this.getBlock(index));
+				int localBlockIndex =getCell(end).getTraveller().getTravNumber();
+				System.out.println(this.getBlock(0));
+				System.out.println(this.getBlock(1));
+
 				// TODO List of block donc faut changer --> ajouter un blocNumber dans Block
 				this.moveTrav(end,
 						end.generatePosFromRelative(end.getRelative(origine)));
-				this.getBlock().move(end.getRelative(origine));
+				this.getBlock(localBlockIndex).move(end.getRelative(origine));
 			} catch (TooFarException e)
 			{
 				// TODO Auto-generated catch block

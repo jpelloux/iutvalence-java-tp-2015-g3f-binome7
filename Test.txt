@@ -1,6 +1,6 @@
 10
 20
-1
+2
 xxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxx
 xxx               xx
@@ -8,6 +8,6 @@ x                 xx
 x  o   xx     xxxxxx
 xx     xx     xxxxxx
 xx            xxxxxx
-xx   b        xxxxxx
+xx   b   b    xxxxxx
 xx  v             xx
 xxxxxxxxxxxxxxxxxxxx
