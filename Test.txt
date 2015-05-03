@@ -8,6 +8,6 @@ x                 xx
 x  o   xx     xxxxxx
 xx     xx     xxxxxx
 xx            xxxxxx
-xx   b   b    xxxxxx
+xx   b   bo   xxxxxx
 xx  v             xx
 xxxxxxxxxxxxxxxxxxxx
