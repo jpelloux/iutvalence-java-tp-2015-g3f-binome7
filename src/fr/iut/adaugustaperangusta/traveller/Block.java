@@ -86,4 +86,10 @@ public class Block extends Traveller
 	{
 		return "O";
 	}
+
+	/* TODO JAVADOC. */
+	public boolean isBlock()
+	{
+		return true;
+	}
 }

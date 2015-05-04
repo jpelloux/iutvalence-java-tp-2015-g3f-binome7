@@ -5,6 +5,7 @@ import java.util.Scanner;
 import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
+import fr.iut.adaugustaperangusta.traveller.Traveller;
 
 
 /**
@@ -86,9 +87,7 @@ public class Game {
 		{
 			dirDeptTest = this.getMove();
 			
-			if (!(this.map.getCell(this.character.getPositionTrav().generatePosFromRelative(dirDeptTest).generatePosFromRelative(dirDeptTest)).getTraveller() instanceof Block 
-					&& this.map.getCell(this.character.getPositionTrav().generatePosFromRelative(dirDeptTest)).getTraveller() instanceof Block) && 
-					this.map.isAccessibleFrom(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest)))
+			if (this.isMovable(dirDeptTest))
 			{
 				this.map.moveTrav(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest)); //tableau
 				this.character.move(dirDeptTest);//positions
@@ -134,6 +133,27 @@ public class Game {
 		}
 	}
 	
+	/* TODO JAVADOC. */
+	private Traveller getTravellerFromCharInDirectionAtRangeN(RelativePos direction,int range)
+	{
+		System.out.println(this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller());
+		return this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller();
+	}
+	
+	/* TODO JAVADOC. */
+	private boolean isMovable(RelativePos direction)
+	{
+		Traveller travCellPlusOne = this.getTravellerFromCharInDirectionAtRangeN(direction, 1);
+		Traveller travCellPlusTwo = this.getTravellerFromCharInDirectionAtRangeN(direction, 2);
+		if(travCellPlusOne != null && travCellPlusTwo != null)
+		{
+			if(travCellPlusOne.isBlock() && travCellPlusTwo.isBlock())
+			{
+				return false;
+			}
+		}
+		return this.map.isAccessibleFrom(this.character.getPositionTrav(), this.character.posToCheck(direction));	
+	}
 	
 	/* TODO JAVADOC. */
     @Override

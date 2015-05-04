@@ -39,6 +39,12 @@ public class Character extends Traveller
 		return false;
 	}
 	
+	/* TODO JAVADOC */
+	public boolean isBlock()
+	{
+		return false;
+	}
+	
 	/* TODO In Traveller ? */
 	/* TODO Translate. */
 	/**

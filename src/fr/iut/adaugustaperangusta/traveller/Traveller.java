@@ -32,6 +32,8 @@ public abstract class Traveller
 
 	public abstract boolean isPushableFrom(Position posPlayer);
 	
+	public abstract boolean isBlock();
+	
 	public Position posToCheck(RelativePos direction)
 	{
 		return (this.positionTrav.generatePosFromRelative(direction));
@@ -67,5 +69,7 @@ public abstract class Traveller
 	{
 		return this.travNumber;
 	}
+
+	
 	
 }
