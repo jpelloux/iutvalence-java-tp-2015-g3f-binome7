@@ -46,7 +46,7 @@ public class DeplacementTest
 
 		Scanner sc = new Scanner(System.in);
 		
-		while (!(game.isWin()))
+		while (!(game.isWon()))
 		{
 			//CHOIX DIRECTION
 			String mouvement = sc.nextLine();

@@ -1,6 +1,9 @@
 package fr.iut.adaugustaperangusta;
 
+import java.util.Scanner;
+
 import fr.iut.adaugustaperangusta.overlay.Target;
+import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
 
 
@@ -60,7 +63,9 @@ public class Game {
 		this.character = character;
 	}
 	
-	public boolean isWin()
+	
+	/* TODO JAVADOC. */
+	public boolean isWon()
 	{
 		for(int index =0 ; index < this.map.getNumberOfBlocks(); index++)
 		{
@@ -69,6 +74,70 @@ public class Game {
 		}
 		return true;
 	}
+	
+	/* TODO JAVADOC. */
+
+	public void play()
+	{
+		
+		RelativePos dirDeptTest = null;
+		System.out.println(this.map);
+
+		while(!(this.isWon()))
+		{
+			dirDeptTest = this.getMove();
+			
+			if (!(this.map.getCell(this.character.getPositionTrav().generatePosFromRelative(dirDeptTest).generatePosFromRelative(dirDeptTest)).getTraveller() instanceof Block 
+					&& this.map.getCell(this.character.getPositionTrav().generatePosFromRelative(dirDeptTest)).getTraveller() instanceof Block) && 
+					this.map.isAccessibleFrom(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest)))
+			{
+				this.map.moveTrav(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest)); //tableau
+				this.character.move(dirDeptTest);//positions
+				
+			} else
+			{
+				System.out.println("-------------");
+				System.out.println("Dpt imp"); // Test moche
+				System.out.println(dirDeptTest);
+				System.out.println(this.character.getPositionTrav());
+				System.out.println(this.character.posToCheck(dirDeptTest));
+			}
+			
+			System.out.println(this.map);
+			
+		}
+		System.out.println("Good Job!");
+
+	}
+	
+	/* TODO JAVADOC. */
+
+	public RelativePos getMove()
+	{
+		Scanner sc = new Scanner(System.in);
+		while(true)
+		{
+			String mouvement = sc.nextLine();  // simplifier?
+			char charMvt = mouvement.charAt(0);
+	
+			switch (charMvt)
+			{
+			case 'z':
+				return RelativePos.NORTH;
+			case 'q':
+				return RelativePos.WEST;
+			case 's':
+				return RelativePos.SOUTH;
+			case 'd':
+				return RelativePos.EAST;
+			default:
+				System.out.println("Invalid Input"); 
+			}
+		}
+	}
+	
+	
+	/* TODO JAVADOC. */
     @Override
     public String toString() {
         return map.toString();

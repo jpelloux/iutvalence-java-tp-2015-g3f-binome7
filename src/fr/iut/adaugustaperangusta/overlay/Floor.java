@@ -1,18 +1,17 @@
 package fr.iut.adaugustaperangusta.overlay;
 
-/* TODO Translate. */
 /**
- * Sol praticable.
- * Le Character peut se déplacer et pousser des Blocks dessus.
- *
- * @author TODO
- * @version TODO
+ * Ground you could travel.
+ * The Character can move and push blocks on it
+ * 
+ * @author jpelloux and cearda
+ * @version 1.0.0
  */
 
 public class Floor implements Overlay
 {
 	/**
-	 * Une cellule est toujours accessible.
+	 * A Cell is alway reachable
 	 */
 	@Override
 	public boolean isAccessible()
@@ -22,10 +21,10 @@ public class Floor implements Overlay
 	}
 
 	/**
-	 * Méthode d'affichage.
-	 * Affiche un espace sur la sortie standard.
-	 * Ce caractère s'affiche deux fois dans chaque case.
-	 * Exemple : | v |
+	 * Display method.
+	 * Print a space on standart output
+	 * This char is print twice in each cell.
+	 * Example : | v |
 	 */
 	@Override
 	public String toString()

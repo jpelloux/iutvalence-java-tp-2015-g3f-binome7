@@ -2,12 +2,9 @@ package fr.iut.adaugustaperangusta.overlay;
 
 import fr.iut.adaugustaperangusta.RelativePos;
 
-/* TODO Translate. */
-
 /**
- * Éléments constituant la Map.
- * Interface. Super-classe de tous les éléments fixes de la map.
- * Floor, Wall et Target en sont héritées.
+ * Elements structuring the Map.
+ * Interface. Super-classe of fixed elements of the Map (Floor, Wall et Target)
  *
  * @author jpellou and Axce
  * @version 1.0.0
