@@ -29,10 +29,10 @@ public class DeplacementTest
 		RelativePos dirDeptTest;
 		dirDeptTest = null;
 
-		Character player = new Character("Findus", new Position(8, 5));
+		Character player = new Character("Findus", new Position(4, 4));
 		//Character player = new Character("Findus", new Position(4, 3));
 		//Game game = new Game(new Map('a'), player);
-		Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
+		Game game = new Game(CreateMap.importFromFile("Map2.txt"), player);
 
 		System.out.println(game.getMap());
 		System.out.println(game.getCharacter().getPositionTrav());

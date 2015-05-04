@@ -34,6 +34,7 @@ public final class CreateMap {
      * File format:<br>
      * HEIGHT (int)<br>
      * WIDTH  (int)<br>
+     * NB Of block (int)<br>
      * MAP (respecting the above header)<br>
      *
      * @param filename source file.
