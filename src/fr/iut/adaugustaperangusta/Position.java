@@ -98,6 +98,17 @@ public class Position
 		return new Position(this.x+deltaX, this.y+deltaY);
 	}
 	
+	public Position generatePosFromRelativeAtRangeN(RelativePos direction,int range)
+	{
+		int deltaX=0, deltaY=0;
+		if(direction == RelativePos.EAST) deltaY += range;
+		if(direction == RelativePos.WEST) deltaY -= range;
+		if(direction == RelativePos.SOUTH) deltaX += range;
+		if(direction == RelativePos.NORTH) deltaX -= range;
+		
+		return new Position(this.x+deltaX, this.y+deltaY);
+	}
+	
 	public void addRelative(RelativePos direction)
 	{
 		// TODO gerer le dépacement de map 

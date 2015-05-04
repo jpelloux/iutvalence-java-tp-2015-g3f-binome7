@@ -76,7 +76,6 @@ public class Game {
 	}
 	
 	/* TODO JAVADOC. */
-
 	public void play()
 	{
 		
@@ -111,7 +110,6 @@ public class Game {
 	}
 	
 	/* TODO JAVADOC. */
-
 	public RelativePos getMove()
 	{
 		Scanner sc = new Scanner(System.in);
