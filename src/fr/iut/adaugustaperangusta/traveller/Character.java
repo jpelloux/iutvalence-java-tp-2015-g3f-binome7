@@ -1,68 +1,54 @@
 package fr.iut.adaugustaperangusta.traveller;
 
+import fr.iut.adaugustaperangusta.Map;
+
 import fr.iut.adaugustaperangusta.Position;
 
-/* TODO Translate. */
 /**
- * Personnage jouable.
- * Il peut pousser les Blocks.
+ * Playable Character.
+ * Can push Blocks.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux and Axce
+ * @version 1.1.0
  */
 public class Character extends Traveller
 {
-	/* TODO In Traveler ? */
-	/* TODO Translate. */
-	/** Nom du Character. */
-	private String	name;
 
-	
-	/* TODO Translate. */
 	/**
-	 * Constructeur Character.
+	 * Character constructor.
 	 * 
-	 * @param name	le nom du personnage.
-	 * @param pos   la position du personnage
+	 * @param name	Character's name.
+	 * @param pos   Character's Position.
+	 * @param map   Character's Map.
 	 */
-	public Character(String name, Position pos)
+	public Character(String name, Position pos,Map map)
 	{
 		this.name= name;
-		this.positionTrav= pos;
-	    
+		this.positionTrav= pos;   
 	}
 	
 	/**
-	 * On ne peut pas pousse un Character
+	 * Character is not pushable.
+	 * @return false
 	 */
 	public boolean isPushableFrom(Position posPlayer) {
 		return false;
 	}
-	
-	/* TODO JAVADOC */
+
+	/**
+	 * A character is not a Block.
+	 * @return false
+	 */
 	public boolean isBlock()
 	{
 		return false;
 	}
-	
-	/* TODO In Traveller ? */
-	/* TODO Translate. */
-	/**
-	 * Getter du nom.
-	 * 
-	 * @return Le nom du Character.
-	 */
-	@Override
-	public String getName()
-	{
-		return this.name;
-	}
 
-	/* TODO Translate. */
 	/**
-	 * Méthode d'affichage.
-	 * Affiche le caractère 'v' sur la sortie standard.
-	 * Ce caractère s'affiche au centre de chaque case.
+     * Display method.
+     * Prints 'v' on standard output.
+     * Is displayed at the center of the Cell.
+     * Example : | v |
 	 */
 	@Override
 	public String toString()

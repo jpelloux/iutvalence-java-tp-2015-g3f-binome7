@@ -90,14 +90,14 @@ public final class CreateMap {
      * <li>x -> Wall</li>
      * <li>o -> Target</li>
      * <li>b -> Block</li>
-     * <li>v -> Character("Unknown", Position(x,y))</li>
+     * <li>v -> Character("Unknown", Position(x,y),map)</li>
      * <li>others -> Floor</li>
      * </ul>
      *
-     * @param c The character
-     * @param x The 'x' position of the Cell in the final map
-     * @param y The 'y' position of the Cell in the final map
-     *
+     * @param c The character.
+     * @param x The 'x' position of the Cell in the final map.
+     * @param y The 'y' position of the Cell in the final map.
+     * @param map The map we are creating.
      * @return The generated Cell.
      */
     private static Cell generateCellFromCharacter(final char c, final int x, final int y,Map map) {
@@ -111,8 +111,7 @@ public final class CreateMap {
                map.setActualNumberOfBlocks(map.getActualNumberOfBlocks() +1);
             	return new Cell(new Floor(), map.getBlock(map.getActualNumberOfBlocks() -1));
             case 'v':
-            	return new Cell(new Floor());
-              //  return new Cell(new Floor(), new Character("Unknown", new Position(x, y)));
+                return new Cell(new Floor(), new Character("Unknown", new Position(y, x),map));
             default:
                 return new Cell(new Floor());
         }

@@ -3,6 +3,6 @@
  * Contains Blocks and Character.
  * 
  * @author jpelloux and Axce
- * @version TODO
+ * @version 1.1.0
  */
 package fr.iut.adaugustaperangusta.traveller;

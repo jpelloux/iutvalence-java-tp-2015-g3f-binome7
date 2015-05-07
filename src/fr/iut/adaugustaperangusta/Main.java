@@ -16,8 +16,9 @@ public class Main
 	public static void main(String[] args)
 	{
 
-		Character player = new Character("Findus", new Position(8, 5)); // Faire les verif de creation de perso concordant avec la map
-		Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
+		//Character player = new Character("Findus", new Position(8, 5)); // Faire les verif de creation de perso concordant avec la map
+		//Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
+		Game game = new Game(CreateMap.importFromFile("Test.txt"));
 		game.play();
 	}
 

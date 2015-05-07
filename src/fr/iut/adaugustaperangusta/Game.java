@@ -22,17 +22,28 @@ public class Game {
     private Character character;
 
     /* TODO JAVADOC. */
-    public Game(Map map, Character character) {
+    public Game(Map map){//, Character character) {
         this.map = map;
-        this.character = character;
-        this.implementPlayer(character);
+        this.character = null;
+        //this.character = character;
+        this.implementPlayer();//character);
     }
 
-    private void implementPlayer(Character player)
+    private void implementPlayer()//Character player)
 	{
-		this.map.getCell(player.getPositionTrav()).setCellTraveller(player);
-		player.setMapTrav(this.map);
-		
+    	for(int mapHeight=0; mapHeight < this.map.getHeight();mapHeight++)
+    	{
+    		for(int mapWidth=0; mapWidth < this.map.getWidth();mapWidth++)
+        	{
+        		if(this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller() != null 
+        				&& this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller().toString() =="v")
+        		{
+        			this.character=(Character) this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller();
+        			break;
+        		}
+        	}
+    		if(this.character != null) break;
+    	}	
 	}
 
 	/* TODO JAVADOC. */

@@ -4,7 +4,7 @@ import fr.iut.adaugustaperangusta.RelativePos;
 
 /**
  * Elements structuring the Map.
- * Interface. Super-class of fixed elements of the Map (Floor, Wall and Target)
+ * Interface. Super-class of fixed elements of the Map.
  *
  * @author jpelloux and Axce
  * @version 1.1.0

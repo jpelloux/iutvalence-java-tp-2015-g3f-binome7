@@ -6,32 +6,34 @@ import fr.iut.adaugustaperangusta.RelativePos;
 import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
-/* TODO Translate. */
 /**
- * Bloc déplaçable. Le joueur peut les <strong>pousser</strong>. Le but est
- * d'amener tous les Blocks sur des Targets.
+ * Pushable Block. The Character can <strong>push</strong> them.
+ * The goal is to bring all of them on targets.
  *
  * @author jpelloux and Axce
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class Block extends Traveller
 {
 	
 	/**
-	 * Constructeur
-	 * @param pos Position du block
-	 * @param map Map contenant la map
+	 * Block constructor.
+	 * @param pos Block's position
+	 * @param map Map containing the block
 	 */
 	public Block(Position pos, Map map, int blockNumber)
 	{
 		this.positionTrav = pos;
 		this.mapTrav = map;
 		this.travNumber=blockNumber;
+		this.name =null;
 	}
 	
 	/**
-	 * Verifie si le bloc est poussable depuis une position donné
-	 *  @param posPlayer la position depuis laquelle le bloc est poussé
+	 * Checks if the Block is pushable from a given Position.
+	 * @param posPlayer Position from which the Block is pushed.
+	 * @see Position
+	 * @see RelativePos
 	 */
 	public boolean isPushableFrom(Position posPlayer)
 	{
@@ -60,26 +62,19 @@ public class Block extends Traveller
 		case WEST:
 			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST));
 		default:
-			System.out.println("we reach isPushableFrom exceptions"); //EXCEPTIONS...
+			System.out.println("we reach isPushableFrom exceptions"); //TODO EXCEPTIONS...
 			return false;
 		}
 		
 	}
 
 
-	/**
-	 * Le block n'a pas de nom
-	 * @see fr.iut.adaugustaperangusta.traveller.Traveller#getName()
-	 */
-	@Override
-	public String getName()
-	{
-		return null;
-	}
 
 	/**
-	 * Méthode d'affichage. Affiche le caractère 'O' sur la sortie standard. Ce
-	 * caractère s'affiche au centre de chaque case.
+     * Display method.
+     * Prints 'O' on standard output.
+     * Is displayed at the center of each Cell.
+     * Example : | O |
 	 */
 	@Override
 	public String toString()
@@ -87,7 +82,11 @@ public class Block extends Traveller
 		return "O";
 	}
 
-	/* TODO JAVADOC. */
+	/**
+	 * This traveller is a Block.
+	 * @return true if this Traveller is a Block
+	 */
+	@Override
 	public boolean isBlock()
 	{
 		return true;

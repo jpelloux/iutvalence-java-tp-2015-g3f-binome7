@@ -4,72 +4,110 @@ import fr.iut.adaugustaperangusta.Map;
 import fr.iut.adaugustaperangusta.Position;
 import fr.iut.adaugustaperangusta.RelativePos;
 
-/* TODO Translate. */
 
 /**
- * Objets en mouvement. Classe abstraite. Super-classe de tous les objets en
- * mouvement sur la map. Block et Character en sont héritées.
+ * Moving objects.
+ * Super-class of every moving objects on the Map.
  *
- * @author TODO
- * @version TODO
+ * @author jpelloux and Axce
+ * @version 1.1.0
  */
 public abstract class Traveller
 {
-
-	protected Position positionTrav;
+	
+	/** Traveller's name */
+	protected String	name;
+	
+	/** Traveller's Position. */
+	protected Position 	positionTrav;
+	
+	/** Map that is travelled. */
 	protected Map mapTrav;
-	protected int travNumber;
-	// TODO Traveller : voir où on enregistre la position
-	// private Position position;
-	// public Position getPosition()
-	// {
-	// return this.position;
-	// }
+	
+	/**
+	 * Traveller's number.
+	 * used for listing Blocks
+	 */
+	protected int 		travNumber;
 
-	/* TODO Translate. */
-	/** Position du Traveller. */
-	public abstract String getName();
-
+	/**
+	 * Checks is the way is free for the Traveller to be pushed.
+	 * Only Blocks are pushable.
+	 * 
+	 * @param posPlayer Position from which the Block is pushed.
+	 * @return true if the Block is pushable in the context.
+	 * @see RelativePos
+	 */
 	public abstract boolean isPushableFrom(Position posPlayer);
 	
+	/**
+	 * Checks if Traveller's instance is also a Block's instance.
+	 * 
+	 * @return true if it's a Block
+	 */
 	public abstract boolean isBlock();
 	
+	/**
+	 * Returns end position of a Blocked being pushed.
+	 * This position must be tested for walkability.
+	 * 
+	 * @param direction Direction in which the Block is pushed.
+	 * @return end position of a Blocked being pushed.
+	 */
 	public Position posToCheck(RelativePos direction)
 	{
 		return (this.positionTrav.generatePosFromRelative(direction));
 	}
 
+	/**
+	 * Changes by 1 the Traveller's Position in a given direction (RelativePos).
+	 * @param direction Direction of the Traveller's movement
+	 * @see RelativePos
+	 */
 	public void move(RelativePos direction)
 	{
-
 		this.positionTrav.addRelative(direction); 
 	}
 
+	/**
+	 * @return Traveller's Position.
+	 */
 	public Position getPositionTrav()
 	{
 		return positionTrav;
 	}
 
+	/**
+	 * @param Traveller's Position.
+	 */
 	public void setPositionTrav(Position positionTrav)
 	{
 		this.positionTrav = positionTrav;
 	}
 
+	/**
+	 * @return Map where the Traveller is.
+	 */
 	public Map getMapTrav()
 	{
 		return mapTrav;
 	}
 
-	public void setMapTrav(Map mapTrav)
-	{
-		this.mapTrav = mapTrav;
-	}
-
+	/**
+	 * @return Traveller's number.
+	 */
 	public int getTravNumber()
 	{
 		return this.travNumber;
 	}
 
-	
+	/**
+	 * @return Traveller's name.
+	 */
+	public String getName()
+	{
+		return this.name;
+	}
+
 	
 }
