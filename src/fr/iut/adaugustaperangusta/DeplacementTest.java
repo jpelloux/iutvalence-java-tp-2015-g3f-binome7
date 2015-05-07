@@ -13,6 +13,7 @@ import fr.iut.adaugustaperangusta.traveller.Character;
  *
  * @author jpelloux
  * @version 1.0.0
+ * @deprecated
  */
 
 public class DeplacementTest

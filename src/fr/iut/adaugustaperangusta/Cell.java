@@ -3,14 +3,13 @@ package fr.iut.adaugustaperangusta;
 import fr.iut.adaugustaperangusta.overlay.*;
 import fr.iut.adaugustaperangusta.traveller.*;
 
-/* TODO Translate. */
 /**
  * Cell dividing the Map.
  * Contains 0 or 1 Overlay.
  * Contains 0 or 1 Traveller.
  *
- * @author jpelloux & Axce
- * @version 1.0.0
+ * @author jpelloux and Axce
+ * @version 1.1.0
  */
 public class Cell
 {

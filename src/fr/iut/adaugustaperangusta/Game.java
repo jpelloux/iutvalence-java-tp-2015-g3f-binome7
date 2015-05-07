@@ -9,27 +9,38 @@ import fr.iut.adaugustaperangusta.traveller.Traveller;
 
 
 /**
- * Game using a Map.
+ * Class containing the attributes of one game.
  *
- * @author jpelloux & Axce
- * @version 1.0.0
+ * @author jpelloux and Axce
+ * @version 1.1.0
  */
 public class Game {
-    /* TODO JAVADOC. */
-    private Map       map;
 
-	/* TODO JAVADOC. */
+	/**
+	 * Map used for the Game.
+	 */
+	private Map       map;
+
+	/**
+	 * Character used for the Game.
+	 */
     private Character character;
 
-    /* TODO JAVADOC. */
-    public Game(Map map){//, Character character) {
+    /**
+     * Game constructor.
+     * Sets the map to be solved.
+     */
+    public Game(Map map)
+    {
         this.map = map;
         this.character = null;
-        //this.character = character;
-        this.implementPlayer();//character);
+        this.implementPlayer();
     }
 
-    private void implementPlayer()//Character player)
+    /**
+     * Search for the Character into the Map to put it into the <tt>character</tt> field.
+     */
+    private void implementPlayer()
 	{
     	for(int mapHeight=0; mapHeight < this.map.getHeight();mapHeight++)
     	{
@@ -45,39 +56,11 @@ public class Game {
     		if(this.character != null) break;
     	}	
 	}
-
-	/* TODO JAVADOC. */
-    public void print() {
-        System.out.println(this);
-    }
     
-    /* TODO JAVADOC. */
-    public Map getMap()
-	{
-		return map;
-	}
-
-    /* TODO JAVADOC. */
-	public void setMap(Map map)
-	{
-		this.map = map;
-	}
-
-	/* TODO JAVADOC. */
-	public Character getCharacter()
-	{
-		return character;
-	}
-
-	/* TODO JAVADOC. */
-	public void setCharacter(Character character)
-	{
-		this.character = character;
-	}
-	
-	
-	/* TODO JAVADOC. */
-	public boolean isWon()
+    /**
+     * @return true if all the Blocks are on Targets.
+     */
+    public boolean isWon()
 	{
 		for(int index =0 ; index < this.map.getNumberOfBlocks(); index++)
 		{
@@ -87,7 +70,10 @@ public class Game {
 		return true;
 	}
 	
-	/* TODO JAVADOC. */
+    /**
+     * Game engine.
+     * Loops until the game is won.
+     */
 	public void play()
 	{
 		
@@ -98,7 +84,7 @@ public class Game {
 		{
 			dirDeptTest = this.getMove();
 			
-			if (this.isMovable(dirDeptTest))
+			if (this.isCharacterMovable(dirDeptTest))
 			{
 				this.map.moveTrav(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest)); //tableau
 				this.character.move(dirDeptTest);//positions
@@ -111,15 +97,16 @@ public class Game {
 				System.out.println(this.character.getPositionTrav());
 				System.out.println(this.character.posToCheck(dirDeptTest));
 			}
-			
 			System.out.println(this.map);
-			
 		}
 		System.out.println("Good Job!");
-
 	}
 	
-	/* TODO JAVADOC. */
+	/**
+	 * Converts a <tt>char</tt> (z,q,s,d) into a RelativePos.
+	 * @return the player's next move.
+	 * @see RelativePos
+	 */
 	public RelativePos getMove()
 	{
 		Scanner sc = new Scanner(System.in);
@@ -139,20 +126,29 @@ public class Game {
 			case 'd':
 				return RelativePos.EAST;
 			default:
-				System.out.println("Invalid Input"); 
+				System.out.println("Invalid Input"); 	//TODO Exception (quit game)
 			}
 		}
 	}
 	
-	/* TODO JAVADOC. */
+	/**
+	 * @param direction which direction to check.
+	 * @param range distance from the Character
+	 * @return the Traveller standing on the Nth Cell from the Character in the given direction.
+	 * @see RelativePos
+	 */
 	private Traveller getTravellerFromCharInDirectionAtRangeN(RelativePos direction,int range)
 	{
 		System.out.println(this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller());
 		return this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller();
 	}
 	
-	/* TODO JAVADOC. */
-	private boolean isMovable(RelativePos direction)
+	/**
+	 * Checks if the move given by the player is achievable.
+	 * @param direction Moving Direction chosen by the player.
+	 * @return true if possible.
+	 */
+	private boolean isCharacterMovable(RelativePos direction)
 	{
 		Traveller travCellPlusOne = this.getTravellerFromCharInDirectionAtRangeN(direction, 1);
 		Traveller travCellPlusTwo = this.getTravellerFromCharInDirectionAtRangeN(direction, 2);
@@ -166,7 +162,9 @@ public class Game {
 		return this.map.isAccessibleFrom(this.character.getPositionTrav(), this.character.posToCheck(direction));	
 	}
 	
-	/* TODO JAVADOC. */
+	/**
+	 * Prints the Map.
+	 */
     @Override
     public String toString() {
         return map.toString();
