@@ -1,11 +1,11 @@
 package fr.iut.adaugustaperangusta.overlay;
 
 /**
- * Ground you could travel.
+ * Ground you can travel on.
  * The Character can move and push blocks on it
  * 
  * @author jpelloux and cearda
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 public class Floor implements Overlay
@@ -17,7 +17,6 @@ public class Floor implements Overlay
 	public boolean isAccessible()
 	{
 		return true; 
-		
 	}
 
 	/**

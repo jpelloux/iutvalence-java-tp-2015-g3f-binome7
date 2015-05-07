@@ -4,14 +4,14 @@ import fr.iut.adaugustaperangusta.RelativePos;
 
 /**
  * Elements structuring the Map.
- * Interface. Super-classe of fixed elements of the Map (Floor, Wall et Target)
+ * Interface. Super-class of fixed elements of the Map (Floor, Wall and Target)
  *
- * @author jpellou and Axce
- * @version 1.0.0
+ * @author jpelloux and Axce
+ * @version 1.1.0
  */
 public interface Overlay {
     /**
-     * Availability test.
+     * Walkablility test.
      *
      * @return <True> if walkable by travellers
      */

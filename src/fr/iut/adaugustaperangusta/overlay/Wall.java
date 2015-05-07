@@ -1,19 +1,17 @@
 package fr.iut.adaugustaperangusta.overlay;
 
-/* TODO Translate. */
 /**
- * Mur impraticable.
- * Le Character et les Blocks ne peuvent pas les traverser.
- * Ils délimitent la Map.
+ * Unaccessible Wall.
+ * The Character and Blocks can't walk through it.
+ * A Map must be surounded by Walls.
  *
  * @author jpelloux and Axce
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class Wall implements Overlay
 {
 	/**
-	 * un mur n'est jamais accessible
-	 * 
+	 * A Wall is unaccessible.
 	 */
 	@Override
 	public boolean isAccessible()
@@ -21,12 +19,11 @@ public class Wall implements Overlay
 		return false;
 	}
 
-	/* TODO Translate. */
 	/**
-	 * Méthode d'affichage.
-	 * Affiche le caractère 'W' sur la sortie standard.
-	 * Ce caractère s'affiche deux fois dans chaque case.
-	 * Exemple : |W W|
+     * Display method.
+     * Prints 'W' on standard output.
+     * Is displayed twice for each Cell.
+     * Example : |W W|
 	 */
 	public String toString()
 	{
