@@ -17,6 +17,10 @@ import fr.iut.adaugustaperangusta.traveller.Traveller;
  * @author jpelloux & Axce
  * @version 1.0.0
  */
+/**
+ * @author pellouju
+ *
+ */
 public class Map
 {
 	/**
@@ -51,14 +55,21 @@ public class Map
 	 */
 	private final Cell[][]		cellArray;
 	
-	/* TODO Translate */
+
 	/**
-	 *  Reference directe vers le block que contient la map
+	 *  Block's references list. 
+	 *  Used to browse through Blocks. 
 	 */
 	private final Block[]				block;
 	
+	/**
+	 * The number of Block in the map
+	 */
 	private final int numberOfBlocks;
 	
+	/**
+	 * The number of Block who are currently define
+	 */
 	private int actualNumberOfBlocks;
 	
 	/**
@@ -187,10 +198,9 @@ public class Map
 		return this.width;
 	}
 	
-	/* TODO Translate */
 	/**
 	 * @param index
-	 * @return Le bloc courrant de la map place a l'index 
+	 * @return The Block's reference that is at this.block[index].
 	 */
 	public Block getBlock(int index)
 	{
@@ -198,66 +208,76 @@ public class Map
 		return this.block[index];
 	}
 	
-	/* TODO Translate */
 	/**
-	 * @return Change le bloc  
+	 * @param block The new block's reference
+	 * @param index 
+	 * @return Modify the Block's reference at this.block[index] . 
 	 */
 	public void setBlock(Block block,int index)
 	{
+		// TODO Exception index invalide
 		this.block[index] = block;
 	}
 	
-	/* TODO Translate */
 	/**
-	 * Retourne la ref de la cellule présente a la pos en param
-	 * @param pos
-	 * @return
+	 * @param pos 
+	 * @return Cell's references at given pos.
 	 */
 	public Cell getCell(Position pos)
 	{
-		//Exceptions ???
+		// TODO Exceptions 
 		return this.cellArray[pos.getX()][pos.getY()];
 	}
 	
-	/* TODO Translate */
+
 	/**
-	 * Retourne la ref du traveller present a la pos en param. Null si pas de traveller
+	 * Return the Traveller's references that is at the given position. 
+	 * Null if no Traveller at this position.
 	 * @param pos
-	 * @return
+	 * @return Traveller's references or Null
 	 */
 	public Traveller getTraveller(Position pos)
 	{
-		//Exceptions ???
+		// TODO Exceptions Invalide pos
 		return this.getCell(pos).getTraveller();
 	}
 	
-	/*TODO Javadoc */
+
+	/**
+	 * @return The number of block in the map.
+	 */
 	public int getNumberOfBlocks()
 	{
 		return this.numberOfBlocks;
 	}
 
 	
-	/*TODO Javadoc */
+	/**
+	 * @return The actual number of block in the map.
+	 */
 	public int getActualNumberOfBlocks()
 	{
 		return this.actualNumberOfBlocks;
 	}
 	
-	/*TODO Javadoc */
+	
+	/**
+	 * @param actualNumberOfBlocks The new actual number of block.
+	 */
 	public void setActualNumberOfBlocks(int actualNumberOfBlocks)
 	{
+		// TODO Exception TooManyBlocks
 		this.actualNumberOfBlocks = actualNumberOfBlocks;
 	}
 
-	/* TODO Translate */
 	/**
-	 * Teste l'accessibilite de la cell dont la ref est en param
-	 * @param cell
-	 * @return
+	 * Try the given cell's accessibility.
+	 * @param cell Cell's reference we want to try
+	 * @return True if the cell is accessible.
 	 */
 	public boolean isAccessible(Cell cell)
 	{
+		// TODO Exception?
 		return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
 	}
 	
