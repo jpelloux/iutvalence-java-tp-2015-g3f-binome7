@@ -1,8 +1,7 @@
 package fr.iut.adaugustaperangusta.overlay;
 
 /**
- * Unaccessible Wall.
- * The Character and Blocks can't walk through it.
+ * Unaccessible Wall. The Character and Blocks can't walk through it. 
  * A Map must be surounded by Walls.
  *
  * @author jpelloux and Axce
@@ -20,14 +19,12 @@ public class Wall implements Overlay
 	}
 
 	/**
-     * Display method.
-     * Prints 'W' on standard output.
-     * Is displayed twice for each Cell.
-     * Example : |W W|
+	 * Display method. Prints 'W' on standard output. Is displayed twice for
+	 * each Cell. Example : |W W|
 	 */
 	public String toString()
 	{
 		return "W";
 	}
-	
+
 }

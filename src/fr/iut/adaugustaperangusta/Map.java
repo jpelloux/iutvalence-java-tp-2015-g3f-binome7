@@ -9,69 +9,63 @@ import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
 import fr.iut.adaugustaperangusta.traveller.Traveller;
 
-/* TODO Translate. */
-
 /**
  * Map where a game takes place. Contains a Cell array.
  *
  * @author jpelloux & Axce
- * @version 1.0.0
+ * @version 1.1.0
  */
-/**
- * @author pellouju
- *
- */
+
 public class Map
 {
 	/**
-	 * Default number of blocks. Used when no parameters are given to the constructor.
+	 * Default number of blocks. Used when no parameters are given to the
+	 * constructor.
 	 */
-	private static final int	DEFAULT_NUMBER_OF_BLOCKS	= 1;
+	private static final int DEFAULT_NUMBER_OF_BLOCKS = 1;
 
 	/**
 	 * Default height. Used when no parameters are given to the constructor.
 	 */
-	private static final int	DEFAULT_HEIGHT	= 10;
-	
+	private static final int DEFAULT_HEIGHT = 10;
+
 	/**
 	 * Default width. Used when no parameters are given to the constructor.
 	 */
-	private static final int	DEFAULT_WIDTH	= 15;
-	
+	private static final int DEFAULT_WIDTH = 15;
+
 	/**
 	 * Map's height. Also the Cell array height.
 	 */
-	private final int			height;
-	
+	private final int height;
+
 	/**
 	 * Map's width. Also the Cell array width.
 	 */
-	private final int			width;
-	
+	private final int width;
+
 	/**
 	 * Cell array structuring the Map. Structures the Map thanks to the Overlays
 	 * and the Travellers attributed to Cells. Takes {@link Map#height} and
 	 * {@link Map#width} as dimensions.
 	 */
-	private final Cell[][]		cellArray;
-	
+	private final Cell[][] cellArray;
 
 	/**
-	 *  Block's references list. 
-	 *  Used to browse through Blocks. 
+	 * Block's references list. Used to browse through Blocks.
 	 */
-	private final Block[]				block;
-	
+	private final Block[] block;
+
 	/**
 	 * The number of Block in the map
 	 */
 	private final int numberOfBlocks;
-	
+
 	/**
 	 * The number of Block who are currently define
 	 */
 	private int actualNumberOfBlocks;
-	
+
 	/**
 	 * Map constructor. Generates an array constituted of void Cells taking
 	 * <tt>height</tt> and <tt>width</tt> as dimensions. Calls Cell()
@@ -82,12 +76,12 @@ public class Map
 	 *            Map's height.
 	 * @param width
 	 *            Map's width.
-	 * @param numberOfBlocks 
-	 * 			  Map's number of Blocks           
+	 * @param numberOfBlocks
+	 *            Map's number of Blocks
 	 */
-	public Map(int height, int width,int numberOfBlocks)
+	public Map(int height, int width, int numberOfBlocks)
 	{
-		this.actualNumberOfBlocks =0;
+		this.actualNumberOfBlocks = 0;
 		this.width = width;
 		this.height = height;
 		this.cellArray = new Cell[height][width];
@@ -100,21 +94,21 @@ public class Map
 		}
 		this.numberOfBlocks = numberOfBlocks;
 		this.block = new Block[this.numberOfBlocks];
-		for(int index =0; index < this.numberOfBlocks; index++)
+		for (int index = 0; index < this.numberOfBlocks; index++)
 		{
-			this.block[index]=null;
+			this.block[index] = null;
 		}
 	}
-	
+
 	/**
 	 * Maps's contructor without parameters. Generates an array constituted of
 	 * void Cells with default dimensions.
 	 */
 	public Map()
 	{
-		this(DEFAULT_HEIGHT, DEFAULT_WIDTH,DEFAULT_NUMBER_OF_BLOCKS);
+		this(DEFAULT_HEIGHT, DEFAULT_WIDTH, DEFAULT_NUMBER_OF_BLOCKS);
 	}
-	
+
 	/**
 	 * Maps's contructor for tests. Callable by giving a <tt>char</tt> as
 	 * parameter Returns a 4*5 Map, solvable, displaying all Overlays and
@@ -129,7 +123,7 @@ public class Map
 		this.height = 7;
 		this.numberOfBlocks = 1;
 		this.block = new Block[this.numberOfBlocks];
-		this.block[1] = new Block(new Position(4, 1), this,0);
+		this.block[1] = new Block(new Position(4, 1), this, 0);
 		this.cellArray = new Cell[this.height][this.width];
 		this.cellArray[0][0] = new Cell();
 		this.cellArray[0][1] = new Cell(new Wall());
@@ -140,7 +134,10 @@ public class Map
 		this.cellArray[1][2] = new Cell(new Floor());
 		this.cellArray[1][3] = new Cell(new Wall());
 		this.cellArray[2][0] = new Cell(new Wall());
-		this.cellArray[2][1] = new Cell(new Floor()); //, new // Character("Findus", // new Position(2, 1)));
+		this.cellArray[2][1] = new Cell(new Floor()); // , new //
+														// Character("Findus",
+														// // new Position(2,
+														// 1)));
 		this.cellArray[2][2] = new Cell(new Floor());
 		this.cellArray[2][3] = new Cell(new Wall());
 		this.cellArray[3][0] = new Cell(new Wall());
@@ -159,9 +156,9 @@ public class Map
 		this.cellArray[6][1] = new Cell(new Wall());
 		this.cellArray[6][2] = new Cell(new Wall());
 		this.cellArray[6][3] = new Cell();
-		
+
 	}
-	
+
 	/**
 	 * Replaces a Cell into the Map.
 	 *
@@ -177,7 +174,7 @@ public class Map
 		// TODO throw exception Cell hors de la Map.
 		this.cellArray[iRow][iColumn] = cell;
 	}
-	
+
 	/**
 	 * Height getter.
 	 *
@@ -187,7 +184,7 @@ public class Map
 	{
 		return this.height;
 	}
-	
+
 	/**
 	 * Width getter.
 	 *
@@ -197,7 +194,7 @@ public class Map
 	{
 		return this.width;
 	}
-	
+
 	/**
 	 * @param index
 	 * @return The Block's reference that is at this.block[index].
@@ -207,32 +204,33 @@ public class Map
 		// TODO Exception index invalide
 		return this.block[index];
 	}
-	
+
 	/**
-	 * @param block The new block's reference
-	 * @param index 
-	 * @return Modify the Block's reference at this.block[index] . 
+	 * @param block
+	 *            The new block's reference
+	 * @param index
+	 * @return Modify the Block's reference at this.block[index] .
 	 */
-	public void setBlock(Block block,int index)
+	public void setBlock(Block block, int index)
 	{
 		// TODO Exception index invalide
 		this.block[index] = block;
 	}
-	
+
 	/**
-	 * @param pos 
+	 * @param pos
 	 * @return Cell's references at given pos.
 	 */
 	public Cell getCell(Position pos)
 	{
-		// TODO Exceptions 
+		// TODO Exceptions
 		return this.cellArray[pos.getX()][pos.getY()];
 	}
-	
 
 	/**
-	 * Return the Traveller's references that is at the given position. 
-	 * Null if no Traveller at this position.
+	 * Return the Traveller's references that is at the given position. Null if
+	 * no Traveller at this position.
+	 * 
 	 * @param pos
 	 * @return Traveller's references or Null
 	 */
@@ -241,7 +239,6 @@ public class Map
 		// TODO Exceptions Invalide pos
 		return this.getCell(pos).getTraveller();
 	}
-	
 
 	/**
 	 * @return The number of block in the map.
@@ -251,7 +248,6 @@ public class Map
 		return this.numberOfBlocks;
 	}
 
-	
 	/**
 	 * @return The actual number of block in the map.
 	 */
@@ -259,10 +255,10 @@ public class Map
 	{
 		return this.actualNumberOfBlocks;
 	}
-	
-	
+
 	/**
-	 * @param actualNumberOfBlocks The new actual number of block.
+	 * @param actualNumberOfBlocks
+	 *            The new actual number of block.
 	 */
 	public void setActualNumberOfBlocks(int actualNumberOfBlocks)
 	{
@@ -272,7 +268,9 @@ public class Map
 
 	/**
 	 * Try the given cell's accessibility.
-	 * @param cell Cell's reference we want to try
+	 * 
+	 * @param cell
+	 *            Cell's reference we want to try
 	 * @return True if the cell is accessible.
 	 */
 	public boolean isAccessible(Cell cell)
@@ -280,39 +278,48 @@ public class Map
 		// TODO Exception?
 		return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
 	}
-	
+
 	/**
 	 * Try cell's accessibility of the given cell from the give Position.
-	 * @param cell Reference of the cell we want to try.
-	 * @param posOrigine Position from where we want to access to the cell.
+	 * 
+	 * @param cell
+	 *            Reference of the cell we want to try.
+	 * @param posOrigine
+	 *            Position from where we want to access to the cell.
 	 * @return True if the cell is accessible
 	 */
 	public boolean isAccessible(Cell cell, Position posOrigine)
 	{
-		return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell,
-				posOrigine));
+		return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell, posOrigine));
 	}
-	
+
 	/**
 	 * Try if a Position is accessible form another Position
-	 * @param posOrigine Traveller's actual Position.
-	 * @param posToCheck Position where we want the Traveller to move.
+	 * 
+	 * @param posOrigine
+	 *            Traveller's actual Position.
+	 * @param posToCheck
+	 *            Position where we want the Traveller to move.
 	 * @return True if the Traveller can move to posToCheck from posOrigine.
 	 */
 	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck)
 	{
 		return isAccessible(this.getCell(posToCheck), posOrigine);
 	}
-	
+
 	/**
 	 * Try if a Traveller is a block and if it can be pushed.
-	 * @param cell Cell's reference of a cell where we want to know if it's a pushable Block.
-	 * @param posOrigine Position from where the block is pushed.
+	 * 
+	 * @param cell
+	 *            Cell's reference of a cell where we want to know if it's a
+	 *            pushable Block.
+	 * @param posOrigine
+	 *            Position from where the block is pushed.
 	 * @return True if the Taveller is a pushable block.
 	 */
 	public boolean isItAPushableBlock(Cell cell, Position posOrigine)
 	{
-		
+
 		if (cell.getTraveller() == null)
 			return true;
 		if (!(cell.getTraveller() instanceof Block))
@@ -321,11 +328,15 @@ public class Map
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * Try if a Traveller is a block and if it can be pushed.
-	 * @param posToCheck Cell's Position of a cell where we want to know if it's a pushable Block.
-	 * @param posOrigine Position from where the block is pushed.
+	 * 
+	 * @param posToCheck
+	 *            Cell's Position of a cell where we want to know if it's a
+	 *            pushable Block.
+	 * @param posOrigine
+	 *            Position from where the block is pushed.
 	 * @return True if the Taveller is a pushable block.
 	 */
 	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine)
@@ -338,10 +349,10 @@ public class Map
 			return false;
 		return true;
 	}
-	
+
 	/**
-	 * toString redefinition.
-	 * Displays Map on the standard output, surrounding Cells by "|   |" and '-----'.
+	 * toString redefinition. Displays Map on the standard output, surrounding
+	 * Cells by "|   |" and '-----'.
 	 */
 	@Override
 	public String toString()
@@ -369,24 +380,26 @@ public class Map
 		}
 		return str;
 	}
-	
+
 	/**
 	 * Move the Traveller on the Map.
-	 * @param origine Traveller's actual position.
-	 * @param end Traveller's position after the movement.
+	 * 
+	 * @param origine
+	 *            Traveller's actual position.
+	 * @param end
+	 *            Traveller's position after the movement.
 	 */
 	public void moveTrav(Position origine, Position end)
 	{
-		if (this.isItAPushableBlock(end, origine)
-				&& (getCell(end).getTraveller().isBlock()))
+		if (this.isItAPushableBlock(end, origine) && (getCell(end).getTraveller().isBlock()))
 		{
 			try
 			{
-				int localBlockIndex =getCell(end).getTraveller().getTravNumber();
+				int localBlockIndex = getCell(end).getTraveller().getTravNumber();
 				System.out.println(this.getBlock(0));
 				System.out.println(this.getBlock(1));
 
-				this.moveTrav(end,end.generatePosFromRelative(end.getRelative(origine)));
+				this.moveTrav(end, end.generatePosFromRelative(end.getRelative(origine)));
 				this.getBlock(localBlockIndex).move(end.getRelative(origine));
 			} catch (TooFarException e)
 			{
