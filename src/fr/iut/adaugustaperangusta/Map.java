@@ -281,12 +281,11 @@ public class Map
 		return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
 	}
 	
-	/* TODO Translate */
 	/**
-	 * Teste l'accecibilete de la cell dont la ref est donne en param depuis la position donne en param
-	 * @param cell
-	 * @param posOrigine
-	 * @return
+	 * Try cell's accessibility of the given cell from the give Position.
+	 * @param cell Reference of the cell we want to try.
+	 * @param posOrigine Position from where we want to access to the cell.
+	 * @return True if the cell is accessible
 	 */
 	public boolean isAccessible(Cell cell, Position posOrigine)
 	{
@@ -294,18 +293,23 @@ public class Map
 				posOrigine));
 	}
 	
-	/* TODO Translate */
 	/**
-	 * Verifie si une position est accessible depuis une autre position
-	 * @param posOrigine
-	 * @param posToCheck
-	 * @return
+	 * Try if a Position is accessible form another Position
+	 * @param posOrigine Traveller's actual Position.
+	 * @param posToCheck Position where we want the Traveller to move.
+	 * @return True if the Traveller can move to posToCheck from posOrigine.
 	 */
 	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck)
 	{
 		return isAccessible(this.getCell(posToCheck), posOrigine);
 	}
 	
+	/**
+	 * Try if a Traveller is a block and if it can be pushed.
+	 * @param cell Cell's reference of a cell where we want to know if it's a pushable Block.
+	 * @param posOrigine Position from where the block is pushed.
+	 * @return True if the Taveller is a pushable block.
+	 */
 	public boolean isItAPushableBlock(Cell cell, Position posOrigine)
 	{
 		
@@ -318,6 +322,12 @@ public class Map
 		return true;
 	}
 	
+	/**
+	 * Try if a Traveller is a block and if it can be pushed.
+	 * @param posToCheck Cell's Position of a cell where we want to know if it's a pushable Block.
+	 * @param posOrigine Position from where the block is pushed.
+	 * @return True if the Taveller is a pushable block.
+	 */
 	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine)
 	{
 		if (getCell(posToCheck).getTraveller() == null)
@@ -360,22 +370,23 @@ public class Map
 		return str;
 	}
 	
+	/**
+	 * Move the Traveller on the Map.
+	 * @param origine Traveller's actual position.
+	 * @param end Traveller's position after the movement.
+	 */
 	public void moveTrav(Position origine, Position end)
 	{
 		if (this.isItAPushableBlock(end, origine)
-				&& (getCell(end).getTraveller() instanceof Block))
+				&& (getCell(end).getTraveller().isBlock()))
 		{
 			try
 			{
-				//System.out.println(this.getCell(end).getTraveller().getPositionTrav());
-				//System.out.println(this.getBlock(index));
 				int localBlockIndex =getCell(end).getTraveller().getTravNumber();
 				System.out.println(this.getBlock(0));
 				System.out.println(this.getBlock(1));
 
-				// TODO List of block donc faut changer --> ajouter un blocNumber dans Block
-				this.moveTrav(end,
-						end.generatePosFromRelative(end.getRelative(origine)));
+				this.moveTrav(end,end.generatePosFromRelative(end.getRelative(origine)));
 				this.getBlock(localBlockIndex).move(end.getRelative(origine));
 			} catch (TooFarException e)
 			{
