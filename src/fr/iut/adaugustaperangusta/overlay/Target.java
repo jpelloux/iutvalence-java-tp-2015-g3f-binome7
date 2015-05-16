@@ -1,7 +1,5 @@
 package fr.iut.adaugustaperangusta.overlay;
 
-/* TODO "implements Overlay" or "extends Floor"? */
-
 /**
  * Targets where blocks must be placed.
  * The Character peut can walk and push Blocks on them.

@@ -358,8 +358,6 @@ public class Map
 
 	public String toString()
 	{
-		// TODO utiliser un StringBuilder.
-
 		StringBuilder strMap = new StringBuilder();
 		strMap.append("-");
 		

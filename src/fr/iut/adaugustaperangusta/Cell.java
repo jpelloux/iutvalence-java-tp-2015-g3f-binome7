@@ -111,8 +111,10 @@ public class Cell
 	 */
 	public String toString()
 	{
-		// TODO utiliser un StringBuffer/StringBuilder
+		// TODO utiliser un StringBuffer/StringBuilder voir avec Axel.
+		
 		String str = new String();
+		//StringBuilder str = new StringBuilder();
 
 		str += this.cellOverlay == null ? "/" : this.cellOverlay.toString();
 		str += this.cellTraveller == null ? " " : this.cellTraveller.toString();
