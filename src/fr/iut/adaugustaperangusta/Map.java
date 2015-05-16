@@ -355,30 +355,33 @@ public class Map
 	 * Cells by "|   |" and '-----'.
 	 */
 	@Override
+
 	public String toString()
 	{
 		// TODO utiliser un StringBuilder.
-		String str = new String();
-		str += "-";
+
+		StringBuilder strMap = new StringBuilder();
+		strMap.append("-");
+		
 		for (int i = 0; i < this.width; i++)
 		{
-			str += "----";
+			strMap.append("----");
 		}
-		str += "\n";
+		strMap.append("\n");
 		for (int cellHeight = 0; cellHeight < this.height; cellHeight++)
 		{
 			for (int cellWidth = 0; cellWidth < this.width; cellWidth++)
 			{
-				str = str + "|" + this.cellArray[cellHeight][cellWidth];
+				strMap.append("|" + this.cellArray[cellHeight][cellWidth]);
 			}
-			str += "|\n-";
+			strMap.append( "|\n-");
 			for (int i = 0; i < this.width; i++)
 			{
-				str += "----";
+				strMap.append("----");
 			}
-			str += "\n";
+			strMap.append("\n");
 		}
-		return str;
+		return strMap.toString();
 	}
 
 	/**
@@ -391,7 +394,7 @@ public class Map
 	 */
 	public void moveTrav(Position origine, Position end)
 	{
-		if (this.isItAPushableBlock(end, origine) && (getCell(end).getTraveller().isBlock()))
+		if (this.isItAPushableBlock(end, origine) && (getCell(end).getTraveller()!=null)&& (getCell(end).getTraveller().isBlock()))
 		{
 			try
 			{
