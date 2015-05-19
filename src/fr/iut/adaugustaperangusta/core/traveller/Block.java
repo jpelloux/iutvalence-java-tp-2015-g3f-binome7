@@ -60,7 +60,7 @@ public class Block extends Traveller
 			case WEST:
 				return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST));
 			default:
-				System.out.println("we reach isPushableFrom exceptions"); //TODO EXCEPTIONS...
+				System.err.println("we reach isPushableFrom exceptions"); //TODO EXCEPTIONS...
 				return false;
 			}
 		} catch (OutOfMapException e)
