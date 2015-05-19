@@ -1,8 +1,9 @@
 package fr.iut.adaugustaperangusta.traveller;
 
-import fr.iut.adaugustaperangusta.Map;
-import fr.iut.adaugustaperangusta.Position;
-import fr.iut.adaugustaperangusta.RelativePos;
+import fr.iut.adaugustaperangusta.coreModel.Map;
+import fr.iut.adaugustaperangusta.coreModel.Position;
+import fr.iut.adaugustaperangusta.coreModel.RelativePos;
+import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
 import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
@@ -51,18 +52,24 @@ public class Block extends Traveller
 			e.printStackTrace();
 		}
 
-		switch(dirJoueur)
+		try
 		{
-		case EAST:
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST));
-		case NORTH:
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH));
-		case SOUTH:
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH));
-		case WEST:
-			return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST));
-		default:
-			System.out.println("we reach isPushableFrom exceptions"); //TODO EXCEPTIONS...
+			switch(dirJoueur)
+			{
+			case EAST:
+				return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.EAST));
+			case NORTH:
+				return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.NORTH));
+			case SOUTH:
+				return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.SOUTH));
+			case WEST:
+				return this.mapTrav.isAccessibleFrom(posPlayer, this.posToCheck(RelativePos.WEST));
+			default:
+				System.out.println("we reach isPushableFrom exceptions"); //TODO EXCEPTIONS...
+				return false;
+			}
+		} catch (OutOfMapException e)
+		{
 			return false;
 		}
 		

@@ -1,8 +1,8 @@
 package fr.iut.adaugustaperangusta.traveller;
 
-import fr.iut.adaugustaperangusta.Map;
-import fr.iut.adaugustaperangusta.Position;
-import fr.iut.adaugustaperangusta.RelativePos;
+import fr.iut.adaugustaperangusta.coreModel.Map;
+import fr.iut.adaugustaperangusta.coreModel.Position;
+import fr.iut.adaugustaperangusta.coreModel.RelativePos;
 
 
 /**

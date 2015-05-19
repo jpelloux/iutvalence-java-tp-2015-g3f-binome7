@@ -5,4 +5,4 @@
  * @author jpelloux and Axce
  * @version 1.0.0
  */
-package fr.iut.adaugustaperangusta;
+package fr.iut.adaugustaperangusta.coreModel;

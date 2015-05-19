@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta;
+package fr.iut.adaugustaperangusta.coreModel;
 
 import fr.iut.adaugustaperangusta.overlay.Floor;
 import fr.iut.adaugustaperangusta.overlay.Target;

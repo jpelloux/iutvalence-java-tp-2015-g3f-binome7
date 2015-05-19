@@ -1,11 +1,13 @@
-package fr.iut.adaugustaperangusta;
+package fr.iut.adaugustaperangusta.coreModel;
 
 import java.util.Scanner;
 
+import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
 import fr.iut.adaugustaperangusta.overlay.Target;
 import fr.iut.adaugustaperangusta.traveller.Block;
 import fr.iut.adaugustaperangusta.traveller.Character;
 import fr.iut.adaugustaperangusta.traveller.Traveller;
+import fr.iut.adaugustaperangusta.view.console.StrDisplay;
 
 
 /**
@@ -46,12 +48,19 @@ public class Game {
     	{
     		for(int mapWidth=0; mapWidth < this.map.getWidth();mapWidth++)
         	{
-        		if(this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller() != null 
-        				&& this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller().toString() =="v")
-        		{
-        			this.character=(Character) this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller();
-        			break;
-        		}
+        		try
+				{
+					if(this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller() != null 
+							&& this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller().toString() =="v")
+					{
+						this.character=(Character) this.map.getCell(new Position(mapHeight,mapWidth)).getTraveller();
+						break;
+					}
+				} catch (OutOfMapException e)
+				{
+					// Never reached because of for loop.
+					e.printStackTrace();
+				}
         	}
     		if(this.character != null) break;
     	}	
@@ -64,7 +73,14 @@ public class Game {
 	{
 		for(int index =0 ; index < this.map.getNumberOfBlocks(); index++)
 		{
-			if(!(this.map.getCell(this.map.getBlock(index).getPositionTrav()).getOverlay() instanceof Target)) return false;
+			try  
+			{
+				if(!(this.map.getCell(this.map.getBlock(index).getPositionTrav()).getOverlay() instanceof Target)) return false;
+			} catch (OutOfMapException e)
+			{   
+				// Blocks are alway in the map
+				e.printStackTrace();
+			}
 
 		}
 		return true;
@@ -78,7 +94,7 @@ public class Game {
 	{
 		
 		RelativePos dirDeptTest = null;
-		System.out.println(this.map);
+		StrDisplay.displayMap(this.map);
 
 		while(!(this.isWon()))
 		{
@@ -86,20 +102,24 @@ public class Game {
 			
 			if (this.isCharacterMovable(dirDeptTest))
 			{
-				this.map.moveTrav(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest)); //tableau
-				this.character.move(dirDeptTest);//positions
+				
+				try
+				{
+					this.map.moveTrav(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest));//tableau
+					this.character.move(dirDeptTest);//positions
+				} catch (OutOfMapException e)
+				{
+					StrDisplay.displayInvalideMove(dirDeptTest, this.character);
+				} 
+
 				
 			} else
 			{
-				System.out.println("-------------");
-				System.out.println("Dpt imp"); // Test moche
-				System.out.println(dirDeptTest);
-				System.out.println(this.character.getPositionTrav());
-				System.out.println(this.character.posToCheck(dirDeptTest));
+				StrDisplay.displayInvalideMove(dirDeptTest, this.character);
 			}
-			System.out.println(this.map);
+			StrDisplay.displayMap(this.map);
 		}
-		System.out.println("Good Job!");
+		StrDisplay.displayWin();
 	}
 	
 	/**
@@ -113,7 +133,16 @@ public class Game {
 		while(true)
 		{
 			String mouvement = sc.nextLine();  // simplifier?
-			char charMvt = mouvement.charAt(0);
+			char charMvt;
+			if (mouvement.length()>1) continue;
+			try
+			{
+				charMvt = mouvement.charAt(0);
+	
+			} catch (Exception e)
+			{
+				continue;
+			}
 	
 			switch (charMvt)
 			{
@@ -126,7 +155,7 @@ public class Game {
 			case 'd':
 				return RelativePos.EAST;
 			default:
-				System.out.println("Invalid Input"); 	//TODO Exception (quit game)
+					StrDisplay.displayInvalideInput(); 	//TODO Exception (quit game)
 			}
 		}
 	}
@@ -139,8 +168,13 @@ public class Game {
 	 */
 	private Traveller getTravellerFromCharInDirectionAtRangeN(RelativePos direction,int range)
 	{
-		System.out.println(this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller());
-		return this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller();
+		try
+		{
+			return this.map.getCell(this.character.getPositionTrav().generatePosFromRelativeAtRangeN(direction,range)).getTraveller();
+		} catch (OutOfMapException e)
+		{
+			return null;
+		}
 	}
 	
 	/**
@@ -159,7 +193,13 @@ public class Game {
 				return false;
 			}
 		}
-		return this.map.isAccessibleFrom(this.character.getPositionTrav(), this.character.posToCheck(direction));	
+		try
+		{
+			return this.map.isAccessibleFrom(this.character.getPositionTrav(), this.character.posToCheck(direction));
+		} catch (OutOfMapException e)
+		{
+			return false;
+		}	
 	}
 	
 	/**

@@ -1,5 +1,7 @@
 package fr.iut.adaugustaperangusta;
 
+import fr.iut.adaugustaperangusta.coreModel.CreateMap;
+import fr.iut.adaugustaperangusta.coreModel.Game;
 import fr.iut.adaugustaperangusta.traveller.Character;
 
 /**

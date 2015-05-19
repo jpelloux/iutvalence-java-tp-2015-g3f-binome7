@@ -1,5 +1,6 @@
-package fr.iut.adaugustaperangusta;
+package fr.iut.adaugustaperangusta.coreModel;
 
+import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
 import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 import fr.iut.adaugustaperangusta.overlay.Floor;
@@ -220,10 +221,14 @@ public class Map
 	/**
 	 * @param pos
 	 * @return Cell's references at given pos.
+	 * @throws OutOfMapException
 	 */
-	public Cell getCell(Position pos)
+	public Cell getCell(Position pos) throws OutOfMapException
 	{
-		// TODO Exceptions
+		if(pos.getX()<0) throw new OutOfMapException(pos.toString());
+		if(pos.getX()> this.height-1) throw new OutOfMapException(pos.toString());
+		if(pos.getY()<0) throw new OutOfMapException(pos.toString());
+		if(pos.getY()>this.width-1) throw new OutOfMapException(pos.toString());
 		return this.cellArray[pos.getX()][pos.getY()];
 	}
 
@@ -233,8 +238,9 @@ public class Map
 	 * 
 	 * @param pos
 	 * @return Traveller's references or Null
+	 * @throws OutOfMapException
 	 */
-	public Traveller getTraveller(Position pos)
+	public Traveller getTraveller(Position pos) throws OutOfMapException
 	{
 		// TODO Exceptions Invalide pos
 		return this.getCell(pos).getTraveller();
@@ -301,8 +307,9 @@ public class Map
 	 * @param posToCheck
 	 *            Position where we want the Traveller to move.
 	 * @return True if the Traveller can move to posToCheck from posOrigine.
+	 * @throws OutOfMapException
 	 */
-	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck)
+	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck) throws OutOfMapException
 	{
 		return isAccessible(this.getCell(posToCheck), posOrigine);
 	}
@@ -338,8 +345,9 @@ public class Map
 	 * @param posOrigine
 	 *            Position from where the block is pushed.
 	 * @return True if the Taveller is a pushable block.
+	 * @throws OutOfMapException
 	 */
-	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine)
+	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine) throws OutOfMapException
 	{
 		if (getCell(posToCheck).getTraveller() == null)
 			return true;
@@ -389,8 +397,9 @@ public class Map
 	 *            Traveller's actual position.
 	 * @param end
 	 *            Traveller's position after the movement.
+	 * @throws OutOfMapException
 	 */
-	public void moveTrav(Position origine, Position end)
+	public void moveTrav(Position origine, Position end) throws OutOfMapException
 	{
 		if (this.isItAPushableBlock(end, origine) && (getCell(end).getTraveller()!=null)&& (getCell(end).getTraveller().isBlock()))
 		{

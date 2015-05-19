@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta;
+package fr.iut.adaugustaperangusta.coreModel;
 
 /* TODO JAVADOC. */
 public enum RelativePos {

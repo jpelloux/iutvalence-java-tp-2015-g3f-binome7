@@ -1,6 +1,6 @@
 package fr.iut.adaugustaperangusta.overlay;
 
-import fr.iut.adaugustaperangusta.RelativePos;
+import fr.iut.adaugustaperangusta.coreModel.RelativePos;
 
 /**
  * Elements structuring the Map.
