@@ -132,14 +132,14 @@ public class Game {
 		Scanner sc = new Scanner(System.in);
 		while(true)
 		{
-			String mouvement = sc.nextLine();  // simplifier?
+			String mouvement = sc.nextLine(); 
 			char charMvt;
-			if (mouvement.length()>1) continue;
+			if (mouvement.length()>1) continue; // More than 1 char in stdin
 			try
 			{
 				charMvt = mouvement.charAt(0);
 	
-			} catch (Exception e)
+			} catch (Exception e) // 0 char in stdin
 			{
 				continue;
 			}
@@ -155,7 +155,7 @@ public class Game {
 			case 'd':
 				return RelativePos.EAST;
 			default:
-					StrDisplay.displayInvalideInput(); 	//TODO Exception (quit game)
+					StrDisplay.displayInvalideInput();
 			}
 		}
 	}

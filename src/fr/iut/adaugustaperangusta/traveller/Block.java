@@ -42,16 +42,11 @@ public class Block extends Traveller
 		try
 		{
 			dirJoueur = this.positionTrav.getRelative(posPlayer);
-		} catch (TooFarException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SamePosException e)
+		} catch (Exception e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		try
 		{
 			switch(dirJoueur)

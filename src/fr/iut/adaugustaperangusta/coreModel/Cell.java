@@ -100,8 +100,6 @@ public class Cell
 		if (this.cellOverlay == null || this.cellOverlay.toString() == "W" || this.cellTraveller != null)
 			return false;
 		return true;
-
-		// TODO isAccessible : rendre accessible les Cell contenant un Block
 	}
 
 	/**
@@ -114,7 +112,6 @@ public class Cell
 		// TODO utiliser un StringBuffer/StringBuilder voir avec Axel.
 		
 		String str = new String();
-		//StringBuilder str = new StringBuilder();
 
 		str += this.cellOverlay == null ? "/" : this.cellOverlay.toString();
 		str += this.cellTraveller == null ? " " : this.cellTraveller.toString();

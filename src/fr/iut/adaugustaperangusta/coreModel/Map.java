@@ -200,7 +200,7 @@ public class Map
 	 * @param index
 	 * @return The Block's reference that is at this.block[index].
 	 */
-	public Block getBlock(int index)
+	public Block getBlock(int index) 
 	{
 		// TODO Exception index invalide
 		return this.block[index];
@@ -242,7 +242,6 @@ public class Map
 	 */
 	public Traveller getTraveller(Position pos) throws OutOfMapException
 	{
-		// TODO Exceptions Invalide pos
 		return this.getCell(pos).getTraveller();
 	}
 
@@ -281,7 +280,6 @@ public class Map
 	 */
 	public boolean isAccessible(Cell cell)
 	{
-		// TODO Exception?
 		return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
 	}
 
@@ -411,11 +409,7 @@ public class Map
 
 				this.moveTrav(end, end.generatePosFromRelative(end.getRelative(origine)));
 				this.getBlock(localBlockIndex).move(end.getRelative(origine));
-			} catch (TooFarException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SamePosException e)
+			} catch (Exception e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
