@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta.overlay;
+package fr.iut.adaugustaperangusta.core.overlay;
 
 /**
  * Targets where blocks must be placed.

@@ -1,7 +1,7 @@
-package fr.iut.adaugustaperangusta.coreModel;
+package fr.iut.adaugustaperangusta.core;
 
-import fr.iut.adaugustaperangusta.overlay.*;
-import fr.iut.adaugustaperangusta.traveller.*;
+import fr.iut.adaugustaperangusta.core.overlay.Overlay;
+import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 
 /**
  * Cell dividing the Map. Contains 0 or 1 Overlay. Contains 0 or 1 Traveller.
@@ -94,12 +94,7 @@ public class Cell
 	 */
 	public boolean isAccessible()
 	{
-		// TODO tenter une autre technique que instanceof.
-		// if (this.cellOverlay == null || this.cellOverlay instanceof Wall ||
-		// this.cellTraveller != null)
-		if (this.cellOverlay == null || this.cellOverlay.toString() == "W" || this.cellTraveller != null)
-			return false;
-		return true;
+		return this.cellOverlay != null && this.cellTraveller == null && !this.cellOverlay.isAccessible();
 	}
 
 	/**
@@ -107,16 +102,12 @@ public class Cell
 	 * "Overlay Traveller Overlay". A null Overlay is represented by "/". A null
 	 * Traveller is represented by a space.
 	 */
+	@Override
 	public String toString()
 	{
-		// TODO utiliser un StringBuffer/StringBuilder voir avec Axel.
-		
-		String str = new String();
-
-		str += this.cellOverlay == null ? "/" : this.cellOverlay.toString();
-		str += this.cellTraveller == null ? " " : this.cellTraveller.toString();
-		str += this.cellOverlay == null ? "/" : this.cellOverlay.toString();
-
-		return str;
+		return String.format("%s%s%s", 
+				this.cellOverlay == null ? "/" : this.cellOverlay.toString(),
+				this.cellTraveller == null ? " " : this.cellTraveller.toString(),
+				this.cellOverlay == null ? "/" : this.cellOverlay.toString());
 	}
 }

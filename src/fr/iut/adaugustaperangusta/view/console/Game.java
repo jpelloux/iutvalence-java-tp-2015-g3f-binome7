@@ -1,13 +1,15 @@
-package fr.iut.adaugustaperangusta.coreModel;
+package fr.iut.adaugustaperangusta.view.console;
 
 import java.util.Scanner;
 
+import fr.iut.adaugustaperangusta.core.Map;
+import fr.iut.adaugustaperangusta.core.Position;
+import fr.iut.adaugustaperangusta.core.RelativePos;
+import fr.iut.adaugustaperangusta.core.overlay.Target;
+import fr.iut.adaugustaperangusta.core.traveller.Block;
+import fr.iut.adaugustaperangusta.core.traveller.Character;
+import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
-import fr.iut.adaugustaperangusta.overlay.Target;
-import fr.iut.adaugustaperangusta.traveller.Block;
-import fr.iut.adaugustaperangusta.traveller.Character;
-import fr.iut.adaugustaperangusta.traveller.Traveller;
-import fr.iut.adaugustaperangusta.view.console.StrDisplay;
 
 
 /**

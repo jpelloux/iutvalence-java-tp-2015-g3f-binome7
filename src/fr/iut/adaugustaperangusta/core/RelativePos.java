@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta.coreModel;
+package fr.iut.adaugustaperangusta.core;
 
 /**
  * Enumeration of Relative Position.
@@ -9,12 +9,25 @@ package fr.iut.adaugustaperangusta.coreModel;
  * @version 1.1.0
  */
 public enum RelativePos {
-    /* TODO JAVADOC. */
+    
+    /**
+     * North.
+     */
     NORTH,
-    /* TODO JAVADOC. */
+    
+    /**
+     * South.
+     */
     SOUTH,
-    /* TODO JAVADOC. */
+
+    /**
+     * East.
+     */
     EAST,
-    /* TODO JAVADOC. */
+    
+   
+    /**
+     * West. 
+     */
     WEST;
 }

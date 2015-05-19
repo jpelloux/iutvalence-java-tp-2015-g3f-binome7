@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta.coreModel;
+package fr.iut.adaugustaperangusta.core;
 
 import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;

@@ -1,8 +1,8 @@
 package fr.iut.adaugustaperangusta.view.console;
 
-import fr.iut.adaugustaperangusta.coreModel.Map;
-import fr.iut.adaugustaperangusta.coreModel.RelativePos;
-import fr.iut.adaugustaperangusta.traveller.Traveller;
+import fr.iut.adaugustaperangusta.core.Map;
+import fr.iut.adaugustaperangusta.core.RelativePos;
+import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 
 public class StrDisplay
 {

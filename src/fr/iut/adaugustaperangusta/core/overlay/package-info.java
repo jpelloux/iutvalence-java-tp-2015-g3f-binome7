@@ -5,4 +5,4 @@
  * @author jpelloux and Axce
  * @version 1.1.0
  */
-package fr.iut.adaugustaperangusta.overlay;
+package fr.iut.adaugustaperangusta.core.overlay;

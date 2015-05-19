@@ -1,8 +1,7 @@
 package fr.iut.adaugustaperangusta;
 
-import fr.iut.adaugustaperangusta.coreModel.CreateMap;
-import fr.iut.adaugustaperangusta.coreModel.Game;
-import fr.iut.adaugustaperangusta.traveller.Character;
+import fr.iut.adaugustaperangusta.utils.CreateMap;
+import fr.iut.adaugustaperangusta.view.console.Game;
 
 /**
  * Entry point of the program.
@@ -17,7 +16,7 @@ public class Main
 	 */
 	public static void main(String[] args)
 	{
-
+		
 		//Character player = new Character("Findus", new Position(8, 5)); // Faire les verif de creation de perso concordant avec la map
 		//Game game = new Game(CreateMap.importFromFile("Test.txt"), player);
 		Game game = new Game(CreateMap.importFromFile("Test.txt"));

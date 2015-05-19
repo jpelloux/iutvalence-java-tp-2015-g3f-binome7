@@ -1,14 +1,17 @@
-package fr.iut.adaugustaperangusta.coreModel;
-
-import fr.iut.adaugustaperangusta.overlay.Floor;
-import fr.iut.adaugustaperangusta.overlay.Target;
-import fr.iut.adaugustaperangusta.overlay.Wall;
-import fr.iut.adaugustaperangusta.traveller.Block;
-import fr.iut.adaugustaperangusta.traveller.Character;
+package fr.iut.adaugustaperangusta.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import fr.iut.adaugustaperangusta.core.Cell;
+import fr.iut.adaugustaperangusta.core.Map;
+import fr.iut.adaugustaperangusta.core.Position;
+import fr.iut.adaugustaperangusta.core.overlay.Floor;
+import fr.iut.adaugustaperangusta.core.overlay.Target;
+import fr.iut.adaugustaperangusta.core.overlay.Wall;
+import fr.iut.adaugustaperangusta.core.traveller.Block;
+import fr.iut.adaugustaperangusta.core.traveller.Character;
 
 /**
  * Small utility class to import {@link Map} from an UTF-8 text file.

@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta.overlay;
+package fr.iut.adaugustaperangusta.core.overlay;
 
 /**
  * Ground you can travel on.

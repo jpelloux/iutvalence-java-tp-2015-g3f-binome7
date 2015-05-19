@@ -1,8 +1,8 @@
-package fr.iut.adaugustaperangusta.traveller;
+package fr.iut.adaugustaperangusta.core.traveller;
 
-import fr.iut.adaugustaperangusta.coreModel.Map;
-import fr.iut.adaugustaperangusta.coreModel.Position;
-import fr.iut.adaugustaperangusta.coreModel.RelativePos;
+import fr.iut.adaugustaperangusta.core.Map;
+import fr.iut.adaugustaperangusta.core.Position;
+import fr.iut.adaugustaperangusta.core.RelativePos;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
 import fr.iut.adaugustaperangusta.exceptions.SamePosException;
 import fr.iut.adaugustaperangusta.exceptions.TooFarException;

@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta.overlay;
+package fr.iut.adaugustaperangusta.core.overlay;
 
 /**
  * Unaccessible Wall. The Character and Blocks can't walk through it. 

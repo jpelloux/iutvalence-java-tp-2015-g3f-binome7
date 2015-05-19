@@ -1,4 +1,6 @@
-package fr.iut.adaugustaperangusta.coreModel;
+package fr.iut.adaugustaperangusta.utils;
+
+import fr.iut.adaugustaperangusta.core.Map;
 
 /**
  * A simple class to test {@link CreateMap}.

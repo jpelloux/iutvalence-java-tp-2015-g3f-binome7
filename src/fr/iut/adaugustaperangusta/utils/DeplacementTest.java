@@ -1,12 +1,14 @@
-package fr.iut.adaugustaperangusta.coreModel;
+package fr.iut.adaugustaperangusta.utils;
 
 import java.util.Scanner;
 
-import fr.iut.adaugustaperangusta.overlay.Floor;
-import fr.iut.adaugustaperangusta.overlay.Target;
-import fr.iut.adaugustaperangusta.overlay.Wall;
-import fr.iut.adaugustaperangusta.traveller.Block;
-import fr.iut.adaugustaperangusta.traveller.Character;
+import fr.iut.adaugustaperangusta.core.RelativePos;
+import fr.iut.adaugustaperangusta.core.overlay.Floor;
+import fr.iut.adaugustaperangusta.core.overlay.Target;
+import fr.iut.adaugustaperangusta.core.overlay.Wall;
+import fr.iut.adaugustaperangusta.core.traveller.Block;
+import fr.iut.adaugustaperangusta.core.traveller.Character;
+import fr.iut.adaugustaperangusta.view.console.Game;
 
 /**
  * A simple class to test deplacements fx.
