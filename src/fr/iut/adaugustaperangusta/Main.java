@@ -1,7 +1,7 @@
 package fr.iut.adaugustaperangusta;
 
+import fr.iut.adaugustaperangusta.controller.Game;
 import fr.iut.adaugustaperangusta.utils.CreateMap;
-import fr.iut.adaugustaperangusta.view.console.Game;
 
 /**
  * Entry point of the program.
@@ -16,7 +16,7 @@ public class Main
 	 */
 	public static void main(String[] args)
 	{
-		Game game = new Game(CreateMap.importFromFile("Test.txt"));
+		Game game = new Game(CreateMap.importFromFile("Test.txt"),false);
 		game.play();
 	}
 

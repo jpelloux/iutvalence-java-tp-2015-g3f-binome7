@@ -1,4 +1,4 @@
-package fr.iut.adaugustaperangusta.view.console;
+package fr.iut.adaugustaperangusta.controller;
 
 import java.util.Scanner;
 
@@ -10,6 +10,8 @@ import fr.iut.adaugustaperangusta.core.traveller.Block;
 import fr.iut.adaugustaperangusta.core.traveller.Character;
 import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
+import fr.iut.adaugustaperangusta.view.View;
+import fr.iut.adaugustaperangusta.view.console.ConsoleIO;
 
 
 /**
@@ -30,12 +32,16 @@ public class Game {
 	 */
     private Character character;
 
+    private View view;
+    
     /**
      * Game constructor.
      * Sets the map to be solved.
      */
-    public Game(Map map)
+    public Game(Map map, boolean gameType)
     {
+    	if(gameType == false) this.view= new ConsoleIO(this);
+    	//if(gameType == true) this.view= new guiIO(this);
         this.map = map;
         this.character = null;
         this.implementPlayer();
@@ -92,38 +98,11 @@ public class Game {
      * Game engine.
      * Loops until the game is won.
      */
-	public void play()
+    public void play()
 	{
 		
-		RelativePos dirDeptTest = null;
-		StrDisplay.displayMap(this.map);
-
-		while(!(this.isWon()))
-		{
-			dirDeptTest = this.getMove();
-			
-			if (this.isCharacterMovable(dirDeptTest))
-			{
-				
-				try
-				{
-					this.map.moveTrav(this.character.getPositionTrav(), this.character.posToCheck(dirDeptTest));//tableau
-					this.character.move(dirDeptTest);//positions
-				} catch (OutOfMapException e)
-				{
-					StrDisplay.displayInvalideMove(dirDeptTest, this.character);
-				} 
-
-				
-			} else
-			{
-				StrDisplay.displayInvalideMove(dirDeptTest, this.character);
-			}
-			StrDisplay.displayMap(this.map);
-		}
-		StrDisplay.displayWin();
+		view.play();
 	}
-	
 	/**
 	 * Converts a <tt>char</tt> (z,q,s,d) into a RelativePos.
 	 * @return the player's next move.
@@ -131,35 +110,7 @@ public class Game {
 	 */
 	public RelativePos getMove()
 	{
-		Scanner sc = new Scanner(System.in);
-		while(true)
-		{
-			String mouvement = sc.nextLine(); 
-			char charMvt;
-			if (mouvement.length()>1) continue; // More than 1 char in stdin
-			try
-			{
-				charMvt = mouvement.charAt(0);
-	
-			} catch (Exception e) // 0 char in stdin
-			{
-				continue;
-			}
-	
-			switch (charMvt)
-			{
-			case 'z':
-				return RelativePos.NORTH;
-			case 'q':
-				return RelativePos.WEST;
-			case 's':
-				return RelativePos.SOUTH;
-			case 'd':
-				return RelativePos.EAST;
-			default:
-					StrDisplay.displayInvalideInput();
-			}
-		}
+		return view.getMove();
 	}
 	
 	/**
@@ -184,7 +135,7 @@ public class Game {
 	 * @param direction Moving Direction chosen by the player.
 	 * @return true if possible.
 	 */
-	private boolean isCharacterMovable(RelativePos direction)
+	public boolean isCharacterMovable(RelativePos direction)
 	{
 		Traveller travCellPlusOne = this.getTravellerFromCharInDirectionAtRangeN(direction, 1);
 		Traveller travCellPlusTwo = this.getTravellerFromCharInDirectionAtRangeN(direction, 2);
@@ -204,6 +155,23 @@ public class Game {
 		}	
 	}
 	
+	
+	/**
+	 * @return this.map .
+	 */
+	public Map getMap()
+	{
+		return map;
+	}
+
+	/**
+	 * @return this.character .
+	 */
+	public Character getCharacter()
+	{
+		return character;
+	}
+
 	/**
 	 * Prints the Map.
 	 */
