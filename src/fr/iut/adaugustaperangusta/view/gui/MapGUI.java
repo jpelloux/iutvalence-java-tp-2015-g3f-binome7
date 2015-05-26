@@ -13,35 +13,95 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MapGUI extends JPanel
-{
+import fr.iut.adaugustaperangusta.core.Map;
+import fr.iut.adaugustaperangusta.core.Position;
+import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
+
+public class MapGUI extends JPanel {
 	/**
 	 * 
 	 */
-	public MapGUI()
-	{
-		this.setLayout(new GridLayout(5,5));
+	private Image floor;
+	private Image wall;
+	private Image target;
+	private Image block;
+	private Image player;
+	
+	private Map map;
 
-		for (int i=0 ; i<25 ; i++)
-		{
-			//this.add(new JButton(Integer.toString(i)));
+
+	public MapGUI(Map map) {
+		try {
+			this.wall = ImageIO.read(new File("wall.png"));
+			this.floor = ImageIO.read(new File("floor.png"));
+			this.target = ImageIO.read(new File("target.png"));
+			this.block = ImageIO.read(new File("block.png"));
+			this.player = ImageIO.read(new File("bananaforscale.gif"));
 			
-			JLabel image = new JLabel( new ImageIcon( "cell.png"));
-			this.add(image);
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+
+		this.map = map;
+	//	this.addKeyListener(new MyKeyListener());
+		
+		// this.setLayout(new GridLayout(5,5));
+		//
+		// for (int i=0 ; i<25 ; i++)
+		// {
+		// //this.add(new JButton(Integer.toString(i)));
+		//
+		// JLabel image = new JLabel( new ImageIcon( "cell.png"));
+		// this.add(image);
+		//
+		// }
+	}
+
+	public void paintComponent(Graphics g) {
+		for (int width = 0; width < map.getWidth(); width++) {
+			for (int height = 0; height < map.getHeight(); height++) {
+				try {
+					if(map.getCell(new Position(height,width)).getOverlay().toString()==" " )
+					{
+						g.drawImage(floor,width * 50, height * 50,  this);
+						if(map.getCell(new Position(height,width)).getTraveller() != null &&map.getCell(new Position(height,width)).getTraveller().isBlock() )
+						{
+							g.drawImage(block,width * 50, height * 50,  this);
+						}
+						if(map.getCell(new Position(height,width)).getTraveller() != null && !map.getCell(new Position(height,width)).getTraveller().isBlock() )
+						{
+							g.drawImage(player,width * 50, height * 50,  this);
+						}
+						//g.drawImage(floor,  width * 50, height * 50, this.getWidth(), this.getHeight(), this);
+					}
+				} catch (OutOfMapException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					if(map.getCell(new Position(height,width)).getOverlay().toString()=="!" )
+					{
+						g.drawImage(target,width * 50, height * 50,  this);
+						//g.drawImage(target,  width * 50, height * 50, this.getWidth(), this.getHeight(), this);
+					}
+				} catch (OutOfMapException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					if(map.getCell(new Position(height,width)).getOverlay().toString()=="W" )
+					{
+						g.drawImage(wall,width * 50, height * 50,  this);
+						//g.drawImage(wall,  width * 50, height * 50, this.getWidth(), this.getHeight(), this);
+					}
+				} catch (OutOfMapException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
 
 		}
 	}
-	  //public void paintComponent(Graphics g){
-		 // for (int i=0 ; i<25 ; i++)
-		 // {
-			//  try {
-			//	  Image img = ImageIO.read(new File("cell.png"));
-			//	  g.drawImage(img, i%5*50, i/5*50, this);
-		      //Pour une image de fond
-		      //g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-			//  } catch (IOException e) {
-		    //  e.printStackTrace();
-		  //  }                
-		 // }  
-	//  }
 }

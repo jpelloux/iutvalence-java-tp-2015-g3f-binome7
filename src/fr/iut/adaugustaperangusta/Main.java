@@ -18,8 +18,10 @@ public class Main
 	 */
 	public static void main(String[] args)
 	{
-		Game game = new Game(CreateMap.importFromFile("Test.txt"),false);
-		game.play();
+//		Game game = new Game(CreateMap.importFromFile("Test.txt"),false);
+//		game.play();
+		Game game = new Game(CreateMap.importFromFile("Test.txt"),true);
+		//game.play();
 	}
 
 }

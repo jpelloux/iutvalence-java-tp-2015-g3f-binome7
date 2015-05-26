@@ -12,6 +12,7 @@ import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
 import fr.iut.adaugustaperangusta.view.View;
 import fr.iut.adaugustaperangusta.view.console.ConsoleIO;
+import fr.iut.adaugustaperangusta.view.gui.GuiIO;
 
 
 /**
@@ -40,11 +41,11 @@ public class Game {
      */
     public Game(Map map, boolean gameType)
     {
-    	if(gameType == false) this.view= new ConsoleIO(this);
-    	//if(gameType == true) this.view= new guiIO(this);
         this.map = map;
         this.character = null;
         this.implementPlayer();
+        if(gameType == false) this.view= new ConsoleIO(this);
+    	else this.view= new GuiIO(this);
     }
 
     /**
