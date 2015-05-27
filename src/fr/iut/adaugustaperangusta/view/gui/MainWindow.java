@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import fr.iut.adaugustaperangusta.controller.Game;
@@ -23,7 +24,7 @@ public class MainWindow extends JFrame
 	
 	private static final int DEFAULT_MENU_BAR_SIZE = 50;
 
-	public MainWindow(Map map,MyKeyListener keyListener)
+	public MainWindow(Map map,MyKeyListener keyListener,GuiIO guiIO)
 	{
 		
 	    this.setTitle("Ad Augusta Per Angusta");
@@ -36,7 +37,7 @@ public class MainWindow extends JFrame
 	    
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
-	    this.setJMenuBar(new MenuBar());
+	    this.setJMenuBar(new MenuBar(guiIO));
 	    
 	    JPanel mapGui = new MapGUI(map);
 	    this.add(mapGui);
@@ -45,7 +46,9 @@ public class MainWindow extends JFrame
 	    this.setVisible(true);
 	}
 
+	public static void displayInProgress(){
 
+	}
 
 
 }

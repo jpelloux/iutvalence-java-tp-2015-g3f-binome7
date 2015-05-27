@@ -8,10 +8,10 @@ public class MenuBar extends JMenuBar
 {
 	
 	
-	public MenuBar()
+	public MenuBar(GuiIO guiIO)
 	{
 		
-	    this.add(new MenuFichier("Fichier"));
+	    this.add(new MenuFile("Fichier",guiIO));
 	    
 
 	}

@@ -20,7 +20,7 @@ public class GuiIO implements View {
 	public GuiIO(Game game)
 	{
 		this.game = game;
-		this.mainWindow = new MainWindow(game.getMap(),new MyKeyListener(this));
+		this.mainWindow = new MainWindow(game.getMap(),new MyKeyListener(this),this);
 		this.victory = null;
 	}
 	@Override
@@ -91,7 +91,7 @@ public class GuiIO implements View {
 	}
 	
 	public void closeGame(){
-		this.victory.dispose();
+		if(this.victory != null) this.victory.dispose();
 		this.mainWindow.dispose();
 	}
 }
