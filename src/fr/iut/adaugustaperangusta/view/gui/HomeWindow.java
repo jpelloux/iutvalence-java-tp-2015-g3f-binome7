@@ -14,6 +14,8 @@ import javax.swing.JWindow;
 public class HomeWindow extends JWindow
 {	
 	
+	private PreviewWindow preview;
+
 	public HomeWindow(GuiIO guiIO)
 	{
 		this.setLocationRelativeTo(null);  
@@ -23,8 +25,8 @@ public class HomeWindow extends JWindow
 		JPanel panel = new JPanel();
 	    panel.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-		
-		JLabel imageVictory = new JLabel( new ImageIcon( "victory.png"));
+
+		JLabel imageVictory = new JLabel( new ImageIcon( "img/aapa.png"));
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;     
 		c.weightx = 300;
@@ -60,10 +62,11 @@ public class HomeWindow extends JWindow
 		c.gridy = 2;
 		panel.add(play,c);
  
-
-		HomeActionListener myAL = new HomeActionListener(play, loadMap,exit,guiIO);
+		this.preview = new PreviewWindow(guiIO.getMap());
+		HomeActionListener myAL = new HomeActionListener(play, loadMap,exit,this.preview,guiIO);
 		play.addActionListener(myAL);
 		loadMap.addActionListener(myAL);
+		exit.addActionListener(myAL);
 		
 		this.add(panel);
 		this.pack();

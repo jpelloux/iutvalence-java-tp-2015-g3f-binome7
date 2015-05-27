@@ -42,18 +42,28 @@ public class VictoryWindow extends JWindow
 		c.gridy = 1;
 		panel.add(quit,c);
  
-		JButton replay = new JButton("Rejouer");
+		JButton home = new JButton("Home");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;      
 		c.weightx = 150;
 		c.gridwidth = 1;
 		c.gridx = 1;
 		c.gridy = 1;
+		panel.add(home,c);
+		
+		JButton replay = new JButton("Rejouer");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipady = 0;      
+		c.weightx = 300;
+		c.gridwidth = 2;
+		c.gridx = 0;
+		c.gridy = 2;
 		panel.add(replay,c);
 
-		VictoryActionListener myAL = new VictoryActionListener(quit, replay,guiIO);
+		VictoryActionListener myAL = new VictoryActionListener(quit, replay,home,guiIO);
 		quit.addActionListener(myAL);
 		replay.addActionListener(myAL);
+		home.addActionListener(myAL);
 		
 		this.add(panel);
 		this.pack();

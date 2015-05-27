@@ -4,7 +4,9 @@ package fr.iut.adaugustaperangusta.view.gui;
 import java.io.File;
 import java.io.IOException;
  
+
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
  
  
 public class SelectFile {
@@ -12,13 +14,14 @@ public class SelectFile {
         File localRep = null;
         try {
         	localRep = new File(".").getCanonicalFile();
-            System.out.println("Répertoire courant : " + localRep);
         } catch(IOException e) {}
 
+        JOptionPane alert = new JOptionPane();
+        
+		alert.showMessageDialog(null ,"Must be a valide .txt Map.", "ReadMe", JOptionPane.INFORMATION_MESSAGE);
         JFileChooser dialogue = new JFileChooser(localRep);
-         
-        dialogue.showOpenDialog(null);
-        System.out.println("Fichier choisi : " + dialogue.getSelectedFile());
+        dialogue.showOpenDialog(alert);
+        
     	return dialogue.getSelectedFile();
     }
 }

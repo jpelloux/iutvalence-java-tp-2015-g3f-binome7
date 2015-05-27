@@ -15,17 +15,24 @@ import fr.iut.adaugustaperangusta.view.View;
 
 public class GuiIO implements View {
 
+	private static final String DEFAULT_MAP = "Test.txt";
 	private MainWindow mainWindow;
 	private Game game;
 	private VictoryWindow victory;
-	private HomeWindow homeWindow; 
+	private HomeWindow homeWindow;
+	private String file; 
 	
 	public GuiIO(Game game)
 	{
-		this.game = game;
+		this.game = null;
 		this.mainWindow = null;
 		this.victory = null;
 		this.homeWindow =null;
+		this.file =DEFAULT_MAP;
+	}
+	
+	public void creatGame(){
+		this.game = new Game(CreateMap.importFromFile(file),true);
 	}
 	@Override
 	public void displayMap(Map map) {
@@ -63,7 +70,7 @@ public class GuiIO implements View {
 	@Override
 	public void play() {
 		// TODO Auto-generated method stub
-		
+		this.creatGame();
 		this.homeWindow = new HomeWindow(this);
 	}
 
@@ -90,11 +97,26 @@ public class GuiIO implements View {
 	}
 	
 	public void replay(){
-		 
-		this.closeGame();
-		// TODO REWORK
+		if(this.victory != null) this.victory.dispose();
+		if(this.mainWindow != null) this.mainWindow.dispose();
+		if(this.homeWindow != null) this.homeWindow.dispose();
+		this.homeWindow =null;
+		this.victory =null;
+		this.homeWindow = null; 
+		
+		this.creatGame();
+		this.lunchGame();
+
 	}
 	
+	public void closeWindow(){
+		if(this.victory != null) this.victory.dispose();
+		if(this.mainWindow != null) this.mainWindow.dispose();
+		if(this.homeWindow != null) this.homeWindow.dispose();
+		this.homeWindow =null;
+		this.victory =null;
+		this.homeWindow = null;
+	}
 	public void closeGame(){
 		if(this.victory != null) this.victory.dispose();
 		if(this.mainWindow != null) this.mainWindow.dispose();
@@ -102,6 +124,7 @@ public class GuiIO implements View {
 		this.homeWindow =null;
 		this.victory =null;
 		this.homeWindow = null;
+		System.exit(0);
 	}
 	public void lunchGame()
 	{
@@ -123,7 +146,11 @@ public class GuiIO implements View {
 	}
 	
 	public void selectFile(){
-		File file = SelectFile.fileSelection(); 
-		System.out.println("Fichier choisi : " + file);
+		this.file = SelectFile.fileSelection().getName(); 
+		this.goHome();
+	}
+	
+	public Map getMap(){
+		return this.game.getMap();
 	}
 }

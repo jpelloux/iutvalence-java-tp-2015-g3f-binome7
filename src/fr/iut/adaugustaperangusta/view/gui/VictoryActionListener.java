@@ -10,12 +10,14 @@ public class VictoryActionListener implements ActionListener
 	private JButton quit;
 	private JButton replay;
 	private GuiIO guiIO;
+	private JButton home;
 
 	
-	public VictoryActionListener(JButton quit, JButton replay,GuiIO guiIO)
+	public VictoryActionListener(JButton quit, JButton replay,JButton home,GuiIO guiIO)
 	{
 		this.quit = quit;
 		this.replay = replay;
+		this.home =home;
 		this.guiIO = guiIO;
 	}
 
@@ -31,6 +33,8 @@ public class VictoryActionListener implements ActionListener
 
 		} else if(source == replay){
 			guiIO.replay();
+		}else if(source == home){
+			guiIO.goHome();
 		}
 	}
 }

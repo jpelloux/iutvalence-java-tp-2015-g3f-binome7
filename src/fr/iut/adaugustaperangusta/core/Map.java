@@ -404,9 +404,6 @@ public class Map
 			try
 			{
 				int localBlockIndex = getCell(end).getTraveller().getTravNumber();
-				System.out.println(this.getBlock(0));
-				System.out.println(this.getBlock(1));
-
 				this.moveTrav(end, end.generatePosFromRelative(end.getRelative(origine)));
 				this.getBlock(localBlockIndex).move(end.getRelative(origine));
 			} catch (Exception e)

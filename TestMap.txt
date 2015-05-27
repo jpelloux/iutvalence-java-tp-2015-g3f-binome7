@@ -1,0 +1,13 @@
+10
+20
+2
+xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx
+xxx               xx
+x                 xx
+x      xx   o xxxxxx
+xx     xx     xxxxxx
+xx            xxxxxx
+xx   b   bo   xxxxxx
+xx  v             xx
+xxxxxxxxxxxxxxxxxxxx
