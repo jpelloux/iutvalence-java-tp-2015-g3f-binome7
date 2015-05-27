@@ -13,6 +13,7 @@ public class MenuFile extends JMenu implements ActionListener
 	private JMenuItem fileImport;
 	private JMenuItem fileReset;
 	private JMenuItem fileExit;
+	private JMenuItem fileHome;
 	private GuiIO guiIO;
 
 	public MenuFile(String name,GuiIO guiIO)
@@ -22,13 +23,18 @@ public class MenuFile extends JMenu implements ActionListener
 	    this.add(this.fileImport);
 		this.fileReset= new JMenuItem("Reset");
 	    this.add(this.fileReset);
+	    this.fileHome = new JMenuItem("Home");
+	    this.add(this.fileHome);
 	    this.fileExit = new JMenuItem("Exit");
 	    this.add(this.fileExit);
+
+	    
 	    this.guiIO = guiIO;
 	    
 	    this.fileImport.addActionListener(this);
 	    this.fileReset.addActionListener(this);
 	    this.fileExit.addActionListener(this);
+	    this.fileHome.addActionListener(this);
 	}
 
 	@Override
@@ -46,6 +52,8 @@ public class MenuFile extends JMenu implements ActionListener
 		}else if(source == fileExit){
 			guiIO.closeGame();
 			System.exit(0);
+		}else if(source == fileHome){
+			guiIO.goHome();
 		}
 		
 	}

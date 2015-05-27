@@ -32,11 +32,11 @@ public class MapGUI extends JPanel {
 
 	public MapGUI(Map map) {
 		try {
-			this.wall = ImageIO.read(new File("wall.png"));
-			this.floor = ImageIO.read(new File("floor.png"));
-			this.target = ImageIO.read(new File("target2.png"));
-			this.block = ImageIO.read(new File("block.png"));
-			this.player = ImageIO.read(new File("player.png"));
+			this.wall = ImageIO.read(new File("img/wall.png"));
+			this.floor = ImageIO.read(new File("img/floor.png"));
+			this.target = ImageIO.read(new File("img/target2.png"));
+			this.block = ImageIO.read(new File("img/block.png"));
+			this.player = ImageIO.read(new File("img/player.png"));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

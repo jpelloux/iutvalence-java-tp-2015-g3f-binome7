@@ -1,5 +1,7 @@
 package fr.iut.adaugustaperangusta.view.gui;
 
+import java.io.File;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -16,12 +18,14 @@ public class GuiIO implements View {
 	private MainWindow mainWindow;
 	private Game game;
 	private VictoryWindow victory;
+	private HomeWindow homeWindow; 
 	
 	public GuiIO(Game game)
 	{
 		this.game = game;
-		this.mainWindow = new MainWindow(game.getMap(),new MyKeyListener(this),this);
+		this.mainWindow = null;
 		this.victory = null;
+		this.homeWindow =null;
 	}
 	@Override
 	public void displayMap(Map map) {
@@ -60,7 +64,7 @@ public class GuiIO implements View {
 	public void play() {
 		// TODO Auto-generated method stub
 		
-
+		this.homeWindow = new HomeWindow(this);
 	}
 
 	public void move(RelativePos dirDeptTest){
@@ -86,12 +90,40 @@ public class GuiIO implements View {
 	}
 	
 	public void replay(){
-		Game game = new Game(CreateMap.importFromFile("Test.txt"),true);
+		 
 		this.closeGame();
+		// TODO REWORK
 	}
 	
 	public void closeGame(){
 		if(this.victory != null) this.victory.dispose();
-		this.mainWindow.dispose();
+		if(this.mainWindow != null) this.mainWindow.dispose();
+		if(this.homeWindow != null) this.homeWindow.dispose();
+		this.homeWindow =null;
+		this.victory =null;
+		this.homeWindow = null;
+	}
+	public void lunchGame()
+	{
+		this.mainWindow = new MainWindow(game.getMap(),new MyKeyListener(this),this);
+		if (this.homeWindow != null) {
+			this.homeWindow.dispose();
+			this.homeWindow =null;
+		}
+		
+	}
+	public void goHome()
+	{
+
+		if (this.mainWindow != null) this.mainWindow.dispose();
+		if(this.victory != null) this.victory.dispose();
+		this.mainWindow =null;
+		this.victory =null;
+		this.play();
+	}
+	
+	public void selectFile(){
+		File file = SelectFile.fileSelection(); 
+		System.out.println("Fichier choisi : " + file);
 	}
 }

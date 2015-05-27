@@ -21,7 +21,7 @@ public class Main
 //		Game game = new Game(CreateMap.importFromFile("Test.txt"),false);
 //		game.play();
 		Game game = new Game(CreateMap.importFromFile("Test.txt"),true);
-		//game.play();
+		game.play();
 	}
 
 }

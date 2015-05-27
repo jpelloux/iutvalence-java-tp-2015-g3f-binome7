@@ -11,12 +11,12 @@ import javax.swing.JWindow;
 
 
 
-public class VictoryWindow extends JWindow
+public class HomeWindow extends JWindow
 {	
-
-	public VictoryWindow(MainWindow mainWindow, GuiIO guiIO)
+	
+	public HomeWindow(GuiIO guiIO)
 	{
-		this.setLocationRelativeTo(mainWindow);  
+		this.setLocationRelativeTo(null);  
 		this.requestFocusInWindow();
 		this.setVisible(true);
 		
@@ -32,28 +32,38 @@ public class VictoryWindow extends JWindow
 		c.gridx = 0;
 		c.gridy = 0;
 		panel.add(imageVictory, c);
-		
-		JButton quit = new JButton("Quitter");
+
+		JButton exit = new JButton("Exit");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;     
 		c.weightx = 150;
 		c.gridwidth = 1;
 		c.gridx = 0;
 		c.gridy = 1;
-		panel.add(quit,c);
- 
-		JButton replay = new JButton("Rejouer");
+		panel.add(exit,c);
+		
+		JButton loadMap = new JButton("LoadMap");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;      
 		c.weightx = 150;
 		c.gridwidth = 1;
 		c.gridx = 1;
 		c.gridy = 1;
-		panel.add(replay,c);
+		panel.add(loadMap,c);
+		
+		JButton play = new JButton("Play");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipady = 0;     
+		c.weightx = 300;
+		c.gridwidth = 2;
+		c.gridx = 0;
+		c.gridy = 2;
+		panel.add(play,c);
+ 
 
-		VictoryActionListener myAL = new VictoryActionListener(quit, replay,guiIO);
-		quit.addActionListener(myAL);
-		replay.addActionListener(myAL);
+		HomeActionListener myAL = new HomeActionListener(play, loadMap,exit,guiIO);
+		play.addActionListener(myAL);
+		loadMap.addActionListener(myAL);
 		
 		this.add(panel);
 		this.pack();
