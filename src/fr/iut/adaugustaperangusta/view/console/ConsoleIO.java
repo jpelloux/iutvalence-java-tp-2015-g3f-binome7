@@ -7,6 +7,7 @@ import fr.iut.adaugustaperangusta.core.Map;
 import fr.iut.adaugustaperangusta.core.RelativePos;
 import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
+import fr.iut.adaugustaperangusta.utils.CreateMap;
 import fr.iut.adaugustaperangusta.view.View;
 
 public class ConsoleIO implements View
@@ -112,4 +113,7 @@ public class ConsoleIO implements View
 		this.displayWin();
 	}
 	
+	private void replay(){
+		Game game = new Game(CreateMap.importFromFile("Test.txt"),true);
+	}
 }

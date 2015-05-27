@@ -18,12 +18,12 @@ import fr.iut.adaugustaperangusta.controller.Game;
 import fr.iut.adaugustaperangusta.core.Map;
 import fr.iut.adaugustaperangusta.core.traveller.Character;
 
-public class MainWindow extends JFrame implements KeyListener
+public class MainWindow extends JFrame 
 {
 	
 	private static final int DEFAULT_MENU_BAR_SIZE = 50;
 
-	public MainWindow(Map map)
+	public MainWindow(Map map,MyKeyListener keyListener)
 	{
 		
 	    this.setTitle("Ad Augusta Per Angusta");
@@ -40,27 +40,12 @@ public class MainWindow extends JFrame implements KeyListener
 	    
 	    JPanel mapGui = new MapGUI(map);
 	    this.add(mapGui);
-	    mapGui.addKeyListener(this);
-	    mapGui.requestFocusInWindow();
+	    this.addKeyListener(keyListener);
+	    this.requestFocusInWindow();
 	    this.setVisible(true);
 	}
 
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-System.out.println("aaz");		
-	}
 
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }
