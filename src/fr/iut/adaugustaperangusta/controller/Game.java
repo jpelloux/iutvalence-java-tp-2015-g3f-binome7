@@ -102,15 +102,6 @@ public class Game {
 		view.play();
 	}
 
-	/**
-	 * Converts a <tt>char</tt> (z,q,s,d) into a RelativePos.
-	 * 
-	 * @return the player's next move.
-	 * @see RelativePos
-	 */
-	public RelativePos getMove() {
-		return view.getMove();
-	}
 
 	/**
 	 * @param direction

@@ -47,7 +47,7 @@ public class MenuFile extends JMenu implements ActionListener {
 			guiIO.selectFile();
 		} else if (source == aboutUS) {
 			JOptionPane information1 = new JOptionPane();
-			ImageIcon soonTM = new ImageIcon("soonTM.png");
+			ImageIcon soonTM = new ImageIcon("img/soonTM.png");
 			JOptionPane
 					.showMessageDialog(
 							null,

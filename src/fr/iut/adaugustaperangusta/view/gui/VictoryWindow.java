@@ -20,7 +20,7 @@ public class VictoryWindow extends JWindow {
 		panel.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 
-		JLabel imageVictory = new JLabel(new ImageIcon("victory.png"));
+		JLabel imageVictory = new JLabel(new ImageIcon("img/victory.png"));
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;
 		c.weightx = 300;

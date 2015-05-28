@@ -1,5 +1,7 @@
 package fr.iut.adaugustaperangusta.view.gui;
 
+import java.io.File;
+
 import fr.iut.adaugustaperangusta.controller.Game;
 import fr.iut.adaugustaperangusta.core.Map;
 import fr.iut.adaugustaperangusta.core.RelativePos;
@@ -9,7 +11,9 @@ import fr.iut.adaugustaperangusta.view.View;
 
 public class GuiIO implements View {
 
+	private static final String DEFAULT_MAP_FOLDER = "map/";
 	private static final String DEFAULT_MAP = "Test.txt";
+	
 	private MainWindow mainWindow;
 	private Game game;
 	private VictoryWindow victory;
@@ -25,7 +29,7 @@ public class GuiIO implements View {
 	}
 
 	public void creatGame() {
-		this.game = new Game(CreateMap.importFromFile(file), true);
+		this.game = new Game(CreateMap.importFromFile(DEFAULT_MAP_FOLDER+file), true);
 	}
 
 	public void displayMap() {
@@ -128,8 +132,9 @@ public class GuiIO implements View {
 	}
 
 	public void selectFile() {
-		if (SelectFile.fileSelection() != null)
-			this.file = SelectFile.fileSelection().getName();
+		File selectedFile = SelectFile.fileSelection();
+		if (selectedFile != null)
+			this.file = selectedFile.getName();
 		this.goHome();
 	}
 

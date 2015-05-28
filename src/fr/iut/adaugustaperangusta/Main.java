@@ -10,7 +10,7 @@ import fr.iut.adaugustaperangusta.utils.CreateMap;
  * @version 1.1.0
  */
 public class Main {
-	private static final String DEFAULT_MAP = "Test.txt";
+	private static final String DEFAULT_MAP = "map/Test.txt";
 	private static final boolean USE_GUI = true;
 	private static final boolean NO_USE_GUI = false;
 
