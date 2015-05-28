@@ -1,16 +1,11 @@
 package fr.iut.adaugustaperangusta.view.gui;
 
-import java.awt.BorderLayout;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fr.iut.adaugustaperangusta.core.Map;
@@ -47,6 +42,7 @@ public class PreviewMapGUI extends JPanel {
 
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		for (int width = 0; width < map.getWidth(); width++) {
 			for (int height = 0; height < map.getHeight(); height++) {

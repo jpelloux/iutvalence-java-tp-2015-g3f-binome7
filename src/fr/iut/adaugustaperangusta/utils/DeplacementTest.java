@@ -18,6 +18,7 @@ import fr.iut.adaugustaperangusta.core.traveller.Character;
  * @deprecated
  */
 
+@Deprecated
 public class DeplacementTest {
 
 	public static void main(String[] args) {

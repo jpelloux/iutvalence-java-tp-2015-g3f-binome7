@@ -1,14 +1,8 @@
 package fr.iut.adaugustaperangusta.view.gui;
 
-import java.io.File;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import fr.iut.adaugustaperangusta.controller.Game;
 import fr.iut.adaugustaperangusta.core.Map;
 import fr.iut.adaugustaperangusta.core.RelativePos;
-import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
 import fr.iut.adaugustaperangusta.utils.CreateMap;
 import fr.iut.adaugustaperangusta.view.View;

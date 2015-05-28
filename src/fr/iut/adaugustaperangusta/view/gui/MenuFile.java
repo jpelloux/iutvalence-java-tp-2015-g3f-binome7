@@ -48,7 +48,7 @@ public class MenuFile extends JMenu implements ActionListener {
 		} else if (source == aboutUS) {
 			JOptionPane information1 = new JOptionPane();
 			ImageIcon soonTM = new ImageIcon("soonTM.png");
-			information1
+			JOptionPane
 					.showMessageDialog(
 							null,
 							"This will be available soon(tm) blizzard so...\n Maybe someday...\n For real...\n Or not... \n\n We don't know really.",

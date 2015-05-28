@@ -1,7 +1,5 @@
 package fr.iut.adaugustaperangusta;
 
-import javax.swing.JFrame;
-
 import fr.iut.adaugustaperangusta.controller.Game;
 import fr.iut.adaugustaperangusta.utils.CreateMap;
 

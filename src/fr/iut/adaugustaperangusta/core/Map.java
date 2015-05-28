@@ -4,11 +4,8 @@ import fr.iut.adaugustaperangusta.core.overlay.Floor;
 import fr.iut.adaugustaperangusta.core.overlay.Target;
 import fr.iut.adaugustaperangusta.core.overlay.Wall;
 import fr.iut.adaugustaperangusta.core.traveller.Block;
-import fr.iut.adaugustaperangusta.core.traveller.Character;
 import fr.iut.adaugustaperangusta.core.traveller.Traveller;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
-import fr.iut.adaugustaperangusta.exceptions.SamePosException;
-import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
 /**
  * Map where a game takes place. Contains a Cell array.

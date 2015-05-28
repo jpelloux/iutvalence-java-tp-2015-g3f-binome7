@@ -7,6 +7,7 @@ import fr.iut.adaugustaperangusta.utils.CreateMap;
 /**
  * @deprecated
  */
+@Deprecated
 public class WindowTest {
 	public static void main(String[] args)
 	{

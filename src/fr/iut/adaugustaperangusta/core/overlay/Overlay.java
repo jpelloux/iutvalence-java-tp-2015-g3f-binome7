@@ -1,7 +1,5 @@
 package fr.iut.adaugustaperangusta.core.overlay;
 
-import fr.iut.adaugustaperangusta.core.RelativePos;
-
 /**
  * Elements structuring the Map. Interface. Super-class of fixed elements of the
  * Map.

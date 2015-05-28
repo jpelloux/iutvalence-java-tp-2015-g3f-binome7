@@ -20,6 +20,7 @@ public class Wall implements Overlay {
 	 * Display method. Prints 'W' on standard output. Is displayed twice for
 	 * each Cell. Example : |W W|
 	 */
+	@Override
 	public String toString() {
 		return "W";
 	}

@@ -4,8 +4,6 @@ import fr.iut.adaugustaperangusta.core.Map;
 import fr.iut.adaugustaperangusta.core.Position;
 import fr.iut.adaugustaperangusta.core.RelativePos;
 import fr.iut.adaugustaperangusta.exceptions.OutOfMapException;
-import fr.iut.adaugustaperangusta.exceptions.SamePosException;
-import fr.iut.adaugustaperangusta.exceptions.TooFarException;
 
 /**
  * Pushable Block. The Character can <strong>push</strong> them. The goal is to
@@ -39,6 +37,7 @@ public class Block extends Traveller {
 	 * @see Position
 	 * @see RelativePos
 	 */
+	@Override
 	public boolean isPushableFrom(Position posPlayer) {
 		RelativePos dirJoueur = null;
 		try {

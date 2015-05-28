@@ -31,6 +31,7 @@ public class Character extends Traveller {
 	 * 
 	 * @return false
 	 */
+	@Override
 	public boolean isPushableFrom(Position posPlayer) {
 		return false;
 	}
@@ -40,6 +41,7 @@ public class Character extends Traveller {
 	 * 
 	 * @return false
 	 */
+	@Override
 	public boolean isBlock() {
 		return false;
 	}

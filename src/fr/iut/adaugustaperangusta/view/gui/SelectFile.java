@@ -16,7 +16,7 @@ public class SelectFile {
 
 		JOptionPane alert = new JOptionPane();
 
-		alert.showMessageDialog(null, "Must be a valid .txt Map.", "ReadMe",
+		JOptionPane.showMessageDialog(null, "Must be a valid .txt Map.", "ReadMe",
 				JOptionPane.INFORMATION_MESSAGE);
 		JFileChooser dialogue = new JFileChooser(localRep);
 		dialogue.showOpenDialog(alert);
