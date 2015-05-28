@@ -5,25 +5,24 @@ import java.awt.event.KeyListener;
 
 import fr.iut.adaugustaperangusta.core.RelativePos;
 
-public class MyKeyListener implements KeyListener{
+public class MyKeyListener implements KeyListener {
 
 	private GuiIO guiIO;
-	
-	public MyKeyListener(GuiIO guiIO){
+
+	public MyKeyListener(GuiIO guiIO) {
 		this.guiIO = guiIO;
 	}
-	
-    public void keyTyped(KeyEvent e) {
-       
-    }
 
-    public void keyPressed(KeyEvent e) {
-        
-    }
+	public void keyTyped(KeyEvent e) {
 
-    public void keyReleased(KeyEvent e) {
-    	switch (e.getKeyChar())
-		{
+	}
+
+	public void keyPressed(KeyEvent e) {
+
+	}
+
+	public void keyReleased(KeyEvent e) {
+		switch (e.getKeyChar()) {
 		case 'z':
 			guiIO.move(RelativePos.NORTH);
 			break;
@@ -38,7 +37,7 @@ public class MyKeyListener implements KeyListener{
 			guiIO.move(RelativePos.EAST);
 			break;
 		default:
-		}	
-    	guiIO.displayMap();
-    }
+		}
+		guiIO.displayMap();
+	}
 }

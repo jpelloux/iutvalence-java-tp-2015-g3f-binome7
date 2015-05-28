@@ -11,16 +11,14 @@ import fr.iut.adaugustaperangusta.utils.CreateMap;
  * @author jpelloux & Axce
  * @version 1.1.0
  */
-public class Main
-{
+public class Main {
 	/**
 	 * Entry point of the program.
 	 */
-	public static void main(String[] args)
-	{
-//		Game game = new Game(CreateMap.importFromFile("Test.txt"),false);
-//		game.play();
-		Game game = new Game(CreateMap.importFromFile("Test.txt"),true);
+	public static void main(String[] args) {
+		// Game game = new Game(CreateMap.importFromFile("Test.txt"),false);
+		// game.play();
+		Game game = new Game(CreateMap.importFromFile("Test.txt"), true);
 		game.play();
 	}
 

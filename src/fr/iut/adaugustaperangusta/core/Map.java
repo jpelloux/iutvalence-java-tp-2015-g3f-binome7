@@ -17,8 +17,7 @@ import fr.iut.adaugustaperangusta.exceptions.TooFarException;
  * @version 1.1.0
  */
 
-public class Map
-{
+public class Map {
 	/**
 	 * Default number of blocks. Used when no parameters are given to the
 	 * constructor.
@@ -80,23 +79,19 @@ public class Map
 	 * @param numberOfBlocks
 	 *            Map's number of Blocks
 	 */
-	public Map(int height, int width, int numberOfBlocks)
-	{
+	public Map(int height, int width, int numberOfBlocks) {
 		this.actualNumberOfBlocks = 0;
 		this.width = width;
 		this.height = height;
 		this.cellArray = new Cell[height][width];
-		for (int cellHeight = 0; cellHeight < height; cellHeight++)
-		{
-			for (int cellWidth = 0; cellWidth < width; cellWidth++)
-			{
+		for (int cellHeight = 0; cellHeight < height; cellHeight++) {
+			for (int cellWidth = 0; cellWidth < width; cellWidth++) {
 				cellArray[cellHeight][cellWidth] = new Cell();
 			}
 		}
 		this.numberOfBlocks = numberOfBlocks;
 		this.block = new Block[this.numberOfBlocks];
-		for (int index = 0; index < this.numberOfBlocks; index++)
-		{
+		for (int index = 0; index < this.numberOfBlocks; index++) {
 			this.block[index] = null;
 		}
 	}
@@ -105,8 +100,7 @@ public class Map
 	 * Maps's contructor without parameters. Generates an array constituted of
 	 * void Cells with default dimensions.
 	 */
-	public Map()
-	{
+	public Map() {
 		this(DEFAULT_HEIGHT, DEFAULT_WIDTH, DEFAULT_NUMBER_OF_BLOCKS);
 	}
 
@@ -118,8 +112,7 @@ public class Map
 	 * @param devTest
 	 *            Any <tt>char</tt>.
 	 */
-	public Map(char devTest)
-	{
+	public Map(char devTest) {
 		this.width = 4;
 		this.height = 7;
 		this.numberOfBlocks = 1;
@@ -170,8 +163,7 @@ public class Map
 	 * @param cell
 	 *            Cell added to Map.
 	 */
-	public void setCell(int iRow, int iColumn, Cell cell)
-	{
+	public void setCell(int iRow, int iColumn, Cell cell) {
 		// TODO throw exception Cell hors de la Map.
 		this.cellArray[iRow][iColumn] = cell;
 	}
@@ -181,8 +173,7 @@ public class Map
 	 *
 	 * @return Map's height.
 	 */
-	public int getHeight()
-	{
+	public int getHeight() {
 		return this.height;
 	}
 
@@ -191,8 +182,7 @@ public class Map
 	 *
 	 * @return Map's width.
 	 */
-	public int getWidth()
-	{
+	public int getWidth() {
 		return this.width;
 	}
 
@@ -200,8 +190,7 @@ public class Map
 	 * @param index
 	 * @return The Block's reference that is at this.block[index].
 	 */
-	public Block getBlock(int index) 
-	{
+	public Block getBlock(int index) {
 		// TODO Exception index invalide
 		return this.block[index];
 	}
@@ -212,8 +201,7 @@ public class Map
 	 * @param index
 	 * @return Modify the Block's reference at this.block[index] .
 	 */
-	public void setBlock(Block block, int index)
-	{
+	public void setBlock(Block block, int index) {
 		// TODO Exception index invalide
 		this.block[index] = block;
 	}
@@ -223,12 +211,15 @@ public class Map
 	 * @return Cell's references at given pos.
 	 * @throws OutOfMapException
 	 */
-	public Cell getCell(Position pos) throws OutOfMapException
-	{
-		if(pos.getX()<0) throw new OutOfMapException(pos.toString());
-		if(pos.getX()> this.height-1) throw new OutOfMapException(pos.toString());
-		if(pos.getY()<0) throw new OutOfMapException(pos.toString());
-		if(pos.getY()>this.width-1) throw new OutOfMapException(pos.toString());
+	public Cell getCell(Position pos) throws OutOfMapException {
+		if (pos.getX() < 0)
+			throw new OutOfMapException(pos.toString());
+		if (pos.getX() > this.height - 1)
+			throw new OutOfMapException(pos.toString());
+		if (pos.getY() < 0)
+			throw new OutOfMapException(pos.toString());
+		if (pos.getY() > this.width - 1)
+			throw new OutOfMapException(pos.toString());
 		return this.cellArray[pos.getX()][pos.getY()];
 	}
 
@@ -240,24 +231,21 @@ public class Map
 	 * @return Traveller's references or Null
 	 * @throws OutOfMapException
 	 */
-	public Traveller getTraveller(Position pos) throws OutOfMapException
-	{
+	public Traveller getTraveller(Position pos) throws OutOfMapException {
 		return this.getCell(pos).getTraveller();
 	}
 
 	/**
 	 * @return The number of block in the map.
 	 */
-	public int getNumberOfBlocks()
-	{
+	public int getNumberOfBlocks() {
 		return this.numberOfBlocks;
 	}
 
 	/**
 	 * @return The actual number of block in the map.
 	 */
-	public int getActualNumberOfBlocks()
-	{
+	public int getActualNumberOfBlocks() {
 		return this.actualNumberOfBlocks;
 	}
 
@@ -265,9 +253,8 @@ public class Map
 	 * @param actualNumberOfBlocks
 	 *            The new actual number of block.
 	 */
-	public void setActualNumberOfBlocks(int actualNumberOfBlocks)
-	{
-		// TODO Exception TooManyBlocks 
+	public void setActualNumberOfBlocks(int actualNumberOfBlocks) {
+		// TODO Exception TooManyBlocks
 		this.actualNumberOfBlocks = actualNumberOfBlocks;
 	}
 
@@ -278,8 +265,7 @@ public class Map
 	 *            Cell's reference we want to try
 	 * @return True if the cell is accessible.
 	 */
-	public boolean isAccessible(Cell cell)
-	{
+	public boolean isAccessible(Cell cell) {
 		return (cell.getOverlay().isAccessible() && cell.getTraveller() == null);
 	}
 
@@ -292,9 +278,9 @@ public class Map
 	 *            Position from where we want to access to the cell.
 	 * @return True if the cell is accessible
 	 */
-	public boolean isAccessible(Cell cell, Position posOrigine)
-	{
-		return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell, posOrigine));
+	public boolean isAccessible(Cell cell, Position posOrigine) {
+		return (cell.getOverlay().isAccessible() && isItAPushableBlock(cell,
+				posOrigine));
 	}
 
 	/**
@@ -307,8 +293,8 @@ public class Map
 	 * @return True if the Traveller can move to posToCheck from posOrigine.
 	 * @throws OutOfMapException
 	 */
-	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck) throws OutOfMapException
-	{
+	public boolean isAccessibleFrom(Position posOrigine, Position posToCheck)
+			throws OutOfMapException {
 		return isAccessible(this.getCell(posToCheck), posOrigine);
 	}
 
@@ -322,8 +308,7 @@ public class Map
 	 *            Position from where the block is pushed.
 	 * @return True if the Taveller is a pushable block.
 	 */
-	public boolean isItAPushableBlock(Cell cell, Position posOrigine)
-	{
+	public boolean isItAPushableBlock(Cell cell, Position posOrigine) {
 
 		if (cell.getTraveller() == null)
 			return true;
@@ -345,8 +330,8 @@ public class Map
 	 * @return True if the Taveller is a pushable block.
 	 * @throws OutOfMapException
 	 */
-	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine) throws OutOfMapException
-	{
+	public boolean isItAPushableBlock(Position posToCheck, Position posOrigine)
+			throws OutOfMapException {
 		if (getCell(posToCheck).getTraveller() == null)
 			return true;
 		if (!(getCell(posToCheck).getTraveller() instanceof Block))
@@ -361,26 +346,20 @@ public class Map
 	 * Cells by "|   |" and '-----'.
 	 */
 	@Override
-
-	public String toString()
-	{
+	public String toString() {
 		StringBuilder strMap = new StringBuilder();
 		strMap.append("-");
-		
-		for (int i = 0; i < this.width; i++)
-		{
+
+		for (int i = 0; i < this.width; i++) {
 			strMap.append("----");
 		}
 		strMap.append("\n");
-		for (int cellHeight = 0; cellHeight < this.height; cellHeight++)
-		{
-			for (int cellWidth = 0; cellWidth < this.width; cellWidth++)
-			{
+		for (int cellHeight = 0; cellHeight < this.height; cellHeight++) {
+			for (int cellWidth = 0; cellWidth < this.width; cellWidth++) {
 				strMap.append("|" + this.cellArray[cellHeight][cellWidth]);
 			}
-			strMap.append( "|\n-");
-			for (int i = 0; i < this.width; i++)
-			{
+			strMap.append("|\n-");
+			for (int i = 0; i < this.width; i++) {
 				strMap.append("----");
 			}
 			strMap.append("\n");
@@ -397,17 +376,18 @@ public class Map
 	 *            Traveller's position after the movement.
 	 * @throws OutOfMapException
 	 */
-	public void moveTrav(Position origine, Position end) throws OutOfMapException
-	{
-		if (this.isItAPushableBlock(end, origine) && (getCell(end).getTraveller()!=null)&& (getCell(end).getTraveller().isBlock()))
-		{
-			try
-			{
-				int localBlockIndex = getCell(end).getTraveller().getTravNumber();
-				this.moveTrav(end, end.generatePosFromRelative(end.getRelative(origine)));
+	public void moveTrav(Position origine, Position end)
+			throws OutOfMapException {
+		if (this.isItAPushableBlock(end, origine)
+				&& (getCell(end).getTraveller() != null)
+				&& (getCell(end).getTraveller().isBlock())) {
+			try {
+				int localBlockIndex = getCell(end).getTraveller()
+						.getTravNumber();
+				this.moveTrav(end,
+						end.generatePosFromRelative(end.getRelative(origine)));
 				this.getBlock(localBlockIndex).move(end.getRelative(origine));
-			} catch (Exception e)
-			{
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

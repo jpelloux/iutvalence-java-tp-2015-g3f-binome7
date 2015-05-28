@@ -2,6 +2,7 @@ package fr.iut.adaugustaperangusta.view.gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -20,24 +21,23 @@ import fr.iut.adaugustaperangusta.controller.Game;
 import fr.iut.adaugustaperangusta.core.Map;
 import fr.iut.adaugustaperangusta.core.traveller.Character;
 
-public class PreviewWindow extends JWindow
-{
-	public PreviewWindow(Map map)
-	{   
-	    this.setSize(map.getWidth()*8,map.getHeight()*8);
+public class PreviewWindow extends JWindow {
+	private static final int DEFAULT_LITTLE_IMG_SIZE = 8;
 
-	    this.setLocation(600,600);
+	public PreviewWindow(Map map, Point location) {
+		this.setSize(map.getWidth() * DEFAULT_LITTLE_IMG_SIZE, map.getHeight()
+				* DEFAULT_LITTLE_IMG_SIZE);
 
-	    JPanel preview = new PreviewMapGUI(map);
-	    
-	    this.add(preview);
-	    this.setVisible(true);
-	  
+		location.move((int) location.getX()
+				- (map.getWidth() * DEFAULT_LITTLE_IMG_SIZE),
+				(int) location.getY());
+
+		this.setLocation(location);
+
+		JPanel preview = new PreviewMapGUI(map);
+
+		this.add(preview);
+		this.setVisible(true);
+
 	}
-
-	public static void displayInProgress(){
-
-	}
-
-
 }

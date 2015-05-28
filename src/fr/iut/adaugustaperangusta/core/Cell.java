@@ -9,8 +9,7 @@ import fr.iut.adaugustaperangusta.core.traveller.Traveller;
  * @author jpelloux and Axce
  * @version 1.1.0
  */
-public class Cell
-{
+public class Cell {
 	/**
 	 * Overlay standing on the Cell. May be null.
 	 */
@@ -29,8 +28,7 @@ public class Cell
 	 * @param trav
 	 *            Traveller standing on the Cell. May be null.
 	 */
-	public Cell(Overlay over, Traveller trav)
-	{
+	public Cell(Overlay over, Traveller trav) {
 		this.cellOverlay = over;
 		this.cellTraveller = trav;
 	}
@@ -39,8 +37,7 @@ public class Cell
 	 * Cell's constructor without parameters. Creates a void Cell, without
 	 * Overlay nor Traveller.
 	 */
-	public Cell()
-	{
+	public Cell() {
 		this(null, null);
 	}
 
@@ -51,8 +48,7 @@ public class Cell
 	 * @param over
 	 *            Overlay standing on the Cell. May be null.
 	 */
-	public Cell(Overlay over)
-	{
+	public Cell(Overlay over) {
 		this(over, null);
 	}
 
@@ -61,8 +57,7 @@ public class Cell
 	 *
 	 * @return Traveller the Traveller standing on the Cell.
 	 */
-	public Traveller getTraveller()
-	{
+	public Traveller getTraveller() {
 		return this.cellTraveller;
 	}
 
@@ -72,8 +67,7 @@ public class Cell
 	 * @param cellTraveller
 	 *            change this.cellTraveller to cellTravel
 	 */
-	public void setCellTraveller(Traveller cellTraveller)
-	{
+	public void setCellTraveller(Traveller cellTraveller) {
 		this.cellTraveller = cellTraveller;
 	}
 
@@ -82,8 +76,7 @@ public class Cell
 	 *
 	 * @return Overlay the Overlay standing on the Cell.
 	 */
-	public Overlay getOverlay()
-	{
+	public Overlay getOverlay() {
 		return this.cellOverlay;
 	}
 
@@ -92,9 +85,9 @@ public class Cell
 	 *
 	 * @return true if the Cell is accessible, false otherwise.
 	 */
-	public boolean isAccessible()
-	{
-		return this.cellOverlay != null && this.cellTraveller == null && !this.cellOverlay.isAccessible();
+	public boolean isAccessible() {
+		return this.cellOverlay != null && this.cellTraveller == null
+				&& !this.cellOverlay.isAccessible();
 	}
 
 	/**
@@ -103,11 +96,10 @@ public class Cell
 	 * Traveller is represented by a space.
 	 */
 	@Override
-	public String toString()
-	{
-		return String.format("%s%s%s", 
-				this.cellOverlay == null ? "/" : this.cellOverlay.toString(),
-				this.cellTraveller == null ? " " : this.cellTraveller.toString(),
-				this.cellOverlay == null ? "/" : this.cellOverlay.toString());
+	public String toString() {
+		return String.format("%s%s%s", this.cellOverlay == null ? "/"
+				: this.cellOverlay.toString(), this.cellTraveller == null ? " "
+				: this.cellTraveller.toString(), this.cellOverlay == null ? "/"
+				: this.cellOverlay.toString());
 	}
 }

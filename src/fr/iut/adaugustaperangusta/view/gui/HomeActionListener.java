@@ -5,17 +5,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-public class HomeActionListener implements ActionListener
-{
+public class HomeActionListener implements ActionListener {
 	private JButton play;
 	private JButton loadMap;
 	private GuiIO guiIO;
 	private JButton exit;
 	private PreviewWindow preview;
 
-	
-	public HomeActionListener(JButton play, JButton loadMap,JButton exit,PreviewWindow preview ,GuiIO guiIO)
-	{
+	public HomeActionListener(JButton play, JButton loadMap, JButton exit,
+			PreviewWindow preview, GuiIO guiIO) {
 		this.play = play;
 		this.loadMap = loadMap;
 		this.guiIO = guiIO;
@@ -23,18 +21,16 @@ public class HomeActionListener implements ActionListener
 		this.preview = preview;
 	}
 
-
 	@Override
-	public void actionPerformed(ActionEvent e)
-	{
+	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		if(source == play){
+		if (source == play) {
 			guiIO.lunchGame();
 			this.preview.dispose();
 
-		} else if(source == loadMap){
+		} else if (source == loadMap) {
 			guiIO.selectFile();
-		}else if(source == exit){
+		} else if (source == exit) {
 
 			this.preview.dispose();
 			guiIO.closeGame();
